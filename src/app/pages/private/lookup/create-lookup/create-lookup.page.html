@@ -1,0 +1,70 @@
+<ion-content>
+  <ion-card>
+    <ion-card-header class="text-center">
+      <ion-item>
+        <ion-icon name='car-outline' slot="start"></ion-icon>
+        {{'USER.BASIC_DETAILS' | translate}}
+      </ion-item>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="12">{{'PARCEL.REGISTRATION_NUMBER' | translate}} </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="12">
+                <ion-input   autocomplete="nope"
+                class="value" [(ngModel)]="scheduleSearch.VehicleRegistrationNumber" placeholder=" {{'PARCEL.REGISTRATION_NUMBER' | translate}}">
+                </ion-input>
+              </ion-col>
+            </ion-row>
+            <ion-label size="12" *ngIf="showRegistrationValidationMessage" color="danger">
+              &nbsp;&nbsp;&nbsp;&nbsp;{{'CREATE_LOOKUP_PAGE.VALIDATION_MESSAGE' | translate}}
+            </ion-label>
+            <ion-row>
+              <ion-col size="12">{{'PARCEL.ENGINE_NUMNER' | translate}} </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="12">
+                <ion-input   autocomplete="nope"
+                class="value" [(ngModel)]="scheduleSearch.VehicleEngineNumber" placeholder=" {{'PARCEL.ENGINE_NUMNER' | translate}}">
+                </ion-input>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="12">{{'PARCEL.CHASSIS_NUMBER' | translate}} </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="12">
+                <ion-input   autocomplete="nope"
+                class="value" [(ngModel)]="scheduleSearch.VehicleChassisNumber" placeholder=" {{'PARCEL.CHASSIS_NUMBER' | translate}}">
+                </ion-input>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="12">{{'PARCEL.COMMENTS' | translate}} </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="12">
+                <ion-input   autocomplete="nope"
+                class="value" [(ngModel)]="scheduleSearch.Comments" placeholder=" {{'PARCEL.COMMENTS' | translate}}">
+                </ion-input>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+<ion-footer>
+  <ion-button expand="block" (click)="goToScheduleSearchList()" >
+    <ion-icon slot="start" name="close"></ion-icon>
+    {{'BUTTONS.CANCEL' | translate}}
+  </ion-button>
+  <ion-button expand="block" (click)="SaveButtonClicked()" >
+    <ion-icon slot="start" name="save"></ion-icon>
+    {{'BUTTONS.SAVE' | translate}}
+</ion-button>

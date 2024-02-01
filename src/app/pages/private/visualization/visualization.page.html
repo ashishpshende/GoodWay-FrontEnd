@@ -1,0 +1,30 @@
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" [pullFactor]="0.5" [pullMin]="100" [pullMax]="200" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+    <ion-item>
+      <ion-select  (ionChange)="showByChanged()" multiple="false" cancelText="Cancel" okText="Select"  [(ngModel)]="selectedItem"  placeholder=" {{'REPORTS.SHOW_BY' | translate}}">
+        <ion-select-option *ngFor="let strItem of showBy"
+        value="{{ strItem }}">
+          {{ strItem }}
+          </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <div class="center">
+      <apx-chart *ngIf="showChart" class="box box3"
+        [chart]="chartOptions.chart"
+        [series]="chartOptions.series"
+        [labels]="chartOptions.labels"
+        [fill]="chartOptions.labels"
+        [responsive]="chartOptions.responsive"
+      ></apx-chart>
+    </div>
+
+    <div class="center">
+      <ion-item>
+        <ion-label class="ion-text-wrap">{{'REPORTS.NOTE' | translate}}</ion-label>
+      </ion-item>
+    </div>
+</ion-content>

@@ -1,0 +1,8 @@
+{
+  "name": "Good-Way",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,27 @@
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-item>
+        <ion-icon name='options-outline' slot="start"></ion-icon>
+        {{'SETTINGS_PAGE.PREFERENCE' | translate}}
+      </ion-item>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-icon name='language' slot="start"></ion-icon>
+          {{'SETTINGS_PAGE.LANGUAGE' | translate}}
+          <ion-label slot="end" > {{languageSelectedLabel}}</ion-label>
+          <ion-button slot="end"  (click)="languageChangeButtonClicked()" ><ion-icon name='pencil' slot="icon-only"></ion-icon> </ion-button>
+        </ion-item>
+        <ion-item *ngIf="(loggedInUser.Role ==='Admin' || loggedInUser.Role ==='SuperAdmin')">
+          <ion-icon name='reload-outline' slot="start"></ion-icon>
+          {{'SETTINGS_PAGE.REFRESHMETADATA' | translate}}
+          <ion-button slot="end"  (click)="reloadMetaDataButtonClicked()" ><ion-icon name='play-circle-outline' slot="icon-only"></ion-icon> </ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

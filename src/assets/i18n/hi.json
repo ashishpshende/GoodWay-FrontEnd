@@ -1,0 +1,324 @@
+{
+
+    "BUTTONS":{
+        "SAVE":"सहेजें",
+        "UPDATE":"अद्यतन",
+        "CANCEL":"रद्द करे",
+        "EDIT":"एडिट करे",
+        "PROCEED":"आगे बढ़े",
+        "CLOSE":"बंद करे",
+        "OK":"ठीक है",
+        "SHARE":"शेयर",
+        "LOGOUT":"प्रस्थान",
+        "LOGOUT_CONFIRM":"अभी के लिए अलविदा",
+        "LOGOUT_CANCEL":"आगे बढते हैं",
+        "YES":"हां",
+        "NO":"नहीं"
+    },
+    "MESSAGES":{
+        "UNDER_CONSTRUCTION_TITLE":"विकास जारी है",
+        "UNDER_CONSTRUCTION_MESSAGE":"हम जल्द ही आप के लिए इस सुविधा को उपलब्ध करायेगे!",
+        "SHARE_CONFIRM_MESSAGE":"आप दोस्तों और परिवार के साथ इस एप्लिकेशन को शेयर करे",
+        "LOGOUT_CONFIRM_MESSAGE":"आप और हम फिर मिलेंगे, यादृच्छिक समय में कुछ दिन हो सकता है लेकिन हम आपसे अंतहीन अलविदा नहीं लें रहे है, आपसे हम फिर मिलेंगे"
+    },
+    "EMPTY_RECORDS":{
+        "TITLE":"कोई रिकॉर्ड नहीं मिला",
+        "TITLE_SEARCH":"आरईआर नंबर के साथ कोई रिकॉर्ड नहीं मिला। {REG_NO}.",
+        "TITLE_FILTER":"फिल्टर के साथ कोई रिकॉर्ड नहीं मिला।",
+        "SUBTITLE":"कृपया किसी अन्य कीवर्ड/फ़िल्टर के साथ प्रयास करें"
+    },
+    "NETWORK":{
+
+        "STATUS_UPDATED_TITLE": "नेटवर्क स्थिति अद्यतन की गई",
+        "STATUS_UPDATED_MESSAGE": "डिवाइस नेटवर्क स्थिति अद्यतन",
+        "STATUS_UPDATED_ONLINE_MESSAGE":"हुर्रे! डिवाइस ऑनलाइन है",
+        "STATUS_UPDATED_OFFLINE_MESSAGE":"उफ़! डिवाइस ऑफ़लाइन है"
+    },
+    "GENERAL":{
+
+        "LANGUAGE": "भाषा",
+        "REQUIRED_FIELD": "आवश्यक फ़ील्ड",
+        "OR_LABEL_FIELD":"या",
+        "NAME_FIELD":"नाम",
+        "EMAIL_FIELD":"ईमेल",
+        "USERNAME_FIELD":"उपयोगकर्ता नाम",
+        "SEARCH_FIELD":"वाहन रजिस्ट्री नम्बर दर्ज करें",
+        "PASSWORD_FIELD":"पासवर्ड",
+        "PASSWORD_CONFIRMATION_FIELD":"पासवर्ड की पुष्टि कीजिये",
+        "PRIVACY_POLICY":"गोपनीयता नीति",
+        "ABOUT_US":"हमारे बारे में",
+        "DONATE_US":"हमारी मदद करें",
+        "NOT_AVAILABLE":"उपलब्ध नहीं है"
+
+    },
+    "DASHBOARD":{
+        "ADD_PARCEL": "वाहन जोड़ें",
+        "USERS": "उपयोगकर्ता",
+        "SETTINGS":"सेटिंग्ज",
+        "SEARCH_PARCEL":"वाहन खोजें",
+        "REPORTS":"प्रत्योक्षकरण",
+        "LOOKUP":"अनुसूचि खोज"
+    },
+    "LOGIN":{
+        "SIGN_IN_PROGRESS_MESSAGE":"प्रवेश किया...",
+        "SIGN_IN_TEXT":"साइन इन करें",
+        "SIGN_OUT_TEXT":"प्रस्थान करें",
+        "SIGN_UP_FIRST_TEXT":"क्या आप यहाँ नए हैं?",
+        "SIGN_UP_SECOND_TEXT":"साइन अप करें",
+        "SIGN_IN_WITH_TEXT":"सोशल मीडिया का उपयोग करके साइन इन करें",
+        "FORGOT_PASSWORD_TEXT":"पासवर्ड भूल गए?",
+        "FORGOT_USER_NAME":"उपयोगकर्ता का नाम भूल गया?",
+        "EMAIL_VALIDATION_MESSAGE": "ईमेल एक आवश्यक फ़ील्ड है",
+        "PASSWORD_VALIDATION_MESSAGE": "पासवर्ड आवश्यक फ़ील्ड है",
+        "NAME_VALIDATION_MESSAGE":"नाम आवश्यक फ़ील्ड है",
+        "I_HAVE_AN_ACCOUNT":"पहले से पंजीकृत!",
+        "REGISTER_PAGE_TITLE":"रजिस्टर करें",
+        "FORGOT_PASSWORD_PAGE_TITLE":"पासवर्ड अनुरोध ",
+        "REQUEST_PASSWORD":"पासवर्ड अनुरोध",
+        "FORGOT_USERNAME_PAGE_TITLE":"उपयोगकर्ता नाम अनुरोध",
+        "REQUEST_USERNAME":"उपयोगकर्ता नाम अनुरोध",
+        "ERROR_ALERT_TITLE":"साइन इन चेतावनी",
+        "INVALID_CREDENTIALS_ERROR_TITLE":"अवैध प्रत्यय पत्र",
+        "ERROR_INVALID_CREDENTIALS_MESSAGE":"बशर्ते क्रेडेंशियल्स अमान्य हैं",
+        "PASSWORD_RESET_REQUIRED_ERROR_TITLE":"पासवर्ड रीसेट करना आवश्यक है",
+        "PASSWORD_RESET_REQUIRED_ACCOUNT_MESSAGE":"खाता एक्सेस करने के लिए पासवर्ड रीसेट करना आवश्यक है"
+    },
+    "RESET_PASSWORD":{
+        "TITLE":"पासवर्ड रीसेट करें",
+        "OLD_PASSWORD":"पुराना पासवर्ड",
+        "BUTTON_TITLE":"रीसेट",
+        "OLD_PASSWORD_NOT_MATCHING_ERROR_TITLE":"पुराना पासवर्ड गलत है",
+        "OLD_PASSWORD_NOT_MATCHING_ERROR_MESSAGE":"पुराना पासवर्ड गलत है",
+        "PASSWORD_NOT_MATCHING_ERROR_MESSAGE":"पासवर्ड मेल नहीं खा रहा है",
+        "PASSWORD_LENGTH_MESSAGE":"पासवर्ड की लंबाई {MIN_PASSWORD_STRENGTH} अधिक होनी चाहिए",
+        "INVALID_CREDENTIALS_ERROR_TITLE":"अमान्य विवरण प्रदान किया गया",
+        "PROGRESS_MESSAGE":"कृपया प्रतीक्षा करा, आम्ही पासवर्ड रीसेट करत आहोत",
+        "NEW_PASSWORD":"नया पासवर्ड",
+        "CONFIRM_NEW_PASSWORD":"नया पासवर्ड खात्री करें",
+        "PASSWORD_NOT_MATCHIN_ERROR_MESSAGE":"पासवर्ड मेल नहीं खा रहा है",
+        "EMPTY_DETAILS_ERROR_TITLE":"खाली पासवर्ड",
+        "EMPTY_DETAILS_ERROR_MESSAGE":"कृपया सभी फील्ड के लिए मूल्ये प्रदान करें",
+        "NEW_PASSWORD_STRENGTH_ERROR_TITLE":"पासवर्ड क्षमता",
+        "NEW_PASSWORD_STRENGTH_MESSAGE":"कमजोर पासवर्ड ! मजबूत पासवर्ड प्रदान करें",
+        "INACTIVE_ACCOUNT_ERROR_TITLE":"निष्क्रिय खाता",
+        "SUSPENDED_ACCOUNT_ERROR_TITLE":"निलंबित खाता",
+        "ERROR_INVALID_CREDENTIALS_MESSAGE":"बशर्ते क्रेडेंशियल्स अमान्य हैं",
+        "ERROR_INACTIVE_ACCOUNT_MESSAGE":"आपका खाता निष्क्रिय है। कृपया व्यवस्थापक से संपर्क करें।",
+        "ERROR_SUSPENDED_ACCOUNT_MESSAGE":"तुम्हारा खाता निलंबित है। कृपया व्यवस्थापक से संपर्क करें।",
+        "PASSWORD_STRENGTH_MESSAGE":"आपका पासवर्ड जरूरी है",
+        "PASSWORD_STRENGTH_LENGTH_CONTRAINT_MESSAGE":"कम से कम 8 अक्षरे लंबा हो",
+        "PASSWORD_STRENGTH_LOWERCASE_CONTRAINT_MESSAGE":"कम से कम एक लोअरकेस अक्षर शामिल हो",
+        "PASSWORD_STRENGTH_UPPERCASE_CONTRAINT_MESSAGE":"कम से कम एक अपरकेस अक्षर शामिल हो",
+        "PASSWORD_STRENGTH_NUMBER_CONTRAINT_MESSAGE":"कम से कम एक संख्या शामिल हो",
+        "SUCCESS":"पासवर्ड रीसेट सफलता",
+        "SUCCESS_MESSAGE":"पासवर्ड सफलतापूर्वक रीसेट किया गया",
+        "FAILED":"पासवर्ड रीसेट विफल",
+        "FAILED_MESSAGE":"ओह! कुछ गलत हो गया। पासवर्ड रीसेट करने में विफल."
+    },
+    "SIGN_UP":{
+        "TITEL":"साइन अप करवाना",
+        "ALREADY_REGISTERED":"पहले से ही साइन अप है।",
+        "REGISTRATION_FAILED":"साइन अप विफल रहा।",
+        "REGISTRATION_FAILED_MESSAGE":"ओह! उपयोगकर्ता को साइन अप करते समय कुछ गलत हो गया।",
+        "USER_WITH_EMAIL_ALREADY_EXISTS":"ईमेल के साथ उपयोगकर्ता पहले से ही सिस्टम में मौजूद है।",
+        "USER_WITH_USERNAME_ALREADY_EXISTS":"उपयोगकर्ता नाम वाला उपयोगकर्ता पहले से ही सिस्टम में मौजूद है।",
+        "EMPTY_DETAILS":"खाली विवरण",
+        "EMPTY_DETAILS_MESSAGE":"कृपया सभी क्षेत्रों के लिए मान प्रदान करें"
+    },
+    "SESSION":{
+
+        "VALIDATING_MESSAGE":"सेशन वैलिडेट कर रहे हैं...",
+
+        "ERROR_ALERT_TITLE":"सेशन अलर्ट",
+
+        "EMAIL_UPDATED_ERROR_TITLE":"उपयोगकर्ता नाम/ईमेल अपडेट किया गया है।",
+        "INACTIVE_ACCOUNT_ERROR_TITLE":"निष्क्रिय खाता",
+        "SUSPENDED_ACCOUNT_ERROR_TITLE":"निलंबित खाता",
+        "USER_NOT_FOUND_ERROR_TITLE": "उपयोक्ता लापता",
+        "SOMETHING_WENT_WRONG_ERROR_TITLE":"कुछ गलत हो गया!",
+
+        "EMAIL_UPDATED_MESSAGE":"उपयोगकर्ता नाम/ईमेल अपडेट किया गया है",
+        "USER_NOT_FOUND_MESSAGE":"उपयोक्ता लापता है!",
+        "ERROR_INACTIVE_ACCOUNT_MESSAGE":"आपका खाता निष्क्रिय है। कृपया व्यवस्थापक से संपर्क करें।",
+        "ERROR_SUSPENDED_ACCOUNT_MESSAGE":"तुम्हारा खाता निलंबित है। कृपया व्यवस्थापक से संपर्क करें।",
+        "SOMETHING_WENT_WRONG_MESSAGE":"कुछ गलत हो गया। कृपया व्यवस्थापक से संपर्क करें।"
+    },
+    "BASE_MODEL":{
+        "NAME":"नाम",
+        "STATUS":"स्थि‍ति",
+        "CREATED_BY":"दर्ज करने वाला",
+        "UPDATED_BY":"आद्यानित करने वाला",
+        "CREATED_ON":"दर्ज की तिथि",
+        "UPDATED_ON":"आद्यानित की तिथि",
+        "AUDIT_DETAILS":"ऑडिट तपशील"
+    },
+    "USER":{
+        "FIRST_NAME":"पहला नाम",
+        "LAST_NAME":"उपनाम",
+        "PHONE_NUMBER":"फ़ोन नंबर",
+        "GENDER":"लिंग",
+        "EMAIL":"ईमेल",
+        "ROLE":"भूमिका",
+        "USER_NAME":"उपयोगकर्ता नाम",
+        "BASIC_DETAILS":"मूल विवरण",
+        "CONTACT_DETAILS":"सम्पर्क विवरण",
+        "ACCOUNT_DETAILS":"खाता विवरण"
+    },
+    "PARCEL":{
+        "REGISTRATION_NUMBER":"रजिस्ट्रेशन नंबर",
+        "TIME_STAMP"  :"टाईमस्टॅम्प",
+        "NAME_OF_POLICE_STATION":"पुलिस स्टेशन का नाम",
+        "PARCEL_TYPE":"वाहन का प्रकार",
+        "ENGINE_NUMNER" : "इंजन नंबर",
+        "CHASSIS_NUMBER" : "चेसिस नंबर",
+        "COMPANY" : "कंपनी",
+        "MAKE" : "निर्माण वर्ष",
+        "MODEL" : "मॉडेल",
+        "COLOR": "रंग",
+        "CATEGORY":"श्रेणी",
+        "CR_NUMBER_SECTION":"सी.आर. नंबर/अनुभाग",
+        "DATE_TIME_OF_THEFT":"चोरी की तारीख समय",
+        "LOCATION_OF_THEFT_SEIZER":"चोरी/जब्ती का स्थान",
+        "INVESTIGATION_OFFICER_NAME":"जांच अधिकारी का नाम",
+        "INVESTIGATION_OFFICER_NUMBER":"जांच अधिकारी का नंबर",
+        "POLICE_STATION_DETAILS":"पुलिस स्टेशन विवरण",
+        "ENGINE_DETAILS":"इंजन विवरण",
+        "THEFT_SEIZE_DETAILS":"चोरी/जब्ती का विवरण",
+        "OTHER_DETAILS":"अन्य",
+        "COMMENTS":"टिप्पणियाँ",
+        "COMPLAINENT":"वाहन मालिक/शिकायतकर्ता",
+        "UPDATING":"वाहन अपडेट कर रहा है...",
+        "FOUND":"वाहन मिला"
+    },
+    "USER_PROFILE":{
+        "PAGE_TITLE":"उपयोगकर्ता प्रोफाइल",
+        "TITLE":"उपयोगकर्ता प्रोफाइल",
+        "CONTENT":"",
+        "EMAIL_SYNTAX_VALIDATING_MESSAGE":"कृपया मान्य ईमेल प्रदान करें",
+        "PHONE_SYNTAX_VALIDATING_MESSAGE":"कृपया मान्य फोन नंबर प्रदान करें"
+    },
+    "FORGOT_PASSWORD_PAGE":{
+        "PAGE_TITLE":"पासवर्ड भूल गए?",
+        "TITLE":"पासवर्ड भूल गए?",
+        "REQUEST_PASSWORDE_BUTTON_TITLE":"पासवर्ड विनंती करें",
+        "EMAIL_SYNTAX_VALIDATING_MESSAGE":"कृपया मान्य ईमेल प्रदान करें",
+        "USER_NAME_SYNTAX_VALIDATING_MESSAGE":"कृपया मान्य उपयोगकर्ता नाम प्रदान करें",
+        "VALIDATING_MESSAGE":"प्रदान किए गए ईमेल और उपयोगकर्ता नाम को सत्यापित कर रहे हैं ",
+        "VALIDATION_SUCCESS_MESSAGE":"सत्यापन सफल!",
+        "INVALID_DETAILS_MESSAGE":"प्रदान किए गया ईमेल और उपयोगकर्ता नाम सही नहीं हैं। कृपया पुन: प्रयास करें।",
+        "EMAIL_SENDING_MESSAGE":"ईमेल पर अस्थायी पासवर्ड भेज रहे हैं",
+        "EMAIL_SENT_MESSAGE":"अस्थायी पासवर्ड को ईमेल पर सफलतापूर्वक भेजा गया",
+        "EMAIL_SENT_TITLE":"ईमेल भेजा गया हैं",
+        "EMAIL_NOT_SENT_TITLE":"ईमेल नहीं भेजा गया",
+        "VALIDATION_FAILED_TITLE":"उपयोगकर्ता नहीं मिला!",
+        "GENERATING_TEMP_PASSWORD":"हम अस्थायी पासवर्ड उत्पन्न कर रहे हैं",
+        "EMAIL_SENDING_FAILED_TITLE":"अस्थायी पासवर्ड भेजा गया हैं.",
+        "VALIDATION_FAILED_MESSAGE":"ओह! कुछ गलत हो गया है। प्रदान किए गए विवरण को मान्य करने में असमर्थ। कृपया प्रशासक से संपर्क करें।",
+        "EMAIL_SENDING_FAILED":"ओह! कुछ गलत हो गया है। ईमेल पर अस्थायी पासवर्ड भेजने में असमर्थ। कृपया प्रशासक से संपर्क करें।",
+        "EMAIL_EXHAUSTED":"ईमेल कोटा समाप्त हो गया। ईमेल पर अस्थायी पासवर्ड भेजने में असमर्थ। कृपया व्यवस्थापक से संपर्क करें।"
+    },
+    "FORGOT_USER_NAME_PAGE":{
+        "PAGE_TITLE":"उपयोगकर्ता नाम भूल गए?",
+        "TITLE":"उपयोगकर्ता नाम भूल गए?",
+        "REQUEST_USERNAME_BUTTON_TITLE":"उपयोगकर्ता नाम का अनुरोध करें",
+        "EMAIL_SYNTAX_VALIDATING_MESSAGE":"कृपया मान्य ईमेल प्रदान करें",
+        "VALIDATING_MESSAGE":"हम प्रदान किए गए ईमेल को मान्य कर रहे हैं",
+        "VALIDATION_SUCCESS_MESSAGE":"सत्यापन सफल!",
+        "INVALID_DETAILS_MESSAGE":"प्रदान किए गया ईमेल नाम सही नहीं हैं। कृपया पुन: प्रयास करें।",
+        "EMAIL_SENT_TITLE":"ईमेल भेजा गया हैं",
+        "EMAIL_NOT_SENT_TITLE":"ईमेल नहीं भेजा गया",
+        "EMAIL_SENDING_MESSAGE":"हम ईमेल पर उपयोगकर्ता नाम भेज रहे हैं",
+        "EMAIL_SENT_MESSAGE":"उपयोगकर्ता नामको ईमेल पर सफलतापूर्वक भेजा गया हैं",
+        "VALIDATION_FAILED_MESSAGE":"ओह! कुछ गलत हो गया है। प्रदान किए गए विवरण को मान्य करने में असमर्थ। कृपया प्रशासक से संपर्क करें।",
+        "EMAIL_SENDING_FAILED":"ओह! कुछ गलत हो गया है। ईमेल पर उपयोगकर्ता नाम भेजने में असमर्थ कृपया प्रशासक से संपर्क करें।",
+        "EMAIL_EXHAUSTED":"ईमेल कोटा समाप्त हो गया। ईमेल पर उपयोगकर्ता नाम भेजने में असमर्थ। कृपया व्यवस्थापक से संपर्क करें।"
+    },
+    "USER_CREATE":{
+        "PAGE_TITLE":"उपयोगकर्ता बनाइये",
+        "TITLE":"उपयोगकर्ता बनाइये",
+        "CREATING_MESSAGE":"उपयोगकर्ता बना रहे हैं",
+        "CREATED_SUCCESS":"उपयोगकर्ता ने सफलतापूर्वक बनाया गया हैं",
+        "UPDATED_SUCCESS":"ओह! कुछ गलत हो गया है। उपयोगकर्ता बनाने में असमर्थ। कृपया प्रशासक से संपर्क करें।"
+    },
+    "USER_UPDATE":{
+        "PAGE_TITLE":"उपयोगकर्ता अपड़ेट करें",
+        "TITLE":"उपयोगकर्ता अपड़ेट करें",
+        "CREATING_MESSAGE":"उपयोगकर्ता अपड़ेट कर रहे हैं",
+        "CREATED_SUCCESS":"उपयोगकर्ता सफलतापूर्वक अपड़ेट किया गया हैं",
+        "UPDATED_SUCCESS":"Oops.., Something went wrong. Unable to update User"
+    },
+    "PRIVACY_POLICY":
+    {
+        "PAGE_TITLE":"गोपनीयता नीति",
+        "TITLE":"गोपनीयता नीति",
+        "CONTENT":""
+    },
+    "ABOUT_US":
+    {
+        "PAGE_TITLE":"हमारे बारे में",
+        "TITLE":"हमारे बारे में",
+        "CONTENT":""
+    },
+
+    "USERS_PAGE":{
+        "PAGE_TITLE":"उपयोगकर्ता",
+        "SEARCH_BY_NAME":"नाम से खोजें"
+    },
+    "HOME_PAGE":{
+        "PAGE_TITLE":"मुख्यपृष्ठ"
+    },
+    "SCHEDULED_SEARCH_PAGE":{
+        "PAGE_TITLE":"अनुसूचि खोज",
+        "SEARCH_KEY":"खोज शब्द"
+    },
+    "CREATE_LOOKUP_PAGE":{
+      "PAGE_TITLE":"अनुसूची खोज बनाएँ",
+      "RG_NUMBER_VALIDATION_MESSAGE":"कृपया पंजीकरण संख्या प्रदान करें",
+      "SAVE_FAILED": "सहेजना असफल हुआ",
+      "SAVE_FAILED_MESSAGE": "ओह! शेड्यूल खोज सहेजना विफल रहा. व्यवस्थापक से संपर्क करें",
+      "VALIDATION_MESSAGE": "वाहन पंजीकरण संख्या दर्ज करें"
+    },
+    "LOOKUP_LIST_PAGE":{
+      "DELETE_SCHEDULE_SEARCH_MESSAGE":"क्या आप निश्चित रूप से वाहन के लिए यह शेड्यूल खोज हटाना चाहते हैं? एक बार हटाए जाने के बाद पुनः प्राप्त नहीं किया जा सकता है",
+      "DELETE_TITLE":"मिटाना"
+    },
+    "REPORTS":{
+      "PAGE_TITLE":"प्रत्योक्षकरण",
+      "SHOW_BY":"इसके द्वारा दिखाएँ",
+      "NOTE":"टिप्पणी: विज़ुअलाइज़ेशन को लोड होने में कुछ समय लगता है, कृपया प्रतीक्षा करें"
+    },
+    "PARCELS_PAGE":{
+        "PAGE_TITLE":"वाहन"
+    },
+    "PARCEL_CREATE":{
+      "PAGE_TITLE":"वाहन जोड़ें"
+    },
+    "PARCELS_SEARCH_PAGE":{
+      "PAGE_TITLE":"खोज",
+      "TITLE":"खोजो",
+      "SEARCH_BY_FILTER_TITLE":"फ़िल्टर द्वारा खोजें",
+      "RG_NUMBER_VALIDATION_MESSAGE":"कृपया रजिस्ट्री नम्बर प्रदान करें"
+    },
+    "SETTINGS_PAGE":{
+        "PAGE_TITLE":"समायोजन",
+        "LOCALIZATION":"स्थानीयकरण",
+        "REFRESHMETADATA":"मेटाडेटा पुनः लोड करें",
+        "LANGUAGE":"भाषा",
+        "PREFERENCE":"पसंद",
+        "REFRESHMETADATA_MESSAGE":"मेटाडेटा को पुनः लोड कर रहे हैं...",
+        "CHANGING_LANGUAGE_MESSAGE":"ऐप भाषा अपडेट कर रहे हैं..."
+    },
+   
+    "LANGUAGES":{
+        "ENGLISH" :"अंग्रेज़ी",
+        "MARATHI":"मराठी",
+        "HINDI":"हिंदी",
+        "FRENCH":"फ्रेंच",
+        "TAMIL":"तमिल",
+        "TELAGU":"तेलुगू",
+        "SPANISH":"स्पॅनिश"
+    },
+    "APP_TITLE": "गुड-वे",
+    "APP_SUB_TITLE": "अपने पार्सल को ट्रैक करें",
+    "APP_DESCRIPTION": "डिलीवरी नेटवर्क में अपने पार्सल को ट्रैक करें"
+}

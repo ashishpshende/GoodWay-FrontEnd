@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar id="TitleToolbar" class="text-center">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{'FORGOT_USER_NAME_PAGE.PAGE_TITLE' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding class="login auth-page">
+
+  <div padding-horizontal text-center class="animated fadeInDown">
+    <div class="app-logo center">
+      <img src="/assets/icon/org-logo.png">
+    </div>
+    <h4 no-margin class="text-center">
+      <ion-text color="dark" class="ion-text-justify">
+       {{'APP_TITLE' | translate}}
+      </ion-text>
+    </h4>
+    <h5 no-margin class="text-center">
+      <ion-text color="dark" class="ion-text-justify">
+        {{'APP_SUB_TITLE' | translate}}
+      </ion-text>
+    </h5>
+
+    <!-- <h6 no-margin class="text-center">
+      <ion-text color="dark" class="ion-text-justify">
+        {{'APP_DESCRIPTION' | translate}}
+      </ion-text>
+    </h6> -->
+  </div>
+
+  <div class="auth-content">
+
+    <!-- Register form -->
+
+      <ion-item id="UserProfile" class="toolbar-backgorund">
+        <ion-icon name="mail" slot="start"></ion-icon>
+        <ion-input class="email-text-field"
+        (ionChange)="emailTextChanged()"
+        [(ngModel)]="userEmail"
+        placeholder=" {{'GENERAL.EMAIL_FIELD' | translate}}" ></ion-input>
+        <ion-icon name="" slot="end"></ion-icon>
+      </ion-item>
+      <p ion-text class="text08 ">
+        <ion-text color="error">
+          {{userEmailValidationMessage}}
+        </ion-text>
+      </p>
+
+
+    <div margin-top>
+      <ion-button   size="medium" expand="full" shape="round"  color="dark"
+       (click)="RequestUserNameButtonClicked()" [disabled]="!enableRequestButton">
+        {{'FORGOT_USER_NAME_PAGE.REQUEST_USERNAME_BUTTON_TITLE' | translate}}
+      </ion-button>
+    </div>
+
+  </div>
+  <div class="text-center">
+    <span (click)="goToLogin()" class="paz" tappable>
+      <ion-text color="light">
+        {{'BUTTONS.CLOSE' | translate}}
+      </ion-text>
+    </span>
+  </div>
+
+</ion-content>

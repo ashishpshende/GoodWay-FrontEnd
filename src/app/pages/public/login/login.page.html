@@ -1,0 +1,86 @@
+<ion-content padding class="animated fadeIn login auth-page">
+  <div class="theme-bg"></div>
+  <div class="auth-content">
+
+    <!-- Logo -->
+    <div padding-horizontal text-center class="animated fadeInDown">
+      <div class="app-logo center">
+        <img src="/assets/icon/org-logo.png">
+      </div>
+      <h4 no-margin class="text-center">
+        <ion-text color="dark" class="ion-text-justify">
+         {{'APP_TITLE' | translate}}
+        </ion-text>
+      </h4>
+      <h5 no-margin class="text-center">
+        <ion-text color="dark" class="ion-text-justify">
+          {{'APP_SUB_TITLE' | translate}}
+        </ion-text>
+      </h5>
+<!--
+      <h6 no-margin class="text-center">
+        <ion-text color="dark" class="ion-text-justify">
+          {{'APP_DESCRIPTION' | translate}}
+        </ion-text>
+      </h6> -->
+    </div>
+
+    <!-- Login form -->
+
+      <ion-item id="UserProfile" class="toolbar-backgorund credentials-area">
+        <ion-icon name="person" slot="start"></ion-icon>
+        <ion-input class="credentials-field" name="Email" placeholder=" {{'GENERAL.USERNAME_FIELD' | translate}}"  [(ngModel)]="userName"></ion-input>
+        <ion-icon name="" slot="end"></ion-icon>
+      </ion-item>
+      <ion-label *ngIf="showUsernameValidationMessage" color="danger">
+        {{'LOGIN.EMAIL_VALIDATION_MESSAGE' | translate}}
+      </ion-label>
+      <ion-item id="UserProfile" class="toolbar-backgorund">
+        <ion-icon name="key" slot="start"></ion-icon>
+        <ion-input type="password"  name="Password" placeholder="{{'GENERAL.PASSWORD_FIELD' | translate}}" [(ngModel)]="password" ></ion-input>
+
+      </ion-item>
+      <ion-label *ngIf="showPasswordValidationMessage" color="danger">
+        {{'LOGIN.PASSWORD_VALIDATION_MESSAGE' | translate}}
+      </ion-label>
+
+    <div class="forgotLinks">
+      <span class="left">
+    <button  (click)="forgotPasswordLinkClicked()">{{'FORGOT_PASSWORD_PAGE.TITLE' | translate}}</button>
+
+      </span>
+      <span class="right">
+        <button  (click)="forgotUserLinkClicked()">{{'FORGOT_USER_NAME_PAGE.TITLE' | translate}}</button>
+
+      </span>
+
+  </div>
+    <div>
+      <ion-button class="signin" expand="full" shape="round" color="dark" (click)="loginButtonClicked()"  tappable>
+        {{'LOGIN.SIGN_IN_TEXT' | translate}}
+      </ion-button>
+    </div>
+
+    <!-- Other links -->
+    <div class="text-center sign-up-area">
+      <span (click)="signupLinkClicked()" class="paz" tappable>
+        <ion-text class="sign-up-text">
+          {{'LOGIN.SIGN_UP_FIRST_TEXT' | translate}}  <strong> {{'LOGIN.SIGN_UP_SECOND_TEXT' | translate}} </strong>
+        </ion-text>
+      </span>
+    </div>
+
+  </div>
+
+
+
+
+  <div class="text-center language-button">
+    <span (click)="languageLinkClicked()" class="paz" tappable>
+      <ion-text color="dark">
+        {{'GENERAL.LANGUAGE' | translate}}
+      </ion-text>
+    </span>
+  </div>
+
+</ion-content>
