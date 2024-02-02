@@ -13,7 +13,7 @@ const routes: Routes = [
     children:[
       {
         path: '',
-        redirectTo: 'create-parcel',
+        redirectTo: 'dashboard',
         pathMatch: 'full'
       },
       {
@@ -104,6 +104,10 @@ const routes: Routes = [
       {
         path: 'qr-code',
         loadChildren: () => import('../qr-code/qr-code/qr-code.module').then( m => m.QrCodePageModule)
+      },
+      {
+        path: 'scan-qr-code',
+        loadChildren: () => import('../qr-code/scan-qr-code/scan-qr-code.module').then( m => m.ScanQrCodePageModule)
       }
     
       ]

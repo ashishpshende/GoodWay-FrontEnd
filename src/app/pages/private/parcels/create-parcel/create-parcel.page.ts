@@ -1,6 +1,6 @@
 import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { LoadingController, AlertController } from '@ionic/angular';
 import { Parcel } from 'src/app/models/Parcel';
 import { LanguageService } from 'src/app/services/language/language.service';
@@ -33,7 +33,12 @@ export class CreateParcelPage implements OnInit {
   }
   goToParcelList()
   {
-    
+    const navigationExtras: NavigationExtras = {
+      queryParams: {
+        ts: new Date().getMilliseconds()
+      }
+    };
+    this.router.navigate(["home/parcel-list"], navigationExtras);
   }
   saveButtonClicked()
   {

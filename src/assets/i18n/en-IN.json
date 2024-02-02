@@ -50,6 +50,7 @@
         "NOT_AVAILABLE":"Not Available"
     },
     "DASHBOARD":{
+        "SCAN_QR_CODE":"Scan QR Code",
         "ADD_PARCEL": "Add Parcel",
         "USERS": "Sub-Dealers",
         "SETTINGS":"Settings",

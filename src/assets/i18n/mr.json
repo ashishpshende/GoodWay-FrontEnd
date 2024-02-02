@@ -52,6 +52,8 @@
 
     },
     "DASHBOARD":{
+        "SCAN_QR_CODE":"Scan QR Code",
+
         "ADD_PARCEL": "वाहन जोडा",
         "USERS": "वापरकर्ता",
         "SETTINGS":"सेटिंग्ज",

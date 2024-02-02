@@ -89,32 +89,32 @@ export class HomePage implements OnInit, AfterViewInit {
       { identifier: 'dashboard', title: this.translateService.instant('HOME_PAGE.PAGE_TITLE'), url: '/home/dashboard', icon: 'home-sharp' }
     ];
 
-    if (this.loggedInUser.Role === 'SuperAdmin') {
-      this.appPages.push({ identifier: 'parcels', title: this.translateService.instant('PARCELS_PAGE.PAGE_TITLE'), url: '/home/parcel-list', icon: 'cube-sharp' });
-      this.appPages.push({ identifier: 'user', title: this.translateService.instant('USERS_PAGE.PAGE_TITLE'), url: '/home/user-list', icon: 'person-sharp' });
-      this.appPages.push({ identifier: 'createparcel', title: this.translateService.instant('DASHBOARD.ADD_PARCEL'), url: '/home/create-parcel', icon: 'add-sharp' });
-      this.appPages.push({ identifier: 'visualization', title: this.translateService.instant('REPORTS.PAGE_TITLE'), url: '/home/visualization', icon: 'pie-chart-outline' });
-    }
+    // if (this.loggedInUser.Role === 'SuperAdmin') {
+    //   this.appPages.push({ identifier: 'parcels', title: this.translateService.instant('PARCELS_PAGE.PAGE_TITLE'), url: '/home/parcel-list', icon: 'cube-sharp' });
+    //   this.appPages.push({ identifier: 'user', title: this.translateService.instant('USERS_PAGE.PAGE_TITLE'), url: '/home/user-list', icon: 'person-sharp' });
+    //   this.appPages.push({ identifier: 'createparcel', title: this.translateService.instant('DASHBOARD.ADD_PARCEL'), url: '/home/create-parcel', icon: 'add-sharp' });
+    //   this.appPages.push({ identifier: 'visualization', title: this.translateService.instant('REPORTS.PAGE_TITLE'), url: '/home/visualization', icon: 'pie-chart-outline' });
+    // }
 
-    if (this.loggedInUser.Role === 'Admin') {
+    //if (this.loggedInUser.Role === 'Admin') {
       this.appPages.push({ identifier: 'parcel', title: this.translateService.instant('PARCELS_PAGE.PAGE_TITLE'), url: '/home/parcel-list', icon: 'cube-sharp' });
-      this.appPages.push({ identifier: 'createparcel', title: this.translateService.instant('DASHBOARD.ADD_PARCEL'), url: '/home/create-parcel', icon: 'add-sharp' });
-      this.appPages.push({ identifier: 'user', title: this.translateService.instant('USERS_PAGE.PAGE_TITLE'), url: '/home/user-list', icon: 'person-sharp' });
-      this.appPages.push({ identifier: 'dealer', title: this.translateService.instant('DEALERS_PAGE.PAGE_TITLE'), url: '/home/dealer-list', icon: 'people-sharp' });
+     // this.appPages.push({ identifier: 'createparcel', title: this.translateService.instant('DASHBOARD.ADD_PARCEL'), url: '/home/create-parcel', icon: 'add-sharp' });
+      //this.appPages.push({ identifier: 'user', title: this.translateService.instant('USERS_PAGE.PAGE_TITLE'), url: '/home/user-list', icon: 'person-sharp' });
+    //  this.appPages.push({ identifier: 'dealer', title: this.translateService.instant('DEALERS_PAGE.PAGE_TITLE'), url: '/home/dealer-list', icon: 'people-sharp' });
       this.appPages.push({ identifier: 'subdealer', title: this.translateService.instant('SUB_DEALERS_PAGE.PAGE_TITLE'), url: '/home/sub-dealer-list', icon: 'people-sharp' });
       
-    }
+   // }
 
-    if (this.loggedInUser.Role === 'Dealer') {
-      this.appPages.push({ identifier: 'createparcel', title: this.translateService.instant('DASHBOARD.ADD_PARCEL'), url: '/home/create-parcel', icon: 'add-sharp' });
-      this.appPages.push({ identifier: 'parcel', title: this.translateService.instant('PARCELS_PAGE.PAGE_TITLE'), url: '/home/parcel-list', icon: 'cube-sharp' });
-      this.appPages.push({ identifier: 'subdealer', title: this.translateService.instant('SUB_DEALERS_PAGE.PAGE_TITLE'), url: '/home/sub-dealer-list', icon: 'person-sharp' });
+    // if (this.loggedInUser.Role === 'Dealer') {
+    //   this.appPages.push({ identifier: 'createparcel', title: this.translateService.instant('DASHBOARD.ADD_PARCEL'), url: '/home/create-parcel', icon: 'add-sharp' });
+    //   this.appPages.push({ identifier: 'parcel', title: this.translateService.instant('PARCELS_PAGE.PAGE_TITLE'), url: '/home/parcel-list', icon: 'cube-sharp' });
+    //   this.appPages.push({ identifier: 'subdealer', title: this.translateService.instant('SUB_DEALERS_PAGE.PAGE_TITLE'), url: '/home/sub-dealer-list', icon: 'person-sharp' });
    
-    }
-    if (this.loggedInUser.Role === 'SubDealer') {
-      this.appPages.push({ identifier: 'parcel', title: this.translateService.instant('PARCELS_PAGE.PAGE_TITLE'), url: '/home/parcel-list', icon: 'cube-sharp' });
-    }
-    this.appPages.push({ identifier: 'parcel', title: this.translateService.instant('PARCELS_PAGE.PAGE_TITLE'), url: '/home/parcel-list', icon: 'cube-sharp' });
+    // }
+    // if (this.loggedInUser.Role === 'SubDealer') {
+    //   this.appPages.push({ identifier: 'parcel', title: this.translateService.instant('PARCELS_PAGE.PAGE_TITLE'), url: '/home/parcel-list', icon: 'cube-sharp' });
+    // }
+    // this.appPages.push({ identifier: 'parcel', title: this.translateService.instant('PARCELS_PAGE.PAGE_TITLE'), url: '/home/parcel-list', icon: 'cube-sharp' });
   }
 
   //Event Handlers

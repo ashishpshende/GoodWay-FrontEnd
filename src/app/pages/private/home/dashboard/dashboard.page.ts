@@ -154,6 +154,10 @@ export class DashboardPage implements OnInit, AfterViewInit {
   searchTileClicked() {
     this.router.navigate(['/home/search-parcel']);
   }
+  scanQRCodeTileClicked()
+  {
+    this.router.navigate(['home/scan-qr-code']);
+  }
   addParcelTileClicked() {
     this.router.navigate(['/home/create-parcel']);
   }
