@@ -10,15 +10,15 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NgEventBus } from 'ng-event-bus';
 import { Storage  } from '@ionic/storage';
-// import { Network } from '@awesome-cordova-plugins/network/ngx';
 import { NgApexchartsModule } from 'ng-apexcharts';
+import { QrCodeModule } from 'ng-qrcode';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule,HttpClientModule, IonicModule.forRoot(), AppRoutingModule, NgApexchartsModule, TranslateModule.forRoot({
+  imports: [BrowserModule,HttpClientModule, IonicModule.forRoot(), AppRoutingModule, NgApexchartsModule, QrCodeModule, TranslateModule.forRoot({
     loader: {
       provide: TranslateLoader,
       useFactory: (createTranslateLoader),

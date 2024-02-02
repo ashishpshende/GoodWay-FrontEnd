@@ -23,4 +23,11 @@ export class BaseModel {
        const defaultObject = new BaseModel(JSON);
         return defaultObject;
     }
+    public toJSON()
+    {
+        return {
+            "id" :  this.id,
+            "name" :  this.name
+        }
+    }
 }

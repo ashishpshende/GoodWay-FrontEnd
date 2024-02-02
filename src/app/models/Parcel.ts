@@ -14,8 +14,15 @@ export class Parcel  extends BaseModel{
     public weight: string;
     public remarks: string;
     public parcelStatus: string;
+
+    //
+    public icon: string;
+    public qrIcon: string;
+
+
     constructor(requestJSON: any)  {
         super(requestJSON);
+        this.qrIcon = "/assets/icon/qr-code.png";
         this.cnNo =  requestJSON.cnNo;
         this.cnType =  requestJSON.cnType;
         this.dealer =  requestJSON.dealer;
@@ -27,5 +34,41 @@ export class Parcel  extends BaseModel{
         this.weight =  requestJSON.weight;
         this.remarks =  requestJSON.remarks;
         this.parcelStatus =  requestJSON.parcelStatus;
+    }
+    public toCreationJSON()
+    {
+
+        return {
+            "cnNo" :  this.cnNo,
+            "cnType" :  this.cnType,
+            "dealer" :  this.dealer,
+            "receiver" :  this.receiver,
+            "to" :  this.to,
+            "from" :  this.from,
+            "mobile" :  this.mobile,
+            "quantity" :  this.quantity,
+            "weight" :  this.weight,
+            "remarks" :  this.remarks,
+            "parcelStatus" :  this.parcelStatus,
+            "createdBy" :  (this.createdBy)?this.createdBy.id:"",
+        }
+    }
+    public toUpdationJSON()
+    {
+        return {
+            "id":this.id,
+            "cnNo" :  this.cnNo,
+            "cnType" :  this.cnType,
+            "dealer" :  this.dealer,
+            "receiver" :  this.receiver,
+            "to" :  this.to,
+            "from" :  this.from,
+            "mobile" :  this.mobile,
+            "quantity" :  this.quantity,
+            "weight" :  this.weight,
+            "remarks" :  this.remarks,
+            "parcelStatus" :  this.parcelStatus,
+            "updatedBy" :  (this.updatedBy)?this.updatedBy.id:"",
+        }
     }
 }

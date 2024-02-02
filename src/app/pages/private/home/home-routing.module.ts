@@ -70,7 +70,7 @@ const routes: Routes = [
         loadChildren: () => import('../parcels/parcel-list/parcel-list.module').then( m => m.ParcelListPageModule)
       },
       {
-        path: 'parcel-details',
+        path: 'view-parcel',
         loadChildren: () => import('../parcels/parcel-details/parcel-details.module').then( m => m.ParcelDetailsPageModule)
       },
       {
@@ -100,6 +100,10 @@ const routes: Routes = [
       {
         path: 'update-sub-dealer',
         loadChildren: () => import('../sub-dealers/update-sub-dealer/update-sub-dealer.module').then( m => m.UpdateSubDealerPageModule)
+      },
+      {
+        path: 'qr-code',
+        loadChildren: () => import('../qr-code/qr-code/qr-code.module').then( m => m.QrCodePageModule)
       }
     
       ]

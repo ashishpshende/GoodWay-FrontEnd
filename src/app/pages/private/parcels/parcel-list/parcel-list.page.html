@@ -1,9 +1,46 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>parcel-list</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+  <ion-refresher slot="fixed" [pullFactor]="0.5" [pullMin]="100" [pullMax]="200" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list class="user-results">
+    <ion-item>
+      <ion-thumbnail slot="start" (click)="addParcelButtonClicked()">
+        <img alt="Add User" src="/assets/icon/add_user_icon.png" />
+      </ion-thumbnail>     
+    </ion-item>
+    <ion-item *ngIf="searchToggle">
+      <ion-input slot="start" type="search" class="search-text-field"  [(ngModel)]="searchText" autocomplete="nope" placeholder=" {{'USERS_PAGE.SEARCH_BY_NAME' | translate}}"></ion-input>
+      <img slot="end" *ngIf="searchText.length!==0" class="search-icon" src="/assets/icon/ClearIcon.png" (click)="clearTextButtonClicked()">
+      <img slot="end" class="search-icon" src="/assets/icon/SearchAction.png" (click)="searchTextButtonClicked()">
+    </ion-item>
+    <ion-list-header class="user-results-list-header"> Showing Results skipping {{skip}} records </ion-list-header>
 
+    <ion-item class="user-result-cell" *ngFor="let parcel of parcels">
+      <ion-avatar slot="start" (click)="parcelSelected(parcel)">
+        <img alt="User" [src]="parcel.icon" />
+      </ion-avatar>
+      <ion-label (click)="parcelSelected(parcel)">
+        <h2>{{parcel.cnNo}} {{parcel.cnType}}</h2>
+        <h3>{{parcel.from}} {{parcel.to}}</h3>
+        <p>{{parcel.receiver}} - {{parcel.mobile}}</p>
+      </ion-label>
+      <img slot="end" class="status-icon" [src]="parcel.qrIcon" (click)="qrButtonClicked(parcel)">
+      <ion-icon name="create-sharp" slot="end" (click)="editButtonClicked(parcel)"></ion-icon>
+    </ion-item>
+  </ion-list>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="open-space">
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
 </ion-content>
+<ion-footer>
+  <div  class="text-center pagination-area">
+    <ion-grid>
+      <ion-row>       
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-footer>

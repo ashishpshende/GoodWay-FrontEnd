@@ -21,6 +21,7 @@ export class ParcelURLs {
 })
 export class ParcelService {
 
+  public selectedParcel:Parcel;
   
   constructor( private eventBus: NgEventBus,
     private securityService: SecurityService,
@@ -49,7 +50,7 @@ export class ParcelService {
   save(parcel: Parcel, success: (any), failure: (any)) {
     parcel.createdOn = formatDate(new Date(), 'dd-MM-yyyy hh:mm:ss', 'en-US', '+0530');
     parcel.updatedOn = formatDate(new Date(), 'dd-MM-yyyy hh:mm:ss', 'en-US', '+0530');
-    this.networkService.post(ParcelURLs.SAVE_PARCEL, parcel, response => {   
+    this.networkService.post(ParcelURLs.SAVE_PARCEL, parcel.toJSON(), response => {   
       success();
     }, error => {
       console.log('Error:' + error);
@@ -59,7 +60,7 @@ export class ParcelService {
   update(parcel: Parcel, success: (any), failure: (any)) {
     parcel.createdOn = formatDate(new Date(), 'dd-MM-yyyy hh:mm:ss', 'en-US', '+0530');
     parcel.updatedOn = formatDate(new Date(), 'dd-MM-yyyy hh:mm:ss', 'en-US', '+0530');
-    this.networkService.post(ParcelURLs.UPDATE_PARCEL, parcel, response => {   
+    this.networkService.post(ParcelURLs.UPDATE_PARCEL, parcel.toJSON(), response => {   
       success();
     }, error => {
       console.log('Error:' + error);
@@ -70,7 +71,7 @@ export class ParcelService {
     parcel.createdOn = formatDate(new Date(), 'dd-MM-yyyy hh:mm:ss', 'en-US', '+0530');
     parcel.updatedOn = formatDate(new Date(), 'dd-MM-yyyy hh:mm:ss', 'en-US', '+0530');
     
-    this.networkService.post(ParcelURLs.UPDATE_PARCEL_STATUS, parcel, response => {   
+    this.networkService.post(ParcelURLs.UPDATE_PARCEL_STATUS, parcel.toJSON(), response => {   
       success();
     }, error => {
       console.log('Error:' + error);
