@@ -26,7 +26,6 @@ export class User  extends BaseModel{
     public ResetRequired: boolean;
     constructor(requestJSON: any)  {
         super(requestJSON);
-
         this.UserName =  requestJSON.userName;
         this.Email =   requestJSON.email;
         this.Gender =  requestJSON.gender;

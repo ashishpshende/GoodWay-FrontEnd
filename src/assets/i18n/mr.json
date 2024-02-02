@@ -165,31 +165,13 @@
         "ACCOUNT_DETAILS":"खाते तपशील"
     },
     "PARCEL":{
-        "REGISTRATION_NUMBER":"नोंदणी क्रमांक",
-        "TIME_STAMP"  :"टाईमस्टॅम्प",
-        "NAME_OF_POLICE_STATION":"पोलीस ठाण्याचे नाव",
-        "PARCEL_TYPE":"वाहनाचा प्रकार",
-        "ENGINE_NUMNER" : "इंजिन क्रमांक",
-        "CHASSIS_NUMBER" : "चेसिस क्रमांक",
-        "COMPANY" : "कंपनी",
-        "MAKE" : "उत्पादन वर्ष",
-        "MODEL" : "मॉडेल",
-        "COLOR": "रंग",
-        "CATEGORY":"श्रेणी",
-        "CR_NUMBER_SECTION":"सी.आर. क्रमांक/विभाग",
-        "DATE_TIME_OF_THEFT":"चोरीची तारीख वेळ",
-        "LOCATION_OF_THEFT_SEIZER":"चोरी/जप्तीचे स्थान",
-        "INVESTIGATION_OFFICER_NAME":"तपास अधिकाऱ्याचे नाव",
-        "INVESTIGATION_OFFICER_NUMBER":"तपास अधिकारी क्रमांक",
-        "POLICE_STATION_DETAILS":"पोलीस स्टेशन तपशील",
-        "ENGINE_DETAILS":"इंजिन तपशील",
-        "THEFT_SEIZE_DETAILS":"चोरी/जप्तीचा तपशील",
-        "OTHER_DETAILS":"इतर",
-        "COMMENTS":"टिप्पण्या",
-        "COMPLAINENT":"वाहन मालक/तक्रारदार",
-        "UPDATING":"वाहन अपडेट करत आहे...",
-        "FOUND":"वाहन सापडले"
-
+        "CN_NO":"CN Number",
+        "CN_TYPE"  :"CN Type",
+        "QUANTITY" : "Quantity",
+        "WEIGHT":"Weight",
+        "FROM" : "From",
+        "TO" : "To",
+        "RECEIVER" : "Receiver"
     },
     "USER_PROFILE":{
         "PAGE_TITLE":"वापरकर्ता प्रोफाइल",
@@ -297,7 +279,10 @@
       "RG_NUMBER_VALIDATION_MESSAGE":"कृपया नोंदणी क्रमांक द्या"
     },
     "PARCEL_CREATE":{
-      "PAGE_TITLE":"वाहन जोडा"
+        "BASIC_DETAILS":"Basic Details",
+        "ADDRESS_DETAILS":"Address Details",
+        "PACKAGE_DETAILS":"Package Details",
+        "PAGE_TITLE":"Add Parcel"
     },
     "SETTINGS_PAGE":{
         "PAGE_TITLE":"समायोजन",

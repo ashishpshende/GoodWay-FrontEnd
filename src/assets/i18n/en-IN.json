@@ -161,30 +161,14 @@
         "ACCOUNT_DETAILS":"Account Details"
     },
     "PARCEL":{
-        "REGISTRATION_NUMBER":"CN Number",
-        "TIME_STAMP"  :"Timestamp",
-        "NAME_OF_POLICE_STATION":"Name Of Police Station",
-        "PARCEL_TYPE":"Vehicle Type",
-        "ENGINE_NUMNER" : "Engine Number",
-        "CHASSIS_NUMBER" : "Chassis Number",
-        "COMPANY" : "Company",
-        "MAKE" : "Make",
-        "MODEL" : "Model",
-        "COLOR": "Color",
-        "CATEGORY":"Category",
-        "CR_NUMBER_SECTION":"CR Number/Section",
-        "DATE_TIME_OF_THEFT":"Date Time ofTheft",
-        "LOCATION_OF_THEFT_SEIZER":"Location oF Theft/Seizer",
-        "INVESTIGATION_OFFICER_NAME":"Investigation Officer Name",
-        "INVESTIGATION_OFFICER_NUMBER":"Investigation Officer Number",
-        "POLICE_STATION_DETAILS":"Police Station Details",
-        "ENGINE_DETAILS":" Engine Details",
-        "THEFT_SEIZE_DETAILS":"Theft/seizer  Details",
-        "OTHER_DETAILS":"Others",
-        "COMMENTS":"Comments",
-        "COMPLAINENT":"Vehicle owner/complainant",
-        "UPDATING":"Updating Vehicle...",
-        "FOUND":"Vehicle Found"
+        "CN_NO":"CN Number",
+        "CN_TYPE"  :"CN Type",
+        "QUANTITY" : "Quantity",
+        "WEIGHT":"Weight",
+        "FROM" : "From",
+        "TO" : "To",
+        "RECEIVER" : "Receiver"
+        
     },
     "USER_PROFILE":{
         "PAGE_TITLE":"User Profile",
@@ -237,7 +221,10 @@
         "UPDATED_SUCCESS":"Oops.., Something went wrong. Unable to create User"
     },
     "PARCEL_CREATE":{
-      "PAGE_TITLE":"Add Parcel"
+        "BASIC_DETAILS":"Basic Details",
+        "ADDRESS_DETAILS":"Address Details",
+        "PACKAGE_DETAILS":"Package Details",
+        "PAGE_TITLE":"Add Parcel"
     },
     "USER_UPDATE":{
         "PAGE_TITLE":"Update User",
@@ -273,9 +260,11 @@
       "SHOW_BY":"Show By",
       "NOTE":"Note: Reports area is under construction"
     },
+    
     "PARCELS_PAGE":{
         "PAGE_TITLE":"Parcels"
     },
+    
     "SCHEDULED_SEARCH_PAGE":{
         "PAGE_TITLE":"Schedule Search",
         "SEARCH_KEY":"Search Key"

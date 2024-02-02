@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { CreateParcelPageRoutingModule } from './create-parcel-routing.module';
 
 import { CreateParcelPage } from './create-parcel.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CreateParcelPageRoutingModule
+    CreateParcelPageRoutingModule,
+    TranslateModule.forChild()
   ],
   declarations: [CreateParcelPage]
 })

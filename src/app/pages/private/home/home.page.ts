@@ -114,6 +114,8 @@ export class HomePage implements OnInit, AfterViewInit {
     if (this.loggedInUser.Role === 'SubDealer') {
       this.appPages.push({ identifier: 'parcel', title: this.translateService.instant('PARCELS_PAGE.PAGE_TITLE'), url: '/home/parcel-list', icon: 'cube-sharp' });
     }
+    this.appPages.push({ identifier: 'createparcel', title: this.translateService.instant('DASHBOARD.ADD_PARCEL'), url: '/home/create-parcel', icon: 'add-sharp' });
+
   }
 
   //Event Handlers
