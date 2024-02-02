@@ -24,7 +24,8 @@
         <h3>{{parcel.from}} {{parcel.to}}</h3>
         <p>{{parcel.receiver}} - {{parcel.mobile}}</p>
       </ion-label>
-      <img slot="end" class="status-icon" [src]="parcel.qrIcon" (click)="qrButtonClicked(parcel)">
+      <ion-icon name="qr-code-sharp" slot="end" (click)="qrButtonClicked(parcel)"></ion-icon>
+
       <ion-icon name="create-sharp" slot="end" (click)="editButtonClicked(parcel)"></ion-icon>
     </ion-item>
   </ion-list>

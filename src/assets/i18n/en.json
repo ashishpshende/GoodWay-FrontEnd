@@ -167,7 +167,8 @@
         "WEIGHT":"Weight",
         "FROM" : "From",
         "TO" : "To",
-        "RECEIVER" : "Receiver"
+        "RECEIVER" : "Receiver",
+        "MOBILE":"Mobile"
     },
     "USER_PROFILE":{
         "PAGE_TITLE":"User Profile",

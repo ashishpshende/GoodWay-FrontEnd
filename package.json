@@ -38,6 +38,7 @@
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
     "@transistorsoft/capacitor-background-fetch": "^1.0.2",
+    "angularx-qrcode": "^14.0.0",
     "apexcharts": "^3.36.3",
     "ionicons": "^6.0.3",
     "moment-timezone": "^0.5.37",

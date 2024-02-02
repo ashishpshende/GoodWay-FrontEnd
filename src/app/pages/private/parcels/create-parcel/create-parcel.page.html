@@ -100,6 +100,13 @@
                 </ion-input>
               </ion-col>
             </ion-row>
+            <ion-row>
+              <ion-col>{{'PARCEL.MOBILE' | translate}} </ion-col>
+              <ion-col class="value" size="6">
+                <ion-input   autocomplete="nope" [(ngModel)]="parcel.mobile" placeholder=" {{'PARCEL.MOBILE' | translate}}">
+                </ion-input>
+              </ion-col>
+            </ion-row>
           </ion-grid>
         </ion-item>       
       </ion-list>

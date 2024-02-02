@@ -1,10 +1,71 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>qrCode</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <qr-code [value]="selectedParcel.cnNo" size="300" errorCorrectionLevel="M"></qr-code>
+  <ion-card>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <qrcode
+              [qrdata]="selectedParcel.cnNo"
+              [width]="150"
+              [errorCorrectionLevel]="'M'"
+            ></qrcode>
+          </ion-col>
+          <ion-col size="6">
+            <ion-row>
+              <ion-col size="6"> {{'PARCEL.CN_NO' | translate}} </ion-col>
+              <ion-col size="6"> {{selectedParcel.cnNo}} </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6"> {{'PARCEL.CN_TYPE' | translate}} </ion-col>
+              <ion-col size="6"> {{selectedParcel.cnType}} </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6"> {{'PARCEL.RECEIVER' | translate}} </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6"> {{'PARCEL.MOBILE' | translate}} </ion-col>
+              <ion-col size="6"> {{selectedParcel.mobile}} </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6"> {{'PARCEL.TO' | translate}} </ion-col>
+              <ion-col size="6"> {{selectedParcel.to}} </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6"> {{'PARCEL.QUANTITY' | translate}} </ion-col>
+              <ion-col size="6"> {{selectedParcel.quantity}} </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6"> {{'PARCEL.FROM' | translate}} </ion-col>
+              <ion-col size="6"> {{selectedParcel.from}} </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
 
+  <ion-card>
+    <ion-card-content>
+      <ion-grid>
+        <ion-list>
+            <ion-item *ngIf="selectedParcel.parcelStatus!='In-Transit'" id="edit" (click)="markAsDelivered()">
+              <ion-icon slot="start" name="archive"></ion-icon>
+              <ion-label> Mark delivered</ion-label>
+            </ion-item>
+            <ion-item id="edit" (click)="viewButtonClicked()">
+              <ion-icon slot="start" name="eye"></ion-icon>
+              <ion-label> View Details</ion-label>
+            </ion-item>
+            <ion-item id="edit" (click)="editButtonClicked()">
+              <ion-icon slot="start" name="create"></ion-icon>
+              <ion-label> Update Details</ion-label>
+            </ion-item>
+            <ion-item id="edit" (click)="closeuttonClicked()">
+              <ion-icon slot="start" name="close"></ion-icon>
+              <ion-label> Close</ion-label>
+            </ion-item>
+        </ion-list> 
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
