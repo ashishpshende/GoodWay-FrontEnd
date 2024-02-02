@@ -3,13 +3,9 @@ import { NetworkService } from '../network/network.service';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Platform } from '@ionic/angular';
-import { AuthorizationService } from '../Authorization/authorization.service';
 import { environment } from 'src/environments/environment';
-import { SecurityService } from '../security/security.service';
 import { LocalStorageService } from '../localStorage/local-storage.service';
 import { KeywordConstants } from 'src/assets/constants/constants';
-const AUTH_TOKEN_KEY = 'Authorization';
-const USER_LOGIN_URL = environment.apiURL + '/sheets/Users?where={"UserName":"USER_NAME","Password":"PASSWORD"}';
 
 @Injectable({
   providedIn: 'root'

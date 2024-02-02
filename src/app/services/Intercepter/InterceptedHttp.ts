@@ -5,7 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { AuthenticationService } from '../Authentication/authentication.service';
+import { AuthenticationService } from '../authentication/authentication.service';
 const AUTH_TOKEN_KEY = 'Authorization';
 
 @Injectable()

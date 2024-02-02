@@ -11,7 +11,7 @@ import { NgEventBus } from 'ng-event-bus';
 import { MetaData } from 'ng-event-bus/lib/meta-data';
 import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
 import { KeywordConstants } from 'src/assets/constants/constants';
-import { AuthenticationService } from 'src/app/services/Authentication/authentication.service';
+import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
@@ -72,7 +72,7 @@ export class HomePage implements OnInit, AfterViewInit {
   loadLocalUser()
   {
     this.loggedInUser = this.localStorageService.StoredPreference.LoggedInUser;
-    this.userFullName = this.loggedInUser.FirstName + " " + this.loggedInUser.LastName;
+    this.userFullName = this.loggedInUser.name;
     this.userName = this.loggedInUser.UserName;
     this.userEmail = this.loggedInUser.Email;
     this.avatarIcon = this.loggedInUser.Gender === 'Male' ? '/assets/img/user/default-male.png' : '/assets/img/user/default-female.png';
@@ -90,22 +90,29 @@ export class HomePage implements OnInit, AfterViewInit {
     ];
 
     if (this.loggedInUser.Role === 'SuperAdmin') {
-      this.appPages.push({ identifier: 'vehicle', title: this.translateService.instant('PARCELS_PAGE.PAGE_TITLE'), url: '/home/vehicle-list', icon: 'car-sharp' });
+      this.appPages.push({ identifier: 'parcels', title: this.translateService.instant('PARCELS_PAGE.PAGE_TITLE'), url: '/home/parcel-list', icon: 'cube-sharp' });
       this.appPages.push({ identifier: 'user', title: this.translateService.instant('USERS_PAGE.PAGE_TITLE'), url: '/home/user-list', icon: 'person-sharp' });
-      this.appPages.push({ identifier: 'createvehicle', title: this.translateService.instant('DASHBOARD.ADD_PARCEL'), url: '/home/create-vehicle', icon: 'add-sharp' });
+      this.appPages.push({ identifier: 'createparcel', title: this.translateService.instant('DASHBOARD.ADD_PARCEL'), url: '/home/create-parcel', icon: 'add-sharp' });
       this.appPages.push({ identifier: 'visualization', title: this.translateService.instant('REPORTS.PAGE_TITLE'), url: '/home/visualization', icon: 'pie-chart-outline' });
-      // this.appPages.push({ identifier: 'schedulesearch', title: this.translateService.instant('SCHEDULED_SEARCH_PAGE.PAGE_TITLE'), url: '/home/lookup-list', icon: 'search-circle-outline' });
     }
 
     if (this.loggedInUser.Role === 'Admin') {
-      this.appPages.push({ identifier: 'vehicle', title: this.translateService.instant('PARCELS_PAGE.PAGE_TITLE'), url: '/home/vehicle-list', icon: 'car-sharp' });
-      this.appPages.push({ identifier: 'createvehicle', title: this.translateService.instant('DASHBOARD.ADD_PARCEL'), url: '/home/create-vehicle', icon: 'add-sharp' });
-      this.appPages.push({ identifier: 'visualization', title: this.translateService.instant('REPORTS.PAGE_TITLE'), url: '/home/visualization', icon: 'pie-chart-outline' });
-      this.appPages.push({ identifier: 'schedulesearch', title: this.translateService.instant('SCHEDULED_SEARCH_PAGE.PAGE_TITLE'), url: '/home/lookup-list', icon: 'search-circle-outline' });
+      this.appPages.push({ identifier: 'parcel', title: this.translateService.instant('PARCELS_PAGE.PAGE_TITLE'), url: '/home/parcel-list', icon: 'cube-sharp' });
+      this.appPages.push({ identifier: 'createparcel', title: this.translateService.instant('DASHBOARD.ADD_PARCEL'), url: '/home/create-parcel', icon: 'add-sharp' });
+      this.appPages.push({ identifier: 'user', title: this.translateService.instant('USERS_PAGE.PAGE_TITLE'), url: '/home/user-list', icon: 'person-sharp' });
+      this.appPages.push({ identifier: 'dealer', title: this.translateService.instant('DEALERS_PAGE.PAGE_TITLE'), url: '/home/dealer-list', icon: 'people-sharp' });
+      this.appPages.push({ identifier: 'subdealer', title: this.translateService.instant('SUB_DEALERS_PAGE.PAGE_TITLE'), url: '/home/sub-dealer-list', icon: 'people-sharp' });
+      
     }
 
-    if (this.loggedInUser.Role === 'User') {
-      this.appPages.push({ identifier: 'createvehicle', title: this.translateService.instant('DASHBOARD.ADD_PARCEL'), url: '/home/create-vehicle', icon: 'add-sharp' });
+    if (this.loggedInUser.Role === 'Dealer') {
+      this.appPages.push({ identifier: 'createparcel', title: this.translateService.instant('DASHBOARD.ADD_PARCEL'), url: '/home/create-parcel', icon: 'add-sharp' });
+      this.appPages.push({ identifier: 'parcel', title: this.translateService.instant('PARCELS_PAGE.PAGE_TITLE'), url: '/home/parcel-list', icon: 'cube-sharp' });
+      this.appPages.push({ identifier: 'subdealer', title: this.translateService.instant('SUB_DEALERS_PAGE.PAGE_TITLE'), url: '/home/sub-dealer-list', icon: 'person-sharp' });
+   
+    }
+    if (this.loggedInUser.Role === 'SubDealer') {
+      this.appPages.push({ identifier: 'parcel', title: this.translateService.instant('PARCELS_PAGE.PAGE_TITLE'), url: '/home/parcel-list', icon: 'cube-sharp' });
     }
   }
 

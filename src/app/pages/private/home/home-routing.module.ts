@@ -80,7 +80,28 @@ const routes: Routes = [
       {
         path: 'create-parcel',
         loadChildren: () => import('../parcels/create-parcel/create-parcel.module').then( m => m.CreateParcelPageModule)
+      },
+      {
+        path: 'dealer-list',
+        loadChildren: () => import('../dealers/dealer-list/dealer-list.module').then( m => m.DealerListPageModule)
+      },
+      {
+        path: 'sub-dealer-list',
+        loadChildren: () => import('../sub-dealers/sub-dealer-list/sub-dealer-list.module').then( m => m.SubDealerListPageModule)
+      },
+      {
+        path: 'view-sub-dealer',
+        loadChildren: () => import('../sub-dealers/view-sub-dealer/view-sub-dealer.module').then( m => m.ViewSubDealerPageModule)
+      },
+      {
+        path: 'create-sub-dealer',
+        loadChildren: () => import('../sub-dealers/create-sub-dealer/create-sub-dealer.module').then( m => m.CreateSubDealerPageModule)
+      },
+      {
+        path: 'update-sub-dealer',
+        loadChildren: () => import('../sub-dealers/update-sub-dealer/update-sub-dealer.module').then( m => m.UpdateSubDealerPageModule)
       }
+    
       ]
   },
 

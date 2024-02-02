@@ -7,21 +7,20 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { SharedService } from '../shared-service/shared.service';
-import { AuthorizationService } from '../Authorization/authorization.service';
+import { AuthorizationService } from '../authorization/authorization.service';
 import { LocalStorageService } from '../localStorage/local-storage.service';
 import { KeywordConstants } from 'src/assets/constants/constants';
 import { formatDate } from '@angular/common';
 import { SecurityService } from '../security/security.service';
 import { NgEventBus } from 'ng-event-bus';
-import { AuthenticationService } from '../Authentication/authentication.service';
+import { AuthenticationService } from '../authentication/authentication.service';
 import { Key } from 'protractor';
-const AUTH_TOKEN_KEY = 'Authorization';
 export class UserURLs {
 
   public static USER_LOGIN_URL = environment.apiURL + '/api/users/Login';
   public static LIST = environment.apiURL + '/sheets/Users?keys=id,UserName,Email,PhoneNumber,FirstName,LastNamae,Role,Status,CreatedAt,Id&skip={SKIP}&limit={LIMIT}&timestamp=' + new Date().getTime();
   public static SEARCH = environment.apiURL + '/sheets/Users?keys=id,UserName,Email,PhoneNumber,FirstName,LastNamae,Role,Status,CreatedAt,Id&where={{SEARCH}}&timestamp=' + new Date().getTime();
-  public static READ = environment.apiURL + '/api/users/Login?id=';
+  public static READ = environment.apiURL + '/api/users/info?id=';
   public static UPDATE = environment.apiURL + '/sheets/Users/{ROW_INDEX}?timestamp=' + new Date().getTime();
   public static SAVE = environment.apiURL + '/sheets/Users?timestamp=' + new Date().getTime();
   public static DELETE = environment.apiURL + '/sheets/Users/{ROW_INDEX}?timestamp=' + new Date().getTime();
@@ -136,8 +135,9 @@ export class UserService {
   logout(success: (any)) {
 
     this.authenticationService.logout(_authenticationSuccess => {
-      if (!this.loggedInUser)
-        {this.loggedInUser.FirstName = '';}
+      if (this.loggedInUser)
+      {
+        this.loggedInUser.FirstName = '';}
       this.loggedInUser.LastName = '';
       this.loggedInUser.UserName = '';
       this.loggedInUser.Email = '';
@@ -283,8 +283,8 @@ export class UserService {
     });
   }
   readById(id: number, success: (any), failure: (any)) {
-    this.networkService.get(UserURLs.READ.replace('{ROW_INDEX}', id.toString()), response => {
-      success(response);
+    this.networkService.get(UserURLs.READ, response => {
+      success(response.data);
     }, error => {
       console.log('Error:' + error);
       failure();
@@ -373,24 +373,12 @@ export class UserService {
   setLocalUser(userObject)
   {
     this.authorizationService.loggedInUser = userObject;
-    if(userObject.Role)
-    {
-      this.localStorageService.StoredPreference.LoggedInUser = userObject;
-    }
-    else
-    {
-      this.localStorageService.StoredPreference.LoggedInUser.FirstName = userObject.FirstName;
-      this.localStorageService.StoredPreference.LoggedInUser.LastName = userObject.LastName;
-      this.localStorageService.StoredPreference.LoggedInUser.UserName = userObject.UserName ;
-      this.localStorageService.StoredPreference.LoggedInUser.Gender = userObject.Gender;
-      this.localStorageService.StoredPreference.LoggedInUser.PhoneNumber = userObject.PhoneNumber;
-      this.localStorageService.StoredPreference.LoggedInUser.Email = userObject.Email;
-
-    }
+    this.localStorageService.StoredPreference.LoggedInUser = userObject;
     this.localStorageService.StoredPreference.LoggedInStatus = true;
     this.localStorageService.StoredPreference.LoggedInUserEmail = userObject.Email;
     this.localStorageService.StoredPreference.LoggedInUserName = userObject.UserName;
     this.localStorageService.StoredPreference.LoggedInUserId = userObject.id;
+    
     this.localStorageService.setItem(KeywordConstants.USER_OBJECT, userObject);
     this.localStorageService.setItem(KeywordConstants.USER_EMAIL, userObject.Email);
     this.localStorageService.setItem(KeywordConstants.USER_NAME, userObject.UserName);

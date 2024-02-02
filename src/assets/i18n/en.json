@@ -256,6 +256,18 @@
     },
 
     "USERS_PAGE":{
+        "PAGE_TITLE":"Users",
+        "TITLE":"User List",
+        "SEARCH_BY_TITLE":"Search",
+        "SEARCH_BY_NAME":"Search By Name"
+    },
+    "DEALERS_PAGE":{
+        "PAGE_TITLE":"Dealers",
+        "TITLE":"Dealer List",
+        "SEARCH_BY_TITLE":"Search",
+        "SEARCH_BY_NAME":"Search By Name"
+    },
+    "SUB_DEALERS_PAGE":{
         "PAGE_TITLE":"Sub-Dealers",
         "TITLE":"Sub-Dealer List",
         "SEARCH_BY_TITLE":"Search",

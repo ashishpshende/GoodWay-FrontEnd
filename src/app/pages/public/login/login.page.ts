@@ -6,7 +6,6 @@ import { NavigationExtras, Router } from '@angular/router';
 import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
 import { UserService } from 'src/app/services/user/user.service';
 import { LanguageService } from 'src/app/services/language/language.service';
-import { AuthenticationService } from 'src/app/services/Authentication/authentication.service';
 import { NgEventBus } from 'ng-event-bus';
 
 
