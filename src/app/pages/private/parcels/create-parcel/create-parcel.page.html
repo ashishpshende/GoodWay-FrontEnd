@@ -14,7 +14,7 @@
               <ion-col size="6">{{'PARCEL.CN_NO' | translate}} </ion-col>
               <ion-col size="6">
                 <ion-input  autocomplete="nope"
-                 class="value" [(ngModel)]="parcel.CNNo" placeholder=" {{'PARCEL.CN_NO' | translate}}">
+                 class="value" [(ngModel)]="parcel.cnNo" placeholder=" {{'PARCEL.CN_NO' | translate}}">
                 </ion-input>
               </ion-col>        
             </ion-row>           
@@ -25,7 +25,7 @@
             <ion-row>
               <ion-col size="6">{{'PARCEL.CN_TYPE' | translate}} </ion-col>
               <ion-col size="6" class="value">
-                <ion-select multiple="false" cancelText="Cancel" okText="Select" [(ngModel)]="parcel.CNType"
+                <ion-select multiple="false" cancelText="Cancel" okText="Select" [(ngModel)]="parcel.cnType"
                   placeholder=" {{'PARCEL.CN_TYPE' | translate}}">
                   <ion-select-option *ngFor="let type of cnTypes" value="{{ type }}">
                     {{ type }}
@@ -52,14 +52,14 @@
             <ion-row>
               <ion-col size="6">{{'PARCEL.QUANTITY' | translate}} </ion-col>
               <ion-col size="6">
-                <ion-input   autocomplete="nope" class="value" [(ngModel)]="parcel.Quantity" placeholder=" {{'PARCEL.QUANTITY' | translate}}">
+                <ion-input   autocomplete="nope" class="value" [(ngModel)]="parcel.quantity" placeholder=" {{'PARCEL.QUANTITY' | translate}}">
                 </ion-input>
               </ion-col>
             </ion-row>
             <ion-row>
               <ion-col size="6">{{'PARCEL.WEIGHT' | translate}} </ion-col>
               <ion-col size="6">
-                <ion-input   autocomplete="nope" class="value" [(ngModel)]="parcel.Weight" placeholder=" {{'PARCEL.WEIGHT' | translate}}">
+                <ion-input   autocomplete="nope" class="value" [(ngModel)]="parcel.weight" placeholder=" {{'PARCEL.WEIGHT' | translate}}">
                 </ion-input>
               </ion-col>
             </ion-row>
@@ -82,21 +82,21 @@
             <ion-row>
               <ion-col>{{'PARCEL.FROM' | translate}} </ion-col>
               <ion-col class="value" size="6">
-                <ion-input   autocomplete="nope" [(ngModel)]="parcel.From" placeholder=" {{'PARCEL.FROM' | translate}}">
+                <ion-input   autocomplete="nope" [(ngModel)]="parcel.from" placeholder=" {{'PARCEL.FROM' | translate}}">
                 </ion-input>
               </ion-col>
             </ion-row>
             <ion-row>
               <ion-col>{{'PARCEL.TO' | translate}} </ion-col>
               <ion-col class="value" size="6">
-                <ion-input   autocomplete="nope" [(ngModel)]="parcel.To" placeholder=" {{'PARCEL.TO' | translate}}">
+                <ion-input   autocomplete="nope" [(ngModel)]="parcel.to" placeholder=" {{'PARCEL.TO' | translate}}">
                 </ion-input>
               </ion-col>
             </ion-row>
             <ion-row>
               <ion-col>{{'PARCEL.RECEIVER' | translate}} </ion-col>
               <ion-col class="value" size="6">
-                <ion-input   autocomplete="nope" [(ngModel)]="parcel.Receiver" placeholder=" {{'PARCEL.RECEIVER' | translate}}">
+                <ion-input   autocomplete="nope" [(ngModel)]="parcel.receiver" placeholder=" {{'PARCEL.RECEIVER' | translate}}">
                 </ion-input>
               </ion-col>
             </ion-row>

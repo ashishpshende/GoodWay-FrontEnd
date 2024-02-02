@@ -69,6 +69,7 @@ export class ParcelService {
   updateStatus(parcel: Parcel, success: (any), failure: (any)) {
     parcel.createdOn = formatDate(new Date(), 'dd-MM-yyyy hh:mm:ss', 'en-US', '+0530');
     parcel.updatedOn = formatDate(new Date(), 'dd-MM-yyyy hh:mm:ss', 'en-US', '+0530');
+    
     this.networkService.post(ParcelURLs.UPDATE_PARCEL_STATUS, parcel, response => {   
       success();
     }, error => {

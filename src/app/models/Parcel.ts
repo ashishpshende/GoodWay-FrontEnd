@@ -3,29 +3,29 @@ import { BaseModel } from './BaseModel';
 import { formatDate } from '@angular/common';
 export class Parcel  extends BaseModel{
 
-    public CNNo: string;
-    public CNType: string;
-    public Dealer: string;
-    public Receiver: string;
-    public To: string;
-    public From: string;
-    public Mobile: string;
-    public Quantity: string;
-    public Weight: string;
-    public Remarks: string;
-    public ParcelStatus: string;
+    public cnNo: string;
+    public cnType: string;
+    public dealer: string;
+    public receiver: string;
+    public to: string;
+    public from: string;
+    public mobile: string;
+    public quantity: string;
+    public weight: string;
+    public remarks: string;
+    public parcelStatus: string;
     constructor(requestJSON: any)  {
         super(requestJSON);
-        this.CNNo =  requestJSON.cnNo;
-        this.CNType =  requestJSON.cnType;
-        this.Dealer =  requestJSON.dealer;
-        this.Receiver =  requestJSON.receiver;
-        this.To =  requestJSON.to;
-        this.From =  requestJSON.from;
-        this.Mobile =  requestJSON.mobile;
-        this.Quantity =  requestJSON.quantity;
-        this.Weight =  requestJSON.weight;
-        this.Remarks =  requestJSON.remarks;
-        this.ParcelStatus =  requestJSON.parcelStatus;
+        this.cnNo =  requestJSON.cnNo;
+        this.cnType =  requestJSON.cnType;
+        this.dealer =  requestJSON.dealer;
+        this.receiver =  requestJSON.receiver;
+        this.to =  requestJSON.to;
+        this.from =  requestJSON.from;
+        this.mobile =  requestJSON.mobile;
+        this.quantity =  requestJSON.quantity;
+        this.weight =  requestJSON.weight;
+        this.remarks =  requestJSON.remarks;
+        this.parcelStatus =  requestJSON.parcelStatus;
     }
 }
