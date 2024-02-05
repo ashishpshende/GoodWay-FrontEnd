@@ -1,0 +1,287 @@
+{
+
+    "BUTTONS":{
+        "SAVE":"Save",
+        "UPDATE":"Update",
+        "CANCEL":"Cancel",
+        "EDIT":"Edit",
+        "PROCEED":"Proceed",
+        "CLOSE":"Close",
+        "OK":"Ok",
+        "SHARE":"Share",
+        "LOGOUT":"Logout",
+        "LOGOUT_CONFIRM":"Are you sure to Logout?",
+        "LOGOUT_CANCEL":"Canceling Logout",
+        "YES":"Yes",
+        "NO":"No"
+    },
+    "MESSAGES":{
+        "UNDER_CONSTRUCTION_TITLE":"Under Construction",
+        "UNDER_CONSTRUCTION_MESSAGE":"We will bring this feature for you soon!",
+        "SHARE_CONFIRM_MESSAGE":"Share this App with you Collegues (Coworkers)",
+        "LOGOUT_CONFIRM_MESSAGE":"Are you sure log out?"
+    },
+    "EMPTY_RECORDS":{
+        "TITLE":"No Records Found",
+        "TITLE_SEARCH":"No Records Found with Rer. No. {REG_NO}.",
+        "TITLE_FILTER":"No Records Found with filters applied.",
+        "SUBTITLE":"Please try with another keyword/filter"
+    },
+    "NETWORK":{
+
+        "STATUS_UPDATED_TITLE": "Network Status Updated",
+        "STATUS_UPDATED_MESSAGE": "Device Network Status Updated",
+        "STATUS_UPDATED_ONLINE_MESSAGE":"Hurray! Device is Online",
+        "STATUS_UPDATED_OFFLINE_MESSAGE":"Oops! Device is Offline"
+
+    },
+    "GENERAL":{
+
+        "LANGUAGE": "Language",
+        "REQUIRED_FIELD": "Required Field",
+        "OR_LABEL_FIELD":"Or",
+        "NAME_FIELD":"Name",
+        "EMAIL_FIELD":"Email",
+        "SEARCH_FIELD":"Enter Parcel CN Number",
+        "USERNAME_FIELD":"Username",
+        "PASSWORD_FIELD":"Password",
+        "PASSWORD_CONFIRMATION_FIELD":"Confirm Password",
+        "PRIVACY_POLICY":"Privacy Policy",
+        "ABOUT_US":"About Us",
+        "DONATE_US":"Donate Us",
+        "NOT_AVAILABLE":"Not Available"
+
+    },
+    "LOGIN":{
+        "SIGN_IN_PROGRESS_MESSAGE":"Logging In...",
+        "SIGN_IN_TEXT":"Sign In",
+        "SIGN_OUT_TEXT":"Log Out",
+        "SIGN_UP_FIRST_TEXT":"Are you new here?",
+        "SIGN_UP_SECOND_TEXT":"Sign Up",
+        "SIGN_IN_WITH_TEXT":"Sign In By using social media",
+        "FORGOT_PASSWORD_TEXT":"Forgot Password?",
+        "FORGOT_USER_NAME":"User Name Forgot ?",
+        "EMAIL_VALIDATION_MESSAGE": "Email is a Required Field",
+        "PASSWORD_VALIDATION_MESSAGE": "Password Is Required Field",
+        "NAME_VALIDATION_MESSAGE":"Name is required field",
+        "I_HAVE_AN_ACCOUNT":"Already Registered",
+        "REGISTER_PAGE_TITLE":"Register",
+        "FORGOT_PASSWORD_PAGE_TITLE":"Request Password",
+        "REQUEST_PASSWORD":"Request Password",
+        "FORGOT_USERNAME_PAGE_TITLE":"Request Username",
+        "REQUEST_USERNAME":"Request Username",
+        "ERROR_ALERT_TITLE":"Login Error",
+        "INVALID_CREDENTIALS_ERROR_TITLE":"Invalid Credentials",
+        "INACTIVE_ACCOUNT_ERROR_TITLE":"In-Active Account",
+        "SUSPENDED_ACCOUNT_ERROR_TITLE":"Suspended Account",
+        "ERROR_INVALID_CREDENTIALS_MESSAGE":"Provided credentials are invalid",
+        "ERROR_INACTIVE_ACCOUNT_MESSAGE":"Your account is In-Active. Please contact Administrator.",
+        "ERROR_SUSPENDED_ACCOUNT_MESSAGE":"Your account is Suspended. Please contact Administrator.",
+        "PASSWORD_RESET_REQUIRED_ERROR_TITLE":"Reset Password Required",
+        "PASSWORD_RESET_REQUIRED_ACCOUNT_MESSAGE":"Reset Password Required to access Account"
+    },
+    "RESET_PASSWORD":{
+        "TITLE":"Reset Password",
+        "OLD_PASSWORD":"Old Password",
+        "BUTTON_TITLE":"Reset",
+        "OLD_PASSWORD_NOT_MATCHING_ERROR_TITLE":"Old Password is incorrect",
+        "OLD_PASSWORD_NOT_MATCHING_ERROR_MESSAGE":"Old Password is incorrect",
+        "NEW_PASSWORD":"New Password",
+        "CONFIRM_NEW_PASSWORD":"Confirm New Password",
+        "PASSWORD_NOT_MATCHIN_ERROR_MESSAGE":"Password not matching",
+        "EMPTY_DETAILS_ERROR_TITLE":"Empty Password",
+        "EMPTY_DETAILS_ERROR_MESSAGE":"Please provide values for all fields",
+        "NEW_PASSWORD_STRENGTH_ERROR_TITLE":"Password Strength",
+        "NEW_PASSWORD_STRENGTH_MESSAGE":"Password Strength is weak. Provide Strong Password"
+    },
+    "SIGN_UP":{
+        "TITEL":"Resgister",
+        "ALREADY_REGISTERED":"Already Registered",
+        "USER_WITH_EMAIL_ALREADY_EXISTS":"User with Email is Already present in the System.",
+        "USER_WITH_USERNAME_ALREADY_EXISTS":"User with User name is Already present in the System.",
+        "EMPTY_DETAILS":"Empty Details",
+        "EMPTY_DETAILS_MESSAGE":"Please provide values for all fields"
+    },
+    "SESSION":{
+
+        "VALIDATING_MESSAGE":"Validating Session...",
+
+        "ERROR_ALERT_TITLE":"Session Alert",
+
+        "EMAIL_UPDATED_ERROR_TITLE":"UserName/Email Updated",
+        "INACTIVE_ACCOUNT_ERROR_TITLE":"In-Active Account",
+        "SUSPENDED_ACCOUNT_ERROR_TITLE":"Suspended Account",
+        "USER_NOT_FOUND_ERROR_TITLE": "User Missing",
+        "SOMETHING_WENT_WRONG_ERROR_TITLE":"Something Went Wrong!",
+
+        "EMAIL_UPDATED_MESSAGE":"UserName/Email Updated",
+        "USER_NOT_FOUND_MESSAGE":"User Missing!",
+        "ERROR_INACTIVE_ACCOUNT_MESSAGE":"Your account is In-Active. Please contact Administrator.",
+        "ERROR_SUSPENDED_ACCOUNT_MESSAGE":"Your account is Suspended. Please contact Administrator.",
+        "SOMETHING_WENT_WRONG_MESSAGE":"Something Went Wrong. Please Contact Administrator."
+    },
+    "BASE_MODEL":{
+        "NAME":"Name",
+        "STATUS":"Status",
+        "CREATED_BY":"Created By",
+        "UPDATED_BY":"Updated By",
+        "CREATED_ON":"Created On",
+        "UPDATED_ON":"UpdatedOn",
+        "AUDIT_DETAILS":"Audit Details"
+    },
+    "USER":{
+        "FIRST_NAME":"First Name",
+        "LAST_NAME":"Last Name",
+        "PHONE_NUMBER":"PhoneNumber",
+        "GENDER":"Gender",
+        "EMAIL":"Email",
+        "ROLE":"Role",
+        "USER_NAME":"User Name",
+        "BASIC_DETAILS":"Basic Details",
+        "CONTACT_DETAILS":"Contact Details",
+        "ACCOUNT_DETAILS":"Account Details"
+    },
+    "PARCEL":{
+        "REGISTRATION_NUMBER":"CN Number",
+        "TIME_STAMP"  :"Timestamp",
+        "NAME_OF_POLICE_STATION":"Name Of Police Station",
+        "PARCEL_TYPE":"Vehicle Type",
+        "ENGINE_NUMNER" : "Engine Number",
+        "CHASSIS_NUMBER" : "Chassis Number",
+        "COMPANY" : "Company",
+        "MAKE" : "Make",
+        "MODEL" : "Model",
+        "COLOR": "Color",
+        "CATEGORY":"Category",
+        "CR_NUMBER_SECTION":"CR Number/Section",
+        "DATE_TIME_OF_THEFT":"Date Time ofTheft",
+        "LOCATION_OF_THEFT_SEIZER":"Location oF Theft/Seizer",
+        "INVESTIGATION_OFFICER_NAME":"Investigation Officer Name",
+        "INVESTIGATION_OFFICER_NUMBER":"Investigation Officer Number",
+        "POLICE_STATION_DETAILS":"Police Station Details",
+        "ENGINE_DETAILS":" Engine Details",
+        "THEFT_SEIZE_DETAILS":"Theft/seizer  Details",
+        "FOUND":"Found"
+    },
+    "USER_PROFILE":{
+        "PAGE_TITLE":"User Profile",
+        "TITLE":"User Profile",
+        "CONTENT":"",
+        "EMAIL_SYNTAX_VALIDATING_MESSAGE":"Please provide valid Email",
+        "PHONE_SYNTAX_VALIDATING_MESSAGE":"Please provide valid Phone Number"
+    },
+    "FORGOT_PASSWORD_PAGE":{
+        "PAGE_TITLE":"Forgot Password",
+        "TITLE":"Forgot Password",
+        "REQUEST_PASSWORDE_BUTTON_TITLE":"Request Password",
+        "EMAIL_SYNTAX_VALIDATING_MESSAGE":"Please provide valid Email",
+        "USER_NAME_SYNTAX_VALIDATING_MESSAGE":"Please provide valid UserName",
+        "VALIDATING_MESSAGE":"Validating provided Email and User name",
+        "VALIDATION_SUCCESS_MESSAGE":"Validation Successfull!",
+        "INVALID_DETAILS_MESSAGE":"Provided Email and UserName are not correct. Please try again.",
+        "EMAIL_SENDING_MESSAGE":"Sending Temporary Password over Email",
+        "EMAIL_SENT_MESSAGE":"Temporary Pasword sent over Email Successfully",
+        "EMAIL_SENT_TITLE":"Email sent",
+        "EMAIL_NOT_SENT_TITLE":"Email not sent",
+        "VALIDATION_FAILED_TITLE":"User Not found!",
+        "GENERATING_TEMP_PASSWORD":"Generating Temporary Password",
+        "EMAIL_SENDING_FAILED_TITLE":" Temporary Password sent.",
+        "VALIDATION_FAILED_MESSAGE":"Oops.., Something went wrong. Unable to validate details provided. Please Contact Administrator.",
+        "EMAIL_SENDING_FAILED":"Oops.., Something went wrong. Unable to send Temporary password over email. Please Contact Administrator."
+    },
+    "FORGOT_USER_NAME_PAGE":{
+        "PAGE_TITLE":"Forgot UserName",
+        "TITLE":"Forgot UserName",
+        "REQUEST_USERNAME_BUTTON_TITLE":"Request Username",
+        "EMAIL_SYNTAX_VALIDATING_MESSAGE":"Please provide valid Email",
+        "VALIDATING_MESSAGE":"Validating provided Email",
+        "VALIDATION_SUCCESS_MESSAGE":"Validation Successfull.",
+        "INVALID_DETAILS_MESSAGE":"Provided Email is not correct. Please try again.",
+        "EMAIL_SENT_TITLE":"Email sent",
+        "EMAIL_NOT_SENT_TITLE":"Email not sent",
+        "EMAIL_SENDING_MESSAGE":"Sending UserName over Email",
+        "EMAIL_SENT_MESSAGE":"UserName sent over Email Successfully",
+        "VALIDATION_FAILED_MESSAGE":"Oops.., Something went wrong. Unable to validate details provided. Please Contact Administrator.",
+        "EMAIL_SENDING_FAILED":"Oops.., Something went wrong. Unable to send UserName over email. Please Contact Administrator."
+    },
+    "USER_CREATE":{
+        "PAGE_TITLE":"Create User",
+        "TITLE":"Create User",
+        "CREATING_MESSAGE":"Creating User",
+        "CREATED_SUCCESS":"User Created Successfully",
+        "UPDATED_SUCCESS":"Oops.., Something went wrong. Unable to create User"
+    },
+    "USER_UPDATE":{
+        "PAGE_TITLE":"Update User",
+        "TITLE":"Update User",
+        "CREATING_MESSAGE":"Updating User",
+        "CREATED_SUCCESS":"User Updated Successfully",
+        "UPDATED_SUCCESS":"Oops.., Something went wrong. Unable to update User"
+    },
+    "PRIVACY_POLICY":
+    {
+        "PAGE_TITLE":"Privacy Policy",
+        "TITLE":"Privacy Policy",
+        "CONTENT":""
+    },
+    "ABOUT_US":
+    {
+        "PAGE_TITLE":"About Us",
+        "TITLE":"About Us",
+        "CONTENT":""
+    },
+
+    "USERS_PAGE":{
+        "PAGE_TITLE":"Users"
+    },
+    "HOME_PAGE":{
+        "PAGE_TITLE":"Home"
+    },
+    "SCHEDULED_SEARCH_PAGE":{
+        "PAGE_TITLE":"Schedule Search",
+        "SEARCH_KEY":"Search Key"
+    },
+    "CREATE_LOOKUP_PAGE":{
+      "PAGE_TITLE":"Create Schedule Search",
+      "RG_NUMBER_VALIDATION_MESSAGE":"Please provide Registration Number",
+      "SAVE_FAILED": "Save failed",
+      "SAVE_FAILED_MESSAGE": "Opps! Save schedule search failed. Contact administrator",
+      "VALIDATION_MESSAGE": "Enter vehicle registration number"
+    },
+    "LOOKUP_LIST_PAGE":{
+      "DELETE_SCHEDULE_SEARCH_MESSAGE":"Are you sure to delete this schedule search for vehicle? Once deleted cannot be retrieved.",
+      "DELETE_TITLE":"Delete"
+    },
+    "REPORTS":{
+      "PAGE_TITLE":"Reports",
+      "SHOW_BY":"Show By"
+    },
+    "PARCELS_PAGE":{
+        "PAGE_TITLE":"Parcels"
+    },
+    "PARCELS_SEARCH_PAGE":{
+        "PAGE_TITLE":"Search",
+        "TITLE":"Search",
+
+        "SEARCH_BY_FILTER_TITLE":"Search By Filter",
+
+
+        "RG_NUMBER_VALIDATION_MESSAGE":"Please provide Registration Number"
+    },
+    "SETTINGS_PAGE":{
+        "PAGE_TITLE":"Settings",
+        "REFRESHMETADATA_MESSAGE":"Reloading Metadata...",
+        "REFRESHMETADATA":"Reload Metadata"
+    },
+    "LANGUAGES":{
+        "ENGLISH" :"English",
+        "MARATHI":"Marathi",
+        "HINDI":"Hindi",
+        "TAMIL":"Tamil",
+        "TELAGU":"Telagu"
+    },
+    "APP_TITLE": "Good-Way",
+    "APP_SUB_TITLE": "Manage your Deliverables",
+    "APP_DESCRIPTION": "Manage your parcels in delivery Network"
+
+}

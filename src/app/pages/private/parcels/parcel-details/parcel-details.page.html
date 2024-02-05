@@ -1,0 +1,105 @@
+<ion-header>
+  <ion-toolbar>   
+    <ion-row>
+      <ion-col size="8">{{'PARCEL.CN_NO' | translate}} : {{selectedParcel.cnNo}} </ion-col>
+      <ion-col size="2">  </ion-col>              
+      <ion-col size="2">  <button (click)="qrClicked()" ><ion-icon name="qr-code"></ion-icon> </button> </ion-col>        
+    </ion-row>  
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header class="text-center">
+      <ion-item>
+        <ion-icon name='list-outline' slot="start"></ion-icon>
+        {{'PARCEL_CREATE.BASIC_DETAILS' | translate}}
+      </ion-item>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">{{'PARCEL.CN_NO' | translate}} </ion-col>
+              <ion-col size="6"> </ion-col>        
+            </ion-row>           
+          </ion-grid>
+        </ion-item>
+        <ion-item>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">{{'PARCEL.CN_TYPE' | translate}} </ion-col>
+              <ion-col size="6" class="value"> {{selectedParcel.cnType}}  </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-item>
+        <ion-icon name='list-outline' slot="start"></ion-icon>
+        {{'PARCEL_CREATE.PACKAGE_DETAILS' | translate}}
+      </ion-item>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">{{'PARCEL.QUANTITY' | translate}} </ion-col>
+              <ion-col size="6"> {{selectedParcel.quantity}}   </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6">{{'PARCEL.WEIGHT' | translate}} </ion-col>
+              <ion-col size="6"> {{selectedParcel.weight}}   </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header class="text-center">
+      <ion-item>
+        <ion-icon name='list-outline' slot="start"></ion-icon>
+        {{'PARCEL_CREATE.ADDRESS_DETAILS' | translate}}
+      </ion-item>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-grid>
+            <ion-row>
+              <ion-col>{{'PARCEL.FROM' | translate}} </ion-col>
+              <ion-col class="value" size="6"> {{selectedParcel.from}}   </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>{{'PARCEL.TO' | translate}} </ion-col>
+              <ion-col class="value" size="6"> {{selectedParcel.to}}   </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>{{'PARCEL.RECEIVER' | translate}} </ion-col>
+              <ion-col class="value" size="6"> {{selectedParcel.receiver}}   </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>{{'PARCEL.MOBILE' | translate}} </ion-col>
+              <ion-col class="value" size="6"> {{selectedParcel.mobile}}   </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>       
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+<ion-footer>
+  <ion-button expand="block" (click)="goToParcelList()" >
+    <ion-icon slot="start" name="close"></ion-icon>
+    {{'BUTTONS.CLOSE' | translate}}
+  </ion-button>
+  </ion-footer>
+  
+

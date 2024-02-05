@@ -1,0 +1,22 @@
+<ion-content>
+  <ion-card>
+    <ion-card-header class="text-center">
+      <ion-item>
+        <ion-icon name='car-outline' slot="start"></ion-icon>
+        {{'USER.BASIC_DETAILS' | translate}}
+      </ion-item>
+    </ion-card-header>
+    <ion-card-content>
+ 
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+<ion-footer>
+  <ion-button expand="block" (click)="goToScheduleSearchList()" >
+    <ion-icon slot="start" name="close"></ion-icon>
+    {{'BUTTONS.CANCEL' | translate}}
+  </ion-button>
+  <ion-button expand="block" (click)="saveButtonClicked()" >
+    <ion-icon slot="start" name="save"></ion-icon>
+    {{'BUTTONS.SAVE' | translate}}
+</ion-button>

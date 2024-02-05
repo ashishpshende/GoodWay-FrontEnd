@@ -1,0 +1,33 @@
+:host {
+  ion-content {
+       --background: url("/assets/bg20.JPG") 0 0/100% 100% no-repeat ; 
+      background-color: white;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      background-size: cover;
+  }
+  
+  
+  #TitleToolbar  {    
+    background-color: white;
+    --background: linear-gradient(180deg, var(--ion-color-light), var(--ion-color-medium-contrast));
+    color: black;
+  }
+}
+ion-col
+{
+  padding: 0px;
+  margin: 0px;
+}
+
+ion-card, ion-card-header, ion-card-content
+{
+  color: black;
+  align-items: center; justify-content: center;
+  background:none;
+  margin: 2px;
+  margin-bottom: 10px;
+  padding: 0px;
+}
+
+ 

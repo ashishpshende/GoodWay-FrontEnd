@@ -1,0 +1,159 @@
+ion-content {
+  --background: url("/assets/bg20.JPG") 0 0/100% 100% no-repeat ;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        background-color: aliceblue;
+}
+.bgWhite{
+  background-color: white;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  }
+.box {
+  margin: 15px;
+  padding: 20px 15px;
+  box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.08);
+  background-color: #b7bdf3;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-shadow: 0 1px 1px 1px #666;
+  position: relative;
+  border-radius: 5px;
+
+  .details {
+    position: absolute;
+    color: #fff;
+    transform: scale(0.8) translate(-10px, 35px);
+
+    h1,
+    h2 {
+      font-weight: 600;
+      margin: 5px;
+    }
+  }
+}
+
+.box1 {
+  background-image: linear-gradient(135deg, #ffd3a5 10%, #fd6585 100%);
+}
+
+.box3 {
+  padding: 0;
+  padding-top: 5px;
+}
+ion-select {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding-left: 0 !important;
+}
+:host {
+  ion-content {
+    --background: url("/assets/bg20.JPG") 0 0/100% 100% no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+  }
+}
+
+.toolbar-backgorund {
+  //--background: linear-gradient(180deg, var(--ion-color-dark), var(--ion-color-dark));
+  color: black;
+}
+
+.filter-search-buttons {
+  text-align: center;
+}
+
+ion-note {
+  display: inline-block;
+  font-size: 16px;
+
+  color: black;
+}
+
+ion-item.selected {
+  color: black;
+}
+
+ion-card {
+  color: rgb(44, 29, 29);
+  background-color: aquamarine;
+  padding: 0px;
+  margin: 0px;
+  border-radius: 10px;
+}
+
+ion-card-content {
+  color: rgb(19, 13, 13);
+}
+
+.user-results {
+  background: transparent;
+}
+
+.user-results-list-header {
+  background-color: rgb(61, 167, 167);
+}
+
+.user-result-cell {
+  margin-top: 10px;
+  border-bottom-width: 1px;
+  border-bottom-color: black;
+  border-bottom-style: groove;
+}
+
+.list-image {
+  font-size: 50px;
+  color: black;
+}
+
+.status-icon {
+  width: 20px;
+  height: 20px;
+
+}
+
+.search-icon {
+  width: 25px;
+  height: 25px;
+}
+.search-text {
+  font-size: x-large;
+  color: gray;
+}
+.search-text-field {
+  font-size: larger;
+  color:gray;
+}
+.pagination-area {
+  position: fixed;
+  left: 0;
+  bottom: 0px;
+  right: 0;
+  background-color: gray;
+  height: 45px;
+  margin-bottom: 0px;
+}
+
+.pagination-button {
+  border-width: 1px;
+  border-color: #3e2c2c;
+  color: white;
+  font-size: larger;
+  font-weight: 800;
+  border-style: solid;
+  text-align: center;
+}
+.selected {
+  background-color: #e9c0c0;
+  color: #645858;
+}
+.open-space {
+  margin-bottom: 50px;
+}

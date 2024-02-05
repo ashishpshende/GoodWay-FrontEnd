@@ -1,0 +1,44 @@
+:host {
+  ion-content {
+       --background: url("/assets/bg20.JPG") 0 0/100% 100% no-repeat ; 
+     //background-color: aliceblue;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      background-size: cover;
+     color: black;
+     --overflow: hidden;
+  }
+  ion-card,ion-item,ion-icon,ion-list, ion-card-header, ion-list-header,ion-card-content,on-label
+  {
+      align-items: center; justify-content: center;
+      background:none;   
+      color: black; 
+  }
+}
+.toolbar-backgorund  {
+  --background: linear-gradient(180deg, var(--ion-color-dark), var(--ion-color-medium-contrast));
+  color: black;
+}
+
+
+.bottom-area{
+  position: fixed;
+  left: 0;
+  bottom: 0px;
+  right: 0;
+  background-color: gray;
+  height: 45px;
+  margin-bottom: 0px;
+}
+.bottom-button
+{
+  border-width: 1px;
+  border-color: #3e2c2c;
+  color: white;
+  font-size: larger;
+  font-weight: 800;
+  border-style: solid;
+  width: 50%;
+  margin: auto;
+  margin-top: 5px;
+}

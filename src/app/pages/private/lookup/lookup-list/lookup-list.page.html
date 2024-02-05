@@ -1,0 +1,30 @@
+<ion-content>
+
+</ion-content>
+<ion-footer>
+  <div  class="text-center pagination-area">
+    <ion-grid>
+      <ion-row>
+        <ion-col *ngIf="allowFirst" class="pagination-button" (click)="FirstClicked()">
+          
+        </ion-col>
+        <ion-col *ngIf="allowPrev" class="pagination-button" (click)="PrevClicked()">
+          
+        </ion-col>
+        <ion-col *ngFor="let page of pages" class="pagination-button">
+          <ion-button  [disabled]="page===currentPage "  (click)="PageClicked(page)">
+            {{page}}
+          </ion-button>
+
+        </ion-col>
+        <ion-col  *ngIf="allowNext" class="pagination-button" (click)="NextClicked()">
+         
+        </ion-col>
+        <ion-col  *ngIf="allowLast" class="pagination-button" (click)="LastClicked()">
+         
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-footer>
+

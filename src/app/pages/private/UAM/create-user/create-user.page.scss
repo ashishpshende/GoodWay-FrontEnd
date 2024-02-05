@@ -1,0 +1,125 @@
+:host {
+    ion-content {
+        --background: url("/assets/bg20.JPG") 0 0/100% 100% no-repeat;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        background-color: aliceblue;
+
+    }
+}
+
+.toolbar-backgorund {
+    //--background: linear-gradient(180deg, var(--ion-color-dark), var(--ion-color-dark));
+    background-color: aliceblue;
+
+   // color: black;
+}
+
+.user-profile-pic {
+    width: 60px;
+    height: 60px;
+    display: block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: aliceblue;
+}
+
+ion-note {
+    display: inline-block;
+    font-size: 16px;
+    background-color: aliceblue;
+
+    color: black;
+}
+
+ion-select {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding-left: 0 !important;
+}
+
+ion-item.selected {
+    background-color: aliceblue;
+
+    color: black;
+}
+
+ion-card {
+    color: rgb(44, 29, 29);
+    background-color: aliceblue;
+    padding: 0px;
+    margin: 0px;
+    border-radius: 10px;
+}
+
+ion-card-content {
+    background-color: aliceblue;
+
+    color: rgb(19, 13, 13);
+}
+
+.user-results {
+
+    background-color: aliceblue;
+}
+
+.user-results-list-header {
+    background-color: aliceblue;
+}
+
+.user-result-cell {
+    background-color: aquamarine;
+    margin-top: 10px;
+}
+
+.list-image {
+    font-size: 50px;
+    color: rgb(31, 7, 7);
+}
+
+.user-icon {
+    font-size: 50px;
+    color: rgb(31, 7, 7);
+}
+
+.value {
+    font-size: larger;
+    font-weight: 600;
+}
+
+.text-center {
+    text-align: center;
+    align-items: center;
+}
+
+.bottom-area{
+    position: fixed;
+    left: 0;
+    bottom: 0px;
+    right: 0;
+    background-color: gray;
+    height: 45px;
+    margin-bottom: 0px;
+  }
+  .bottom-button
+  {
+    border-width: 1px;
+    border-color: #3e2c2c;
+    color: white;
+    font-size: larger;
+    font-weight: 800;
+    border-style: solid;
+    width: 50%;
+    margin: auto;
+    margin-top: 5px;
+  }
+  .custom-card
+  {
+    height: 300px;
+  }
+  .field-list
+  {
+    padding-left: 10px;
+  }

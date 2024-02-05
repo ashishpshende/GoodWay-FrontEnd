@@ -1,0 +1,73 @@
+<ion-content>
+
+
+    <ion-grid>
+        <ion-row>
+            <!-- <ion-col (click)="searchTileClicked()">
+                <ion-card  class="menu-tile">
+                    <ion-card-header>
+                        <ion-icon  class="menu-tile-image" name="search-sharp"></ion-icon>
+                    </ion-card-header>
+                    <ion-card-content>
+                        {{'DASHBOARD.SEARCH_PARCEL' | translate}}
+                    </ion-card-content>
+                </ion-card>
+            </ion-col> -->
+            <!--  *ngIf="(loggedInUser.Role ==='Admin' || loggedInUser.Role ==='Dealer')"  -->
+            <ion-col (click)="addParcelTileClicked()">
+                <ion-card class="menu-tile">
+                    <ion-card-header>
+                        <ion-icon class="menu-tile-image" name="add-sharp"></ion-icon>
+                    </ion-card-header>
+                    <ion-card-content>
+                        {{'DASHBOARD.ADD_PARCEL' | translate}}
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+            <!-- *ngIf="(loggedInUser.Role ==='Admin' || loggedInUser.Role ==='SubDealer')" -->
+            <ion-col   (click)="scanQRCodeTileClicked()">
+                <ion-card class="menu-tile">
+                    <ion-card-header>
+                        <ion-icon class="menu-tile-image" name="qr-code-sharp"></ion-icon>
+                    </ion-card-header>
+                    <ion-card-content>
+                        {{'DASHBOARD.SCAN_QR_CODE' | translate}}
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <!-- *ngIf="loggedInUser.Role==='Admin'"  -->
+            <ion-col (click)="usersTileClicked()">
+                <ion-card class="menu-tile">
+                    <ion-card-header>
+                        <ion-icon class="menu-tile-image" name="person-outline"></ion-icon>
+                    </ion-card-header>
+                    <ion-card-content>
+                        {{'DASHBOARD.USERS' | translate}}
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+            <ion-col *ngIf="false" (click)="visualizationTileClicked()">
+                <ion-card class="menu-tile">
+                    <ion-card-header>
+                        <ion-icon class="menu-tile-image" name="pie-chart-outline"></ion-icon>
+                    </ion-card-header>
+                    <ion-card-content>
+                      {{'DASHBOARD.REPORTS' | translate}}
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+            <ion-col (click)="settingsTileClicked()">
+                <ion-card class="menu-tile">
+                    <ion-card-header>
+                        <ion-icon  class="menu-tile-image" name="cog-sharp"></ion-icon>
+                    </ion-card-header>
+                    <ion-card-content>
+                        {{'DASHBOARD.SETTINGS' | translate}}
+                    </ion-card-content>
+                </ion-card>
+              </ion-col>
+        </ion-row>      
+    </ion-grid>
+</ion-content>
