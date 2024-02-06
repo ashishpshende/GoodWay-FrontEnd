@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   appScriptApiURL:"https://script.google.com/macros/s/AKfycbyNal0n0oXvAvpoqFQafh8fqW0PWvRks3MMXzKc-nwdWJgvG1Tp9a6zsw2Lz6Ra6C-Q/exec",
-  apiURL:"http://localhost:8080",
+  apiURL:"http://ec2-54-227-88-161.compute-1.amazonaws.com",
   SpreadsheetId:"1IcUr3MW8Z5B8iRsjI0P3OXDaGgcRPVxsGiU1rjESg3I",
   API_KEY:"NwMaHCiqH7se-NO7AZrGORt9miwxRlUDM01yZtnUsutxEfTov_BoTLRaS6g",
   READ_ONLY_API_KEY:"1pL_A3srvlUfQclscdTFtSShb94cJJWOMD-T0IKw46JxuVHvWHQKHtNO92RGRA",

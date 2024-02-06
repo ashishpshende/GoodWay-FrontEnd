@@ -28,8 +28,8 @@ export class NetworkService {
     this.token = environment.API_KEY;
     this.headers = new HttpHeaders();
     this.headers.set("Source", "IONIC");
-    this.headers.set(KeywordConstants.AUTH_TOKEN_KEY, 'Bearer ' + environment.READ_ONLY_API_KEY);
-    this.headers.set("X-Spreadsheet-Id", environment.SpreadsheetId)
+    //this.headers.set(KeywordConstants.AUTH_TOKEN_KEY, 'Bearer ' + environment.READ_ONLY_API_KEY);
+    //this.headers.set("X-Spreadsheet-Id", environment.SpreadsheetId)
 
   }
 

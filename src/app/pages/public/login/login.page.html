@@ -74,13 +74,21 @@
 
 
 
-
   <div class="text-center language-button">
+   
     <span (click)="languageLinkClicked()" class="paz" tappable>
       <ion-text color="dark">
         {{'GENERAL.LANGUAGE' | translate}}
       </ion-text>
     </span>
   </div>
-
+ 
 </ion-content>
+<ion-footer>
+  <div class="text-center server-url">
+    <ion-label>
+      {{serverURL}}
+    </ion-label>
+    </div>
+
+</ion-footer>

@@ -5,7 +5,6 @@ import { HttpClientModule,HttpClient } from '@angular/common/http';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-// import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NgEventBus } from 'ng-event-bus';

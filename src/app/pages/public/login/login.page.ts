@@ -7,6 +7,7 @@ import { LocalStorageService } from 'src/app/services/localStorage/local-storage
 import { UserService } from 'src/app/services/user/user.service';
 import { LanguageService } from 'src/app/services/language/language.service';
 import { NgEventBus } from 'ng-event-bus';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -18,6 +19,7 @@ import { NgEventBus } from 'ng-event-bus';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit,AfterViewInit {
+  serverURL: string;
   userName: string;
   password: string;
   showUsernameValidationMessage: boolean;
@@ -36,14 +38,14 @@ export class LoginPage implements OnInit,AfterViewInit {
     public loadingController: LoadingController,
     private userService: UserService,
     private languageService: LanguageService  ) {
-
+  this.serverURL = "Server: " + environment.apiURL;
 
     this.showUsernameValidationMessage = false;
     this.showPasswordValidationMessage = false;
   }
   ngAfterViewInit(): void {
-    this.userName =  '';
-    this.password =  '';
+    this.userName =  'Admin';
+    this.password =  'pass1';
   }
 
   ionViewWillEnter() {

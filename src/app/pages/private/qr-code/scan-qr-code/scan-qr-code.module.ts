@@ -17,4 +17,8 @@ import { ScanQrCodePage } from './scan-qr-code.page';
   ],
   declarations: [ScanQrCodePage]
 })
-export class ScanQrCodePageModule {}
+export class ScanQrCodePageModule {
+
+   
+
+}
