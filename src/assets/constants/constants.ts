@@ -19,6 +19,15 @@ export class KeywordConstants {
   public static ROLE_DEALER = 'Dealer';
 
 
+  public static PARCEL_STATUS_NEW = 'New';
+  public static PARCEL_STATUS_IN_TRANSIT = 'In-Transit';
+  public static PARCEL_STATUS_SHIPPED = 'Shipped';
+  public static PARCEL_STATUS_DISPATCH = 'Dispatched';
+  public static PARCEL_STATUS_READY_TO_LOAD = 'Read-To-Transit';
+  public static PARCEL_STATUS_DELIVERED = 'Delivered';
+
+
+
   //APP Language
 
   public static LOCALIZATION_ENABLED = "LOCALIZATION_ENABLED";

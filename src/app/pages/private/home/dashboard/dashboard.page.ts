@@ -133,8 +133,10 @@ export class DashboardPage implements OnInit, AfterViewInit {
   }
   scanQRCodeTileClicked()
   {
-    this.presentAlert('Is available', this.isAvailable + '');
-    this.presentAlert('Is Supported', this.isSupported + '');
+    if(this.isAvailable===false)
+    this.presentAlert('QR Scanner Alert!', 'QR Scanner not available on current Device.');
+    if(this.isSupported==false)
+    this.presentAlert('QR Scanner Alert!', 'QR Scanner not supported on current Device.');
 
 
    this.scan()

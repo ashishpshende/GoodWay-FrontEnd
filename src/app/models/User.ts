@@ -61,7 +61,7 @@ export class User  extends BaseModel {
         return {
           id: this.id,
           name: this.name,
-          userName: this.updatedOn,
+          userName: this.userName,
           city: this.city,
           userRole: this.userRole,
           password: this.password,

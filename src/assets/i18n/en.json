@@ -170,7 +170,8 @@
         "FROM" : "From",
         "TO" : "To",
         "RECEIVER" : "Receiver",
-        "MOBILE":"Mobile"
+        "MOBILE":"Mobile",
+        "STATUS":"Status"
     },
     "USER_PROFILE":{
         "PAGE_TITLE":"User Profile",

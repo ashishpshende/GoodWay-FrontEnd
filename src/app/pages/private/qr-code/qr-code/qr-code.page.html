@@ -9,7 +9,6 @@
               [width]="150"
               [errorCorrectionLevel]="'M'"
             ></qrcode>
-
           </ion-col>
           <ion-col size="6">
             <ion-row>
@@ -39,7 +38,12 @@
               <ion-col size="6"> {{'PARCEL.FROM' | translate}} </ion-col>
               <ion-col size="6"> {{selectedParcel.from}} </ion-col>
             </ion-row>
+          
           </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6"> {{'PARCEL.STATUS' | translate}} </ion-col>
+          <ion-col size="6"> {{selectedParcel.parcelStatus}} </ion-col>
         </ion-row>
       </ion-grid>
     </ion-card-content>
@@ -49,7 +53,7 @@
     <ion-card-content>
       <ion-grid>
         <ion-list>
-            <ion-item *ngIf="selectedParcel.parcelStatus!=='In-Transit'" id="edit" (click)="markAsDelivered()">
+            <ion-item *ngIf="selectedParcel.parcelStatus==='In-Transit'" id="edit" (click)="markAsDelivered()">
               <ion-icon slot="start" name="archive"></ion-icon>
               <ion-label> Mark delivered</ion-label>
             </ion-item>

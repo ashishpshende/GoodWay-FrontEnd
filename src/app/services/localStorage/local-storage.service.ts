@@ -37,7 +37,7 @@ export class LocalStorageService {
     this.getItem(KeywordConstants.LOGGED_IN_STATUS).then((loggedIn: any) => {
       if (loggedIn.value) {
         this.StoredPreference.LoggedInStatus = loggedIn;
-        if (loggedIn.value === true) {
+        if (loggedIn.value === "true") {
           this.getItem(KeywordConstants.USER_OBJECT).then((userInfo) => {
             this.StoredPreference.LoggedInUser = new User(
               JSON.parse(userInfo.value)

@@ -44,8 +44,8 @@ export class LoginPage implements OnInit,AfterViewInit {
     this.showPasswordValidationMessage = false;
   }
   ngAfterViewInit(): void {
-    this.userName =  'Admin';
-    this.password =  'pass1';
+    this.userName =  '';
+    this.password =  '';
   }
 
   ionViewWillEnter() {

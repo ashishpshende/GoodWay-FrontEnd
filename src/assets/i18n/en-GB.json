@@ -51,6 +51,7 @@
     },
     "DASHBOARD":{
         "SCAN_QR_CODE":"Scan QR Code",
+
         "ADD_PARCEL": "Add Parcel",
         "USERS": "Sub-Dealers",
         "SETTINGS":"Settings",
@@ -169,7 +170,8 @@
         "FROM" : "From",
         "TO" : "To",
         "RECEIVER" : "Receiver",
-        "MOBILE":"Mobile"
+        "MOBILE":"Mobile",
+        "STATUS":"Status"
     },
     "USER_PROFILE":{
         "PAGE_TITLE":"User Profile",
@@ -239,13 +241,20 @@
         "TITLE":"About Us",
         "CONTENT":""
     },
-    "PARCEL_CREATE":{
-        "BASIC_DETAILS":"Basic Details",
-        "ADDRESS_DETAILS":"Address Details",
-        "PACKAGE_DETAILS":"Package Details",
-        "PAGE_TITLE":"Add Parcel"
-    },
+
     "USERS_PAGE":{
+        "PAGE_TITLE":"Users",
+        "TITLE":"User List",
+        "SEARCH_BY_TITLE":"Search",
+        "SEARCH_BY_NAME":"Search By Name"
+    },
+    "DEALERS_PAGE":{
+        "PAGE_TITLE":"Dealers",
+        "TITLE":"Dealer List",
+        "SEARCH_BY_TITLE":"Search",
+        "SEARCH_BY_NAME":"Search By Name"
+    },
+    "SUB_DEALERS_PAGE":{
         "PAGE_TITLE":"Sub-Dealers",
         "TITLE":"Sub-Dealer List",
         "SEARCH_BY_TITLE":"Search",
@@ -276,6 +285,12 @@
     },
     "PARCELS_PAGE":{
         "PAGE_TITLE":"Parcels"
+    },
+    "PARCEL_CREATE":{
+        "BASIC_DETAILS":"Basic Details",
+        "ADDRESS_DETAILS":"Address Details",
+        "PACKAGE_DETAILS":"Package Details",
+        "PAGE_TITLE":"Add Parcel"
     },
     "PARCELS_SEARCH_PAGE":{
         "PAGE_TITLE":"Search",

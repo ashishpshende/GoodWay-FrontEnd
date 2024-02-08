@@ -13,8 +13,8 @@
                     </ion-card-content>
                 </ion-card>
             </ion-col> -->
-            <!--  *ngIf="(loggedInUser.userRole==='Admin' || loggedInUser.userRole==='Dealer')"  -->
-            <ion-col (click)="addParcelTileClicked()">
+            <!--    -->
+            <ion-col *ngIf="(loggedInUser.userRole==='Admin' || loggedInUser.userRole==='Dealer')" (click)="addParcelTileClicked()">
                 <ion-card class="menu-tile">
                     <ion-card-header>
                         <ion-icon class="menu-tile-image" name="add-sharp"></ion-icon>
@@ -24,8 +24,8 @@
                     </ion-card-content>
                 </ion-card>
             </ion-col>
-            <!-- *ngIf="(loggedInUser.userRole==='Admin' || loggedInUser.userRole==='SubDealer')" -->
-            <ion-col   (click)="scanQRCodeTileClicked()">
+            <!-- -->
+            <ion-col *ngIf="(loggedInUser.userRole==='Admin'  || loggedInUser.userRole==='Dealer' || loggedInUser.userRole==='SubDealer')"   (click)="scanQRCodeTileClicked()">
                 <ion-card class="menu-tile">
                     <ion-card-header>
                         <ion-icon class="menu-tile-image" name="qr-code-sharp"></ion-icon>
@@ -37,8 +37,7 @@
             </ion-col>
         </ion-row>
         <ion-row>
-            <!-- *ngIf="loggedInUser.Role==='Admin'"  -->
-            <ion-col (click)="usersTileClicked()">
+            <ion-col  *ngIf="(loggedInUser.userRole==='Admin' || loggedInUser.userRole==='Dealer')" (click)="usersTileClicked()">
                 <ion-card class="menu-tile">
                     <ion-card-header>
                         <ion-icon class="menu-tile-image" name="person-outline"></ion-icon>
@@ -58,7 +57,7 @@
                     </ion-card-content>
                 </ion-card>
             </ion-col>
-            <ion-col (click)="settingsTileClicked()">
+            <ion-col  *ngIf="(loggedInUser.userRole==='Admin' || loggedInUser.userRole==='Dealer')" (click)="settingsTileClicked()">
                 <ion-card class="menu-tile">
                     <ion-card-header>
                         <ion-icon  class="menu-tile-image" name="cog-sharp"></ion-icon>
