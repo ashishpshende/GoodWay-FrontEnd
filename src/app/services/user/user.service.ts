@@ -14,15 +14,18 @@ import { AuthenticationService } from '../authentication/authentication.service'
 export class UserURLs {
 
   public static USER_LOGIN_URL = environment.apiURL + '/api/users/Login';
-  public static LIST = environment.apiURL + '/sheets/Users?keys=id,UserName,Email,PhoneNumber,FirstName,LastNamae,Role,Status,CreatedAt,Id&skip={SKIP}&limit={LIMIT}&timestamp=' + new Date().getTime();
-  public static SEARCH = environment.apiURL + '/sheets/Users?keys=id,UserName,Email,PhoneNumber,FirstName,LastNamae,Role,Status,CreatedAt,Id&where={{SEARCH}}&timestamp=' + new Date().getTime();
+  public static LIST = environment.apiURL+ '/api/users/list';
+  public static LIST_BY_ROLE = environment.apiURL+ '/api/users/list?role=';
+  public static LIST_ACTIVE_BY_ROLE = environment.apiURL+ '/api/users/list?status=Active&role=';
+
+  public static SEARCH = environment.apiURL + '/api/users/search';
   public static READ = environment.apiURL + '/api/users/info?id=';
-  public static UPDATE = environment.apiURL + '/sheets/Users/{ROW_INDEX}?timestamp=' + new Date().getTime();
-  public static SAVE = environment.apiURL + '/sheets/Users?timestamp=' + new Date().getTime();
-  public static DELETE = environment.apiURL + '/sheets/Users/{ROW_INDEX}?timestamp=' + new Date().getTime();
-  public static READ_BY_USER_NAME = environment.apiURL + '/sheets/Users?keys=UserName,Id&where={"UserName":"USER_NAME" }&timestamp=' + new Date().getTime();
-  public static READ_BY_EMAIL = environment.apiURL + '/sheets/Users?keys=Email,Id&where={"Email": "EMAIL"}&timestamp=' + new Date().getTime();
-  public static RESET_PASSWORD = environment.apiURL + '/sheets/Users/{ROW_INDEX}?timestamp=' + new Date().getTime();
+  public static UPDATE = environment.apiURL + '/api/users/update';
+  public static SAVE = environment.apiURL + '/api/users/save';
+  public static DELETE = environment.apiURL + '/api/users/delete';
+  public static READ_BY_USER_NAME = environment.apiURL + '/api/users/readByEmail';
+  public static READ_BY_EMAIL = environment.apiURL + '/api/users/readByEmail';
+  public static RESET_PASSWORD = environment.apiURL + '/api/users/reset';
 }
 @Injectable({
   providedIn: 'root'
@@ -65,10 +68,10 @@ export class UserService {
       // this.readById(this.loggedInUser.id,
       //   (serverUser:any) => {
 
-      //     switch (serverUser.Status) {
+      //     switch (serverUser.userStatus) {
       //       case 'Active':
       //         this.loggedInUser = serverUser;
-      //         if (this.loggedInUser.Email === serverUser.Email)
+      //         if (this.loggedInUser.email === serverUser.email)
       //           {success(this.loggedInUser);}
       //         else
       //           {this.logout(() => { failure('EMAIL_UPDATED'); });}
@@ -109,16 +112,12 @@ export class UserService {
     this.authenticationService.logout(() => {
       if (this.loggedInUser)
       {
-        this.loggedInUser.FirstName = '';
-      this.loggedInUser.LastName = '';
-      this.loggedInUser.UserName = '';
-      this.loggedInUser.Email = '';
-      this.loggedInUser.Gender = '';
-      this.loggedInUser.DateOfBirth = '';
-      this.loggedInUser.Role = '';
-      this.loggedInUser.PhoneNumber = '';
-      this.loggedInUser.Status = '';
-      this.loggedInUser.StatusIcon = '';
+      this.loggedInUser.userName = '';
+      this.loggedInUser.email = '';
+      this.loggedInUser.userRole = '';
+      this.loggedInUser.phoneNumber = '';
+      this.loggedInUser.userStatus = '';
+      this.loggedInUser.statusIcon = '';
       success();
     }});
   }
@@ -133,9 +132,9 @@ export class UserService {
     this.networkService.post(UserURLs.USER_LOGIN_URL, requestParams, (response:any) => {
       if (response.statusCode==='SUCCESS') {
         this.loggedInUser = new User(response.data);
-          switch (this.loggedInUser.Status) {
+          switch (this.loggedInUser.userStatus) {
             case 'Active':
-              if (this.loggedInUser.ResetRequired === true) {
+              if (this.loggedInUser.resetRequired === true) {
                 failure('RESET_REQUIRED');
               }
               else
@@ -169,7 +168,7 @@ export class UserService {
 
       if (response.results.length !== 0) {
         var user = response.results[0];
-        switch (user.Status) {
+        switch (user.userStatus) {
           case 'Active':
             success(user);
             break;
@@ -190,28 +189,18 @@ export class UserService {
     });
   }
   Validate(user: User): boolean {
-    if (user.FirstName == null || user.FirstName === undefined || user.FirstName === '') {
+    if (user.name) {
+      return false;
+    }
+    if (user.email == null || user.email === undefined || user.email === '') {
       return false;
     }
 
-
-    if (user.LastName == null || user.LastName === undefined || user.LastName === '') {
+    if (user.phoneNumber == null || user.phoneNumber === undefined || user.phoneNumber === '') {
       return false;
     }
 
-    if (user.Gender == null || user.Gender === undefined || user.Gender === '') {
-      return false;
-    }
-
-    if (user.Email == null || user.Email === undefined || user.Email === '') {
-      return false;
-    }
-
-    if (user.PhoneNumber == null || user.PhoneNumber === undefined || user.PhoneNumber === '') {
-      return false;
-    }
-
-    if (user.UserName == null || user.UserName === undefined || user.UserName === '') {
+    if (user.userName == null || user.userName === undefined || user.userName === '') {
       return false;
     }
 
@@ -220,7 +209,15 @@ export class UserService {
 
   }
   list(skip: number = 0, limit: number = 10, success: (any), failure: (any)) {
-    this.networkService.get(UserURLs.LIST.replace('{SKIP}', skip.toString()).replace('{LIMIT}', limit.toString()), (response:any) => {
+    this.networkService.get(UserURLs.LIST, (response:any) => {
+      success(response);
+    }, () => {
+      failure();
+    });
+  }
+  listbyRole(role:string,showActiveOnly:boolean ,skip: number = 0, limit: number = 10, success: (any), failure: (any)) {
+
+    this.networkService.get((showActiveOnly?UserURLs.LIST_ACTIVE_BY_ROLE:UserURLs.LIST_BY_ROLE)+role, (response:any) => {
       success(response);
     }, () => {
       failure();
@@ -326,54 +323,51 @@ export class UserService {
       failure();
     });
   }
-  setLocalUser(userObject:any)
+  setLocalUser(userObject:User)
   {
     this.authorizationService.loggedInUser = userObject;
     this.localStorageService.StoredPreference.LoggedInUser = userObject;
     this.localStorageService.StoredPreference.LoggedInStatus = true;
-    this.localStorageService.StoredPreference.LoggedInUserEmail = userObject.Email;
-    this.localStorageService.StoredPreference.LoggedInUserName = userObject.UserName;
+    this.localStorageService.StoredPreference.LoggedInUserEmail = userObject.email;
+    this.localStorageService.StoredPreference.LoggedInUserName = userObject.userName;
     this.localStorageService.StoredPreference.LoggedInUserId = userObject.id;
     
-    this.localStorageService.setItem(KeywordConstants.USER_OBJECT, userObject);
-    this.localStorageService.setItem(KeywordConstants.USER_EMAIL, userObject.Email);
-    this.localStorageService.setItem(KeywordConstants.USER_NAME, userObject.UserName);
+    this.localStorageService.setItem(KeywordConstants.USER_OBJECT,JSON.stringify(userObject.ToJSON()));
+    this.localStorageService.setItem(KeywordConstants.USER_EMAIL, userObject.email);
+    this.localStorageService.setItem(KeywordConstants.USER_NAME, userObject.userName);
     this.localStorageService.setItem(KeywordConstants.USER_ROW_INDEX, userObject.id);
     this.localStorageService.setItem(KeywordConstants.DEFAULT_APP_LANGUAGE, 'en');
+    this.localStorageService.setItem(KeywordConstants.SELECTED_APP_LANGUAGE, 'en');
+
 
   }
   ToJSON(user: User) {
 
     if (user.id != null && user.id !== undefined && user.id !== 0)
       {return {
-        UserName: user.UserName,
-        Password: this.securityService.hash(user.Password??""),
-        Email: user.Email,
-        PhoneNumber: user.PhoneNumber,
-        FirstName: user.FirstName,
-        LastName: user.LastName,
-        Gender: user.Gender,
-        Role: user.Role,
-        Status: user.Status,
+        UserName: user.userName,
+        Password: this.securityService.hash(user.password??""),
+        Email: user.email,
+        PhoneNumber: user.phoneNumber,
+        name: user.name,
+        Role: user.userRole,
+        Status: user.userStatus,
         Id: user.id,
         CreatedOn: user.createdOn,
         UpdatedOn: user.updatedOn,
-        ResetRequired: user.ResetRequired ? 1 : 0
+        ResetRequired: user.resetRequired ? 1 : 0
       };}
     else
       {return {
-        UserName: user.UserName,
-        Password: this.securityService.hash(user.Password??""),
-        Email: user.Email,
-        PhoneNumber: user.PhoneNumber,
-        FirstName: user.FirstName,
-        LastName: user.LastName,
-        Gender: user.Gender,
-        Role: user.Role,
-        Status: user.Status,
+        UserName: user.userName,
+        Password: this.securityService.hash(user.password??""),
+        Email: user.email,
+        PhoneNumber: user.phoneNumber,
+        Role: user.userRole,
+        Status: user.userStatus,
         CreatedOn: user.createdOn,
         UpdatedOn: user.updatedOn,
-        ResetRequired: user.ResetRequired ? 1 : 0
+        ResetRequired: user.resetRequired ? 1 : 0
       };}
   }
   getUserByUserNameEmail(userName: string,email: string, success: (any), failure: (any)) {
@@ -408,37 +402,33 @@ export class UserService {
   ToUpdateJSON(user: User) {
 
     return {
-      UserName: user.UserName,
-      Email: user.Email,
-      PhoneNumber: user.PhoneNumber,
-      FirstName: user.FirstName,
-      LastName: user.LastName,
-      Gender: user.Gender,
-      Role: user.Role,
-      Status: user.Status,
-      UpdatedOn: user.updatedOn
+      userName: user.userName,
+      email: user.email,
+      phoneNumber: user.phoneNumber,
+      navigator: user.name,
+      userRole: user.userRole,
+      userStatus: user.userStatus,
+      updatedOn: user.updatedOn
     };
   }
 
   ToProfileJSON(user: User) {
     return {
-      UserName: user.UserName,
-      Password: this.securityService.hash(user.Password??""),
-      Email: user.Email,
-      PhoneNumber: user.PhoneNumber,
-      FirstName: user.FirstName,
-      LastName: user.LastName,
-      Gender: user.Gender,
-      Id: user.id
+      userName: user.userName,
+      password: this.securityService.hash(user.password??""),
+      email: user.email,
+      phoneNumber: user.phoneNumber,
+      name: user.name,
+      id: user.id
     };
   }
       public ToCredentialsJSON(user: User)
     {
       user.updatedOn = formatDate(new Date(), 'dd-MM-yyyy hh:mm:ss', 'en-US', '+0530');
         return {
-            UserName: user.UserName,
-            Email: user.Email,
-            Password: this.securityService.hash(user.Password??""),
+            UserName: user.userName,
+            Email: user.email,
+            Password: this.securityService.hash(user.password??""),
             ResetRequired : 1,
             UpdatedOn: user.updatedOn
           };

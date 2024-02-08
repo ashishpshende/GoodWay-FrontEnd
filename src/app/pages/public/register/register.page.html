@@ -21,41 +21,17 @@
             <ion-row>
               <ion-col size="12">{{'BASE_MODEL.name' | translate}} </ion-col>
             </ion-row>
-            <ion-row>
-              <ion-col size="6">
-                <ion-input  autocomplete="nope"
-                 class="value" [(ngModel)]="user.FirstName" placeholder=" {{'USER.FIRST_NAME' | translate}}">
-                </ion-input>
-              </ion-col>
-              <ion-col size="6">
+            <ion-row>            
+              <ion-col size="12">
                 <ion-input   autocomplete="nope"
-                class="value" [(ngModel)]="user.LastName" placeholder=" {{'USER.LAST_NAME' | translate}}">
+                class="value" [(ngModel)]="user.name" placeholder=" {{'USER.LAST_NAME' | translate}}">
                 </ion-input>
               </ion-col>
             </ion-row>
           </ion-grid>
         </ion-item>
 
-        <ion-item>
-          <ion-grid>
-            <ion-row>
-              <ion-col size="6">{{'USER.GENDER' | translate}} </ion-col>
-              <ion-col class="value" size="auto">
-                <ion-select multiple="false" cancelText="Cancel" okText="Select" [(ngModel)]="user.Gender"
-                  placeholder=" {{'USER.GENDER' | translate}}">
-                  <ion-select-option *ngFor="let gender of genders" value="{{ gender }}">
-                    {{ gender }}
-                  </ion-select-option>
-                </ion-select>
-              </ion-col>
-            </ion-row>
-            <!-- <ion-row>
-              <ion-col size="2"></ion-col>
-
-            </ion-row> -->
-          </ion-grid>
-        </ion-item>
-
+      
       </ion-list>
     </ion-card-content>
   </ion-card>
@@ -74,7 +50,7 @@
             <ion-row>
               <ion-col>{{'USER.EMAIL' | translate}} </ion-col>
               <ion-col class="value" size="6">
-                <ion-input   autocomplete="nope" [(ngModel)]="user.Email" placeholder=" {{'USER.EMAIL' | translate}}">
+                <ion-input   autocomplete="nope" [(ngModel)]="user.email" placeholder=" {{'USER.EMAIL' | translate}}">
                 </ion-input>
               </ion-col>
             </ion-row>
@@ -91,7 +67,7 @@
               <ion-col class="value" size="6">
                 <ion-input  type="number" pattern="[0-9]" 
                 maxlength="10"
-                 autocomplete="nope" [(ngModel)]="user.PhoneNumber" 
+                 autocomplete="nope" [(ngModel)]="user.phoneNumber" 
                  placeholder=" {{'USER.PHONE_NUMBER' | translate}}">
                 </ion-input>
               </ion-col>
@@ -119,7 +95,7 @@
             <ion-row>
               <ion-col>{{'USER.USER_NAME' | translate}} </ion-col>
               <ion-col size="6">
-                <ion-input   autocomplete="nope" class="value" [(ngModel)]="user.UserName" placeholder=" {{'USER.USER_NAME' | translate}}">
+                <ion-input   autocomplete="nope" class="value" [(ngModel)]="user.userName" placeholder=" {{'USER.USER_NAME' | translate}}">
                 </ion-input>
               </ion-col>
             </ion-row>         

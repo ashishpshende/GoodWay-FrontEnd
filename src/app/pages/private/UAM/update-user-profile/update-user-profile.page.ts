@@ -80,7 +80,7 @@ export class UpdateUserProfilePage  implements AfterViewInit {
 
   validate()
   {
-    if(HelperService.validateEmail(this.user.Email) && HelperService.validateMobileNumber(this.user.PhoneNumber))
+    if(HelperService.validateEmail(this.user.email) && HelperService.validateMobileNumber(this.user.phoneNumber))
     {
       this.enableSave =true;
       this.emailValidationMessage="";
@@ -90,7 +90,7 @@ export class UpdateUserProfilePage  implements AfterViewInit {
     else
     {
       this.enableSave =false;
-      if(HelperService.validateEmail(this.user.Email))
+      if(HelperService.validateEmail(this.user.email))
       {
         this.emailValidationMessage="";
 
@@ -99,7 +99,7 @@ export class UpdateUserProfilePage  implements AfterViewInit {
         this.emailValidationMessage=this.languageService.translate("USER_PROFILE.EMAIL_SYNTAX_VALIDATING_MESSAGE");
         return false;
       }
-      if(HelperService.validateMobileNumber(this.user.PhoneNumber))
+      if(HelperService.validateMobileNumber(this.user.phoneNumber))
       {
         this.phoneNumberValidationMessage="";
       }
@@ -143,7 +143,7 @@ export class UpdateUserProfilePage  implements AfterViewInit {
   }
   checkEmailExistance(present: (any), absent: (any)) {
     this.loaderService.customLoader("Checking for Email...", 10000);
-    this.userService.readByEmail(this.user.Email, (results:any) => {
+    this.userService.readByEmail(this.user.email, (results:any) => {
       this.loaderService.dismissLoader();
 
       if(results.length>1)
@@ -161,13 +161,13 @@ export class UpdateUserProfilePage  implements AfterViewInit {
   }
   checkUserNameExistance(present: (any), absent: (any)) {
     this.loaderService.customLoader("Checking for User Name...", 10000);
-    this.userService.readByUserName(this.user.UserName, (results:any) => {
+    this.userService.readByUserName(this.user.userName, (results:any) => {
       this.loaderService.dismissLoader();
       var occurance = 0;
       if(results.length>1)
       {
         results.forEach((user:User) => {
-          if(this.user.UserName === user.UserName)
+          if(this.user.userName === user.userName)
           {
             occurance++;
           }

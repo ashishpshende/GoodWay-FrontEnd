@@ -170,7 +170,6 @@
         "TO" : "To",
         "RECEIVER" : "Receiver",
         "MOBILE":"Mobile"
-        
     },
     "USER_PROFILE":{
         "PAGE_TITLE":"User Profile",
@@ -196,8 +195,7 @@
         "GENERATING_TEMP_PASSWORD":"Generating Temporary Password",
         "EMAIL_SENDING_FAILED_TITLE":" Temporary Password sent.",
         "VALIDATION_FAILED_MESSAGE":"Oops.., Something went wrong. Unable to validate details provided. Please Contact Administrator.",
-        "EMAIL_SENDING_FAILED":"Oops.., Something went wrong. Unable to send Temporary password over email. Please Contact Administrator.",
-        "EMAIL_EXHAUSTED":"Email quota exhausted. Unable to send Temporary password over email. Please Contact Administrator."
+        "EMAIL_SENDING_FAILED":"Oops.., Something went wrong. Unable to send Temporary password over email. Please Contact Administrator."
     },
     "FORGOT_USER_NAME_PAGE":{
         "PAGE_TITLE":"Forgot UserName",
@@ -222,12 +220,6 @@
         "CREATED_SUCCESS":"User Created Successfully",
         "UPDATED_SUCCESS":"Oops.., Something went wrong. Unable to create User"
     },
-    "PARCEL_CREATE":{
-        "BASIC_DETAILS":"Basic Details",
-        "ADDRESS_DETAILS":"Address Details",
-        "PACKAGE_DETAILS":"Package Details",
-        "PAGE_TITLE":"Add Parcel"
-    },
     "USER_UPDATE":{
         "PAGE_TITLE":"Update User",
         "TITLE":"Update User",
@@ -247,7 +239,12 @@
         "TITLE":"About Us",
         "CONTENT":""
     },
-
+    "PARCEL_CREATE":{
+        "BASIC_DETAILS":"Basic Details",
+        "ADDRESS_DETAILS":"Address Details",
+        "PACKAGE_DETAILS":"Package Details",
+        "PAGE_TITLE":"Add Parcel"
+    },
     "USERS_PAGE":{
         "PAGE_TITLE":"Sub-Dealers",
         "TITLE":"Sub-Dealer List",
@@ -257,16 +254,6 @@
     "HOME_PAGE":{
         "PAGE_TITLE":"Home"
     },
-    "REPORTS":{
-      "PAGE_TITLE":"Reports",
-      "SHOW_BY":"Show By",
-      "NOTE":"Note: Reports area is under construction"
-    },
-    
-    "PARCELS_PAGE":{
-        "PAGE_TITLE":"Parcels"
-    },
-    
     "SCHEDULED_SEARCH_PAGE":{
         "PAGE_TITLE":"Schedule Search",
         "SEARCH_KEY":"Search Key"
@@ -281,6 +268,14 @@
     "LOOKUP_LIST_PAGE":{
       "DELETE_SCHEDULE_SEARCH_MESSAGE":"Are you sure to delete this schedule search for vehicle? Once deleted cannot be retrieved.",
       "DELETE_TITLE":"Delete"
+    },
+    "REPORTS":{
+      "PAGE_TITLE":"Reports",
+      "SHOW_BY":"Show By",
+      "NOTE":"Note: Reports area is under construction"
+    },
+    "PARCELS_PAGE":{
+        "PAGE_TITLE":"Parcels"
     },
     "PARCELS_SEARCH_PAGE":{
         "PAGE_TITLE":"Search",
@@ -305,14 +300,8 @@
         "TAMIL":"Tamil",
         "TELAGU":"Telagu"
     },
-    "QR_CODE":{
-        "PERMISSION_DENIED_ALERT_TITLE" :"Permission denied",
-        "PERMISSION_DENIED_ALERT_MESSAGE" :"Permission denied"
-
-        
-    },
     "APP_TITLE": "Good-Way",
-    "APP_SUB_TITLE": "Track your Parcel",
-    "APP_DESCRIPTION": "Track your Parcel in delivery Network"
+    "APP_SUB_TITLE": "Track your parcels",
+    "APP_DESCRIPTION": "Track your parcels in delivery Network"
 
 }

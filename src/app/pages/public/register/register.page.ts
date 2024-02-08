@@ -30,15 +30,13 @@ export class RegisterPage  {
     this.genders = this.userService.genders;
     this.roles = this.userService.roles;
     this.statuses = this.userService.statuses;
-    this.user.Role = "User";
-    this.user.Status = "InActive";
+    this.user.userRole= "User";
+    this.user.userStatus = "InActive";
     //For testing
-    this.user.FirstName = "";
-    this.user.LastName = "";
-    this.user.Email = "";
-    this.user.PhoneNumber = "";
-    this.user.UserName = "";
-    this.user.Gender = "";
+    this.user.name = "";
+    this.user.email = "";
+    this.user.phoneNumber = "";
+    this.user.userName = "";
   }
   ionViewWillEnter() {
   }
@@ -47,8 +45,8 @@ export class RegisterPage  {
   }
   SaveUser(succes: (any), failure: (any)) {
     this.loaderService.customLoader("Saving User...", 10000);
-    this.user.Password = "password";
-    this.user.ResetRequired = true;
+    this.user.password = "password";
+    this.user.resetRequired = true;
     this.userService.SaveUser(this.user, () => {
       this.loaderService.dismissLoader();
       succes(this.user);
@@ -59,7 +57,7 @@ export class RegisterPage  {
   }
   checkEmailExistance(present: (any), absent: (any)) {
     this.loaderService.customLoader("Checking for Email...", 10000);
-    this.userService.readByEmail(this.user.Email, (results:any) => {
+    this.userService.readByEmail(this.user.email, (results:any) => {
       this.loaderService.dismissLoader();
       if (results.length != 0) {
         present(new User(results[0]))
@@ -74,7 +72,7 @@ export class RegisterPage  {
   }
   checkUserNameExistance(present: (any), absent: (any)) {
     this.loaderService.customLoader("Checking for User Name...", 10000);
-    this.userService.readByUserName(this.user.UserName, (results:any) => {
+    this.userService.readByUserName(this.user.userName, (results:any) => {
       this.loaderService.dismissLoader();
       if (results.length != 0) {
         present(new User(results[0]))

@@ -13,7 +13,7 @@ import { UserService } from 'src/app/services/user/user.service';
   templateUrl: './create-parcel.page.html',
   styleUrls: ['./create-parcel.page.scss'],
 })
-export class CreateParcelPage implements OnInit {
+export class CreateParcelPage {
 
   public parcel: Parcel;
   public cnTypes: Array<string> = [];
@@ -28,9 +28,7 @@ export class CreateParcelPage implements OnInit {
       this.cnTypes = ['TBB', 'Standard', 'Fragile'];
      }
 
-  ngOnInit() {
-
-  }
+ 
   goToParcelList()
   {
     const navigationExtras: NavigationExtras = {

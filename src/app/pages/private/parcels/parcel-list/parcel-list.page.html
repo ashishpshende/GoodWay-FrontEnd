@@ -3,7 +3,7 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
   <ion-list class="user-results">
-    <ion-item>
+    <!-- <ion-item>
       <ion-thumbnail slot="start" (click)="addParcelButtonClicked()">
         <img alt="Add User" src="/assets/icon/add_user_icon.png" />
       </ion-thumbnail>     
@@ -13,7 +13,7 @@
       <img slot="end" *ngIf="searchText.length!==0" class="search-icon" src="/assets/icon/ClearIcon.png" (click)="clearTextButtonClicked()">
       <img slot="end" class="search-icon" src="/assets/icon/SearchAction.png" (click)="searchTextButtonClicked()">
     </ion-item>
-    <ion-list-header class="user-results-list-header"> Showing Results skipping {{skip}} records </ion-list-header>
+    <ion-list-header class="user-results-list-header"> Showing Results skipping {{skip}} records </ion-list-header> -->
 
     <ion-item class="user-result-cell" *ngFor="let parcel of parcels">
       <ion-avatar slot="start" (click)="parcelSelected(parcel)">

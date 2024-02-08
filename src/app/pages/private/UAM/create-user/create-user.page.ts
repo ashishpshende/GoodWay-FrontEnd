@@ -33,14 +33,12 @@ export class CreateUserPage implements OnInit {
     this.genders = this.userService.genders;
     this.roles = this.userService.roles;
     this.statuses = this.userService.statuses;
-    this.user.Role = "User";
-    this.user.FirstName = "";
-    this.user.LastName = "";
-    this.user.Email = "";
-    this.user.PhoneNumber = "";
-    this.user.UserName = "";
-    this.user.Gender = "";
-    this.user.Status = "Active";
+    this.user.userRole= "User";
+    this.user.name = "";
+    this.user.email = "";
+    this.user.phoneNumber = "";
+    this.user.userName = "";
+    this.user.userStatus = "Active";
   }
   ngOnInit() {
     this.enableSave = false;
@@ -55,7 +53,7 @@ export class CreateUserPage implements OnInit {
 
   validate()
   {
-    if(HelperService.validateEmail(this.user.Email) && HelperService.validateMobileNumber(this.user.PhoneNumber))
+    if(HelperService.validateEmail(this.user.email) && HelperService.validateMobileNumber(this.user.phoneNumber))
     {
       this.enableSave =true;
       this.emailValidationMessage="";
@@ -65,7 +63,7 @@ export class CreateUserPage implements OnInit {
     else
     {
       this.enableSave =false;
-      if(HelperService.validateEmail(this.user.Email))
+      if(HelperService.validateEmail(this.user.email))
       {
         this.emailValidationMessage="";
 
@@ -74,7 +72,7 @@ export class CreateUserPage implements OnInit {
         this.emailValidationMessage=this.languageService.translate("USER_PROFILE.EMAIL_SYNTAX_VALIDATING_MESSAGE");
         return false;
       }
-      if(HelperService.validateMobileNumber(this.user.PhoneNumber))
+      if(HelperService.validateMobileNumber(this.user.phoneNumber))
       {
         this.phoneNumberValidationMessage="";
       }
@@ -90,10 +88,10 @@ export class CreateUserPage implements OnInit {
   }
   SaveUser(succes: (any), failure: (any)) {
     this.loaderService.customLoader("Saving User...", 10000);
-    this.user.Password = "password";
+    this.user.password = "password";
     this.user.createdOn = formatDate(new Date(), 'dd-MM-yyyy hh:mm:ss', 'en-US', '+0530');
     this.user.updatedOn = formatDate(new Date(), 'dd-MM-yyyy hh:mm:ss', 'en-US', '+0530');
-    this.user.ResetRequired = true;
+    this.user.resetRequired = true;
     this.userService.SaveUser(this.user, () => {
 
       this.goToUserList();
@@ -115,7 +113,7 @@ export class CreateUserPage implements OnInit {
 
   checkEmailExistance(present: (any), absent: (any)) {
     this.loaderService.customLoader("Checking for Email...", 10000);
-    this.userService.readByEmail(this.user.Email, (results:any) => {
+    this.userService.readByEmail(this.user.email, (results:any) => {
       this.loaderService.dismissLoader();
 
       if(results.length!=0)
@@ -133,7 +131,7 @@ export class CreateUserPage implements OnInit {
   }
   checkUserNameExistance(present: (any), absent: (any)) {
     this.loaderService.customLoader("Checking for User Name...", 10000);
-    this.userService.readByUserName(this.user.UserName, (results:any) => {
+    this.userService.readByUserName(this.user.userName, (results:any) => {
       this.loaderService.dismissLoader();
       if(results.length!=0)
       {

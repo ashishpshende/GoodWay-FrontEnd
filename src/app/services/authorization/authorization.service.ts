@@ -1,8 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable, numberAttribute } from '@angular/core';
 import { User } from '../../models/User';
 import { NetworkService } from '../network/network.service';
 import { HelperService } from 'src/app/services/helpers/helper-service';
 import { environment } from 'src/environments/environment';
+import { KeywordConstants } from 'src/assets/constants/constants';
+import { LocalStorageService } from '../localStorage/local-storage.service';
 const USER_DETAIL_URL = environment.apiURL + '/users/info'
 @Injectable({
   providedIn: 'root'
@@ -10,37 +12,10 @@ const USER_DETAIL_URL = environment.apiURL + '/users/info'
 export class AuthorizationService {
 
   loggedInUser: User ;
-  constructor(private networkService: NetworkService) { 
+  constructor(private networkService: NetworkService,
+    private  localStorageService:LocalStorageService) { 
     console.log("AuthorizationService Initialized.")
-    this.loggedInUser = this.getStoredUser();
+    this.loggedInUser =   this.localStorageService.StoredPreference.LoggedInUser 
 
-  }
-   
-  storeUser(user:User)
-  {
-    localStorage.setItem("USER_NAME",user.name?user.name:"");
-
-   
-  
-   
-
-  }
-  getStoredUser()
-  {
-    var user:User;
-
-    if(localStorage.getItem("USER_ID")!=null)
-    {
-     
-      user = new User(HelperService.EmptyJSON());
-      user.name = localStorage.getItem("USER_NAME")??"";
-      this.loggedInUser = user;
-    }
-    else
-    {
-      user = new User({});
-    }
-
-    return user;
   }
 }

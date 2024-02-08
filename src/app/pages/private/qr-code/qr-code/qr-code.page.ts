@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationExtras, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { Parcel } from 'src/app/models/Parcel';
 import { User } from '../../../../models/User';
 import { AuthorizationService } from 'src/app/services/authorization/authorization.service';
@@ -10,50 +10,66 @@ import { ParcelService } from 'src/app/services/parcel/parcel.service';
   templateUrl: './qr-code.page.html',
   styleUrls: ['./qr-code.page.scss'],
 })
-export class QrCodePage  {
-
-  public selectedParcel:Parcel;
-  public loggedInUser:User;
+export class QrCodePage implements OnInit {
+  public selectedParcel: Parcel;
+  public loggedInUser: User;
 
   constructor(
-    private parcelService:ParcelService,
+    private parcelService: ParcelService,
     private router: Router,
-    private authorizationService:AuthorizationService
-  ) { 
-    this.selectedParcel = parcelService.selectedParcel?parcelService.selectedParcel: new Parcel({});
+    private route: ActivatedRoute,
+    private authorizationService: AuthorizationService
+  ) {
+    this.selectedParcel = new Parcel({});
     this.loggedInUser = this.authorizationService.loggedInUser;
   }
-
-
-  markAsDelivered()
-  {
-
+  ngOnInit(): void {
+    this.route.queryParams.subscribe((params) => {
+      if (params) {
+        if (params['cnNo']) {
+          this.selectedParcel.cnNo = params['cnNo'];
+          this.getParceDetails(this.selectedParcel.cnNo);
+        }
+      }
+    });
   }
-  viewButtonClicked()
-  {
+
+  markAsDelivered() {}
+  viewButtonClicked() {
     const navigationExtras: NavigationExtras = {
       queryParams: {
-        ts: new Date().getMilliseconds()
-      }
+        ts: new Date().getMilliseconds(),
+      },
     };
-    this.router.navigate(["home/view-parcel"], navigationExtras);
+    this.router.navigate(['home/view-parcel'], navigationExtras);
   }
-  editButtonClicked()
-  {
+  editButtonClicked() {
     const navigationExtras: NavigationExtras = {
       queryParams: {
-        ts: new Date().getMilliseconds()
-      }
+        ts: new Date().getMilliseconds(),
+      },
     };
-    this.router.navigate(["home/update-parcel"], navigationExtras);
+    this.router.navigate(['home/update-parcel'], navigationExtras);
   }
-  closeuttonClicked()
-  {
+  closeuttonClicked() {
     const navigationExtras: NavigationExtras = {
       queryParams: {
-        ts: new Date().getMilliseconds()
-      }
+        ts: new Date().getMilliseconds(),
+      },
     };
-    this.router.navigate(["home/parcel-list"], navigationExtras);
+    this.router.navigate(['home/parcel-list'], navigationExtras);
+  }
+  getParceDetails(cnNo: string) {
+    this.parcelService.readByCnNo(
+      cnNo,
+      async (results: any) => {
+        if (results.statusCode == 'SUCCESS') {
+          this.selectedParcel = results.data;
+          this.parcelService.selectedParcel = results.data;
+        } else {
+        }
+      },
+      () => {}
+    );
   }
 }

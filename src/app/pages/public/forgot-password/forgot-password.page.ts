@@ -132,7 +132,7 @@ export class ForgotPasswordPage implements OnInit {
       duration: 3000
     });
     loader.present();
-    this.localUser.Password = HelperService.generateTempPassowrd();
+    this.localUser.password = HelperService.generateTempPassowrd();
     this.userService.UpdateUserCredentials(this.localUser, async (response:any) => {
       if(response === null|| response === undefined )
       {
@@ -159,10 +159,10 @@ export class ForgotPasswordPage implements OnInit {
     });
 
     this.loading.present();
-    this.userService.sendForgotPasswordEmail(this.localUser.FirstName + ' '+ this.localUser.LastName,
-    this.localUser.UserName,
-    this.localUser.Email,
-    this.localUser.Password??"",
+    this.userService.sendForgotPasswordEmail(this.localUser.name,
+    this.localUser.userName,
+    this.localUser.email,
+    this.localUser.password??"",
      async (response:any) => {
       switch(response){
         case 'sent':

@@ -3,70 +3,72 @@ import { BaseModel } from './BaseModel';
 import { formatDate } from '@angular/common';
 export class User  extends BaseModel {
 
-    public Icon: string;
-    public StatusIcon: string;
-    public Status: string;
-    public FirstName: string ;
-    public CompanyName: string ;
-    public LastName: string ;
-    public DisplayName: string ;
-    public Role: string;
-    public PhoneNumber: string;
-    public Gender: string;
-    public DateOfBirth: any;
-    public Uid: string ;
-    public Email: string;
-    public ImageUrl: string ;
-    public UserName: string;
-    public Password: string ;
-    public ConfirmPassword: string ;
-    public ResetRequired: boolean ;
+    public icon: string;
+    public statusIcon: string;
+    public userStatus: string;
+    public userRole: string;
+    public phoneNumber: string;
+    public email: string;
+    public city: string;
+    public imageUrl: string ;
+    public userName: string;
+    public password: string ;
+    public confirmPassword: string ;
+    public resetRequired: boolean ;
     constructor(requestJSON: any)  {
         super(requestJSON);
-        this.UserName =  requestJSON.userName;
-        this.Email =   requestJSON.email;
-        this.Gender =  requestJSON.gender;
-        this.Role = requestJSON.userRole;
-        this.PhoneNumber = requestJSON.phoneNumber;
-        this.Status = requestJSON.userStatus;
-        this.StatusIcon = '/assets/icon/'+ this.Status +'.png';
-        this.Icon = '/assets/icon/'+ this.Role +'.png';
+        this.userName =  requestJSON.userName;
+        this.email =   requestJSON.email;
+        this.city =   requestJSON.city;
+        this.userRole = requestJSON.userRole;
+        this.phoneNumber = requestJSON.phoneNumber;
+        this.userStatus = requestJSON.userStatus;
+        this.statusIcon = '/assets/icon/'+ this.userStatus +'.png';
+        this.icon = '/assets/icon/'+ this.userRole +'.png';
         if(requestJSON.ResetRequired==='1'){
-            this.ResetRequired = true;
+            this.resetRequired = true;
         }
     }
     public clear() {
-        this.FirstName ='';
-        this.LastName =  '';
-        this.UserName =  '';
-        this.Email =   '';
-        this.Gender =  '';
-        this.DateOfBirth =  '';
-        this.Role = '';
-        this.PhoneNumber ='';
-        this.Status = '';
-        this.StatusIcon = '/assets/icon/'+this.Status+'.png';
+        this.userName =  '';
+        this.email =   '';
+        this.userName = '';
+        this.phoneNumber ='';
+        this.userStatus = '';
+        this.statusIcon = '/assets/icon/'+this.userStatus+'.png';
     }
     public ToCredentialsJSON()
     {
         this.updatedOn = formatDate(new Date(), 'dd-MM-yyyy hh:mm:ss', 'en-US', '+0530');
         return {
-            UserName: this.UserName,
-            Email: this.Email,
-            ResetRequired : true,
-            UpdatedOn: this.updatedOn
+            userName: this.userName,
+            email: this.email,
+            resetRequired : true,
+            updatedOn: this.updatedOn
           };
     }
-    ToProfileJSON() {
+    public ToProfileJSON() {
         return {
-          UserName: this.UserName,
-          Password: this.Password,
-          Email: this.Email,
-          PhoneNumber: this.PhoneNumber,
-          FirstName: this.FirstName,
-          LastName: this.LastName,
-          Gender: this.Gender,
+          userName: this.userName,
+          password: this.password,
+          email: this.email,
+          phoneNumber: this.phoneNumber,
+          name: this.name,
           Id: this.id
         };
+      }
+      public ToJSON() {
+        return {
+          id: this.id,
+          name: this.name,
+          userName: this.updatedOn,
+          city: this.city,
+          userRole: this.userRole,
+          password: this.password,
+          email: this.email,
+          phoneNumber: this.phoneNumber,
+          userStatus: this.userStatus
+        };
+       
       }
 }

@@ -13,7 +13,8 @@ export class ParcelURLs {
   public static SAVE_PARCEL = environment.apiURL + '/api/parcels/save';
   public static UPDATE_PARCEL = environment.apiURL +'/api/parcels/update';
   public static UPDATE_PARCEL_STATUS = environment.apiURL + '/api/parcels/updatStatus';
-  public static READ_PARCEL = environment.apiURL + '/api/parcels/info?id';
+  public static READ_PARCEL = environment.apiURL + '/api/parcels/info?id=';
+  public static READ_PARCEL_BY_CN = environment.apiURL + '/api/parcels/infoByCnNo?cnNo=';
   public static PARCEL_LIST = environment.apiURL + '/api/parcels/list';
 }
 @Injectable({
@@ -45,10 +46,17 @@ export class ParcelService {
         failure();
       });
     }
+    readByCnNo(cnNo: string, success: (any), failure: (any)) {
+      this.networkService.get(ParcelURLs.READ_PARCEL_BY_CN+cnNo, (response:any) => {
+        success(response);
+      }, () => {
+        failure();
+      });
+    }
   save(parcel: Parcel, success: (any), failure: (any)) {
     parcel.createdOn = formatDate(new Date(), 'dd-MM-yyyy hh:mm:ss', 'en-US', '+0530');
     parcel.updatedOn = formatDate(new Date(), 'dd-MM-yyyy hh:mm:ss', 'en-US', '+0530');
-    this.networkService.post(ParcelURLs.SAVE_PARCEL, parcel.toJSON(), (response:any) => {   
+    this.networkService.post(ParcelURLs.SAVE_PARCEL, parcel.toCreationJSON(), (response:any) => {   
       success();
     }, () => {
       failure();
@@ -57,7 +65,7 @@ export class ParcelService {
   update(parcel: Parcel, success: (any), failure: (any)) {
     parcel.createdOn = formatDate(new Date(), 'dd-MM-yyyy hh:mm:ss', 'en-US', '+0530');
     parcel.updatedOn = formatDate(new Date(), 'dd-MM-yyyy hh:mm:ss', 'en-US', '+0530');
-    this.networkService.post(ParcelURLs.UPDATE_PARCEL, parcel.toJSON(), (response:any) => {   
+    this.networkService.post(ParcelURLs.UPDATE_PARCEL, parcel.toUpdationJSON(), (response:any) => {   
       success();
     }, () => {
       failure();

@@ -92,7 +92,7 @@ export class ForgotUsernamePage implements OnInit {
     //   duration: 2000,
     // });
     // this.loading.present();
-    // this.userService.sendForgotUserEmail(this.localUser.FirstName + ' '+ this.localUser.LastName,this.localUser.Email,this.localUser.UserName, async response => {
+    // this.userService.sendForgotUserEmail(this.localUser.FirstName + ' '+ this.localUser.LastName,this.localUser.email,this.localUser.userName, async response => {
     //   switch(response){
     //     case 'sent':
     //       this.presentAlert(this.languageService.translate('FORGOT_USER_NAME_PAGE.EMAIL_SENT_TITLE'), this.languageService.translate('FORGOT_USER_NAME_PAGE.EMAIL_SENT_MESSAGE'));

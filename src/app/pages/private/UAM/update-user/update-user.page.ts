@@ -53,7 +53,7 @@ export class UpdateUserPage implements AfterViewInit {
     this.loaderService.customLoader("Loading User Details...", 10000);
     this.userService.readById(id,(resp:any) => {
       this.user = new User(resp.result[0]);
-      this.user.Icon ="person-sharp";
+      this.user.icon ="person-sharp";
       this.loaderService.dismissLoader();
     }, () => {
       this.loaderService.dismissLoader();
@@ -107,13 +107,13 @@ export class UpdateUserPage implements AfterViewInit {
   }
   checkEmailExistance(present: (any), absent: (any)) {
     this.loaderService.customLoader("Checking for Email...", 10000);
-    this.userService.readByEmail(this.user.Email, (results:any) => {
+    this.userService.readByEmail(this.user.email, (results:any) => {
       this.loaderService.dismissLoader();
       let occurance = 0;
       if(results.length>0)
       {
         results.forEach((user:User) => {
-          if(this.user.Email.toLowerCase() === user.Email.toLowerCase() && this.user.id !== user.id)
+          if(this.user.email.toLowerCase() === user.email.toLowerCase() && this.user.id !== user.id)
           {
             occurance++;
           }
@@ -138,13 +138,13 @@ export class UpdateUserPage implements AfterViewInit {
   }
   checkUserNameExistance(present: (any), absent: (any)) {
     this.loaderService.customLoader("Checking for User Name...", 10000);
-    this.userService.readByUserName(this.user.UserName, (results:any) => {
+    this.userService.readByUserName(this.user.userName, (results:any) => {
       this.loaderService.dismissLoader();
       let occurance = 0;
       if(results.length>0)
       {
         results.forEach((user:User) => {
-          if(this.user.UserName === user.UserName && this.user.id !== user.id)
+          if(this.user.userName === user.userName && this.user.id !== user.id)
           {
             occurance++;
           }
@@ -180,22 +180,16 @@ export class UpdateUserPage implements AfterViewInit {
   }
 
   validate(): boolean {
-    if (this.user.FirstName == null || this.user.FirstName == undefined || this.user.FirstName == "") {
+    if (this.user.name) {
       return false;
     }
-    if (this.user.LastName == null || this.user.LastName == undefined || this.user.LastName == "") {
+    if (this.user.email) {
       return false;
     }
-    if (this.user.Gender == null || this.user.Gender == undefined || this.user.Gender == "") {
+    if (this.user.phoneNumber) {
       return false;
     }
-    if (this.user.Email == null || this.user.Email == undefined || this.user.Email == "") {
-      return false;
-    }
-    if (this.user.PhoneNumber == null || this.user.PhoneNumber == undefined || this.user.PhoneNumber == "") {
-      return false;
-    }
-    if (this.user.UserName == null || this.user.UserName == undefined || this.user.UserName == "") {
+    if (this.user.userName) {
       return false;
     }
     return true;

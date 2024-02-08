@@ -44,7 +44,7 @@ export class ViewUserProfilePage implements AfterViewInit {
     this.userService.lastRoute = "view-user-profile";
     let navigationExtras: NavigationExtras = {
       queryParams: {
-        email: this.user.Email,
+        email: this.user.email,
         ts: new Date().getTime()
       }
     };

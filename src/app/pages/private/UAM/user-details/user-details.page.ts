@@ -40,7 +40,7 @@ export class UserDetailsPage implements AfterViewInit {
     this.loaderService.customLoader('Loading User Details...', 10000);
     this.userService.readById(id,(resp:any) => {
       this.user = new User(resp.result[0]);
-      this.user.Icon ='person-sharp';
+      this.user.icon ='person-sharp';
       this.loaderService.dismissLoader();
     }, () => {
       this.loaderService.dismissLoader();

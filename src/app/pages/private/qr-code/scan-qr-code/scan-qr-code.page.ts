@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { Barcode, BarcodeScanner } from '@capacitor-mlkit/barcode-scanning';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-scan-qr-code',
@@ -9,9 +10,11 @@ import { Barcode, BarcodeScanner } from '@capacitor-mlkit/barcode-scanning';
 })
 export class ScanQrCodePage implements OnInit {
   isSupported = false;
-  barcodes: Barcode[] = [];
+  public cnNumber:String=" Scan Code";
+  constructor(private alertController: AlertController,
+    private router: Router) {
 
-  constructor(private alertController: AlertController) {}
+  }
 
   ngOnInit() {
     BarcodeScanner.isSupported().then((result) => {
@@ -26,7 +29,7 @@ export class ScanQrCodePage implements OnInit {
       return;
     }
     const { barcodes } = await BarcodeScanner.scan();
-    this.barcodes.push(...barcodes);
+    this.cnNumber = barcodes[0].rawValue;
   }
 
   async requestPermissions(): Promise<boolean> {
@@ -41,5 +44,15 @@ export class ScanQrCodePage implements OnInit {
       buttons: ['OK'],
     });
     await alert.present();
+  }
+  parcelSelected(selectedCN:string)
+  {
+      const navigationExtras: NavigationExtras = {
+        queryParams: {
+          ts: new Date().getMilliseconds(),
+          "cnNo":selectedCN
+        }
+      };
+      this.router.navigate(["home/view-parcel"], navigationExtras);
   }
 }

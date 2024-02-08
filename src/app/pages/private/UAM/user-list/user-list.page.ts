@@ -80,8 +80,8 @@ export class UserListPage implements OnInit {
       this.showPagination = true;
     response.results.forEach((element:any) => {
       let user = new User(element);
-      if (user.UserName !== this.loggedInUser.UserName || user.Email !== this.loggedInUser.Email) {
-        user.Icon = "/assets/icon/" + element.Role + ".png";
+      if (user.userName !== this.loggedInUser.userName || user.email !== this.loggedInUser.email) {
+        user.icon = "/assets/icon/" + element.userRole+ ".png";
         this.users.push(user);
       }
     });

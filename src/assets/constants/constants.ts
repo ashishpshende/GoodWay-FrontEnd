@@ -14,6 +14,9 @@ export class KeywordConstants {
   public static USER_ROW_INDEX = 'ROW_INDEX';
 
 
+  public static ROLE_ADMIN = 'Admin';
+  public static ROLE_SUB_DEALDER = 'SubDealer';
+  public static ROLE_DEALER = 'Dealer';
 
 
   //APP Language

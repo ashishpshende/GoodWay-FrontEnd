@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { NavigationEnd, NavigationExtras, NavigationStart, Router } from '@angular/router';
 import { AlertController, LoadingController, Platform } from '@ionic/angular';
 import { NgEventBus } from 'ng-event-bus';
 import { User } from '../../../../models/User';
@@ -9,6 +9,7 @@ import { LocalStorageService } from 'src/app/services/localStorage/local-storage
 import { UserService } from 'src/app/services/user/user.service';
 import { KeywordConstants } from 'src/assets/constants/constants';
 import {LocalNotificationsPlugin, LocalNotifications, Attachment, ActionPerformed} from '@capacitor/local-notifications';
+import { BarcodeScanner } from '@capacitor-mlkit/barcode-scanning';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,7 +19,10 @@ import {LocalNotificationsPlugin, LocalNotifications, Attachment, ActionPerforme
 export class DashboardPage implements OnInit, AfterViewInit {
   public loggedInUser: User ;
   loading: any;
+  isSupported = false;
+  isAvailable = false;
 
+  public cnNumber:string=" Scan Code";
   constructor(
     private userService: UserService,
     private router: Router,
@@ -73,6 +77,16 @@ export class DashboardPage implements OnInit, AfterViewInit {
     });
   }
   ngOnInit() {
+   
+    BarcodeScanner.installGoogleBarcodeScannerModule().then((result) => {
+      
+    });
+    BarcodeScanner.isSupported().then((result) => {
+      this.isSupported = result.supported;
+    });
+    BarcodeScanner.isGoogleBarcodeScannerModuleAvailable().then((result) => {
+      this.isAvailable= result.available;
+    });
     this.loggedInUser = this.localStorageService.StoredPreference.LoggedInUser;
   }
   
@@ -119,13 +133,17 @@ export class DashboardPage implements OnInit, AfterViewInit {
   }
   scanQRCodeTileClicked()
   {
-    this.router.navigate(['home/scan-qr-code']);
+    this.presentAlert('Is available', this.isAvailable + '');
+    this.presentAlert('Is Supported', this.isSupported + '');
+
+
+   this.scan()
   }
   addParcelTileClicked() {
     this.router.navigate(['/home/create-parcel']);
   }
   usersTileClicked() {
-    this.router.navigate(['/home/user-list']);
+    this.router.navigate(['/home/sub-dealer-list']);
   }
   settingsTileClicked() {
     this.router.navigate(['/home/settings']);
@@ -168,5 +186,33 @@ export class DashboardPage implements OnInit, AfterViewInit {
       duration: 5000,
     });
     this.loading.present();
+  }
+  //QR Code Scanner
+
+  async scan(): Promise<void> {
+    const granted = await this.requestPermissions();
+    if (!granted) {
+      this.presentAlert(this.languageService.translate('QR_CODE.PERMISSION_DENIED_ALERT_TITLE'), this.languageService.translate('SESSION.PERMISSION_DENIED_ALERT_MESSAGE'));
+
+      return;
+    }
+    const { barcodes } = await BarcodeScanner.scan();
+    this.cnNumber = barcodes[0].rawValue;
+    this.parcelSelected(this.cnNumber);
+  }
+
+  async requestPermissions(): Promise<boolean> {
+    const { camera } = await BarcodeScanner.requestPermissions();
+    return camera === 'granted' || camera === 'limited';
+  }
+  parcelSelected(selectedCN:string)
+  {
+      const navigationExtras: NavigationExtras = {
+        queryParams: {
+          ts: new Date().getMilliseconds(),
+          "cnNo":selectedCN
+        }
+      };
+      this.router.navigate(["home/qr-code"], navigationExtras);
   }
 }

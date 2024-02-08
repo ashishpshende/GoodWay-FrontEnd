@@ -39,8 +39,8 @@ export class AuthenticationService {
     });
   }
   isAuthenticated(success: (any), failure: (any)) {
-    this.localStorage.getItem(KeywordConstants.LOGGED_IN_STATUS).then(res => {
-      if (res != null && res != undefined) {
+    this.localStorage.getItem(KeywordConstants.LOGGED_IN_STATUS).then(result => {
+      if (result.value) {
         this.authenticationState.next(true);
         this.authenticationStatus = true;
         success(true);
@@ -62,9 +62,9 @@ export class AuthenticationService {
 
   }
   getAuthenticationStatus = async (status:any) => {
-    this.localStorage.getItem(KeywordConstants.LOGGED_IN_STATUS).then(res => {
-      console.log("AuthenticationStatus: ", res);
-        status(res);
+    this.localStorage.getItem(KeywordConstants.LOGGED_IN_STATUS).then(result => {
+      console.log("AuthenticationStatus: ", result.value);
+        status(result.value);
     });
   }
 }
