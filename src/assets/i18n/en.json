@@ -295,8 +295,10 @@
     "PARCELS_SEARCH_PAGE":{
         "PAGE_TITLE":"Search",
         "TITLE":"Search",
-        "SEARCH_BY_FILTER_TITLE":"Search By Filter",
-        "RG_NUMBER_VALIDATION_MESSAGE":"Please provide Registration Number"
+        "SEARCH_BY_FIL TER_TITLE":"Search By Filter",
+        "INVALID_CN_NUMBER_ALERT_TITLE":"Invalid CN Number",
+        "EMPTY_CN_NUMBER_ALERT_MESSAGE":"Pleas privide CN Number.",
+        "INVALID_CN_NUMBER_ALERT_MESSAGE":"CN Number privided is invalid."
     },
     "SETTINGS_PAGE":{
         "PAGE_TITLE":"Settings",

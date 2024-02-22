@@ -19,10 +19,11 @@ import { BarcodeScanner } from '@capacitor-mlkit/barcode-scanning';
 export class DashboardPage implements OnInit, AfterViewInit {
   public loggedInUser: User ;
   loading: any;
+  showSearchBox:boolean;
   isSupported = false;
   isAvailable = false;
 
-  public cnNumber:string=" Scan Code";
+  public cnNumber:string="";
   constructor(
     private userService: UserService,
     private router: Router,
@@ -32,7 +33,7 @@ export class DashboardPage implements OnInit, AfterViewInit {
     public alertController: AlertController,
     private platform: Platform) {
     this.loggedInUser = new User(JSON.parse('{}'));
-
+    this.showSearchBox = false;
     this.router.events.forEach((event) => {
       if (event instanceof NavigationEnd) {
         this.serveBasedOnUserRole();
@@ -129,6 +130,7 @@ export class DashboardPage implements OnInit, AfterViewInit {
 
   //Click Events
   searchTileClicked() {
+    this.showSearchBox = !this.showSearchBox;
     this.router.navigate(['/home/search-parcel']);
   }
   scanQRCodeTileClicked()
@@ -207,7 +209,23 @@ export class DashboardPage implements OnInit, AfterViewInit {
     const { camera } = await BarcodeScanner.requestPermissions();
     return camera === 'granted' || camera === 'limited';
   }
-  parcelSelected(selectedCN:string)
+  public searchButtonClicked()
+  {
+    if(!this.cnNumber)
+    {
+      this.presentAlert(this.languageService.translate('PARCELS_SEARCH_PAGE.INVALID_CN_NUMBER_ALERT_TITLE'), this.languageService.translate('PARCELS_SEARCH_PAGE.EMPTY_CN_NUMBER_ALERT_MESSAGE'));
+
+    }
+    else if(this.cnNumber.length<3)
+    {
+      this.presentAlert(this.languageService.translate('PARCELS_SEARCH_PAGE.INVALID_CN_NUMBER_ALERT_TITLE'), this.languageService.translate('PARCELS_SEARCH_PAGE.INVALID_CN_NUMBER_ALERT_MESSAGE'));      
+    }
+    else
+    {
+        this.parcelSelected(this.cnNumber); 
+    }
+  }
+  public parcelSelected(selectedCN:string)
   {
       const navigationExtras: NavigationExtras = {
         queryParams: {

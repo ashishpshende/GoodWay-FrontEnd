@@ -42,6 +42,7 @@ export class ScanQrCodePage implements OnInit {
       header: 'Permission denied',
       message: 'Please grant camera permission to use the barcode scanner.',
       buttons: ['OK'],
+      
     });
     await alert.present();
   }
