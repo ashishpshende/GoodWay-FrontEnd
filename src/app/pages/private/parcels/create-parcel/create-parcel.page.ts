@@ -14,6 +14,7 @@ import { UserService } from 'src/app/services/user/user.service';
   styleUrls: ['./create-parcel.page.scss'],
 })
 export class CreateParcelPage {
+  public autocompleteOptions = ['Apple', 'Banana', 'Cherry', 'Date', 'Grape'];
 
   public parcel: Parcel;
   public cnTypes: Array<string> = [];

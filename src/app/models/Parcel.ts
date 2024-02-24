@@ -6,24 +6,27 @@ export class Parcel extends BaseModel {
   public cnType: string;
   public dealer: string;
   public receiver: string;
-  public to: string;
-  public from: string;
+  public parcelTo: string;
+  public parcelFrom: string;
   public mobile: string;
   public quantity: string;
   public weight: string;
+  public amount: number;
   public remarks: string;
   public parcelStatus: string;
   public icon: string;
   public qrIcon: string;
+  
   constructor(requestJSON: any) {
     super(requestJSON);
     this.qrIcon = '/assets/icon/qr-code.png';
     this.cnNo = requestJSON.cnNo;
     this.cnType = requestJSON.cnType;
     this.dealer = requestJSON.dealer;
+    this.amount = requestJSON.amount;
     this.receiver = requestJSON.receiver;
-    this.to = requestJSON.to;
-    this.from = requestJSON.from;
+    this.parcelTo = requestJSON.parcelTo;
+    this.parcelFrom = requestJSON.parcelFrom;
     this.mobile = requestJSON.mobile;
     this.quantity = requestJSON.quantity;
     this.weight = requestJSON.weight;
@@ -36,8 +39,9 @@ export class Parcel extends BaseModel {
       cnType: this.cnType,
       dealer: this.dealer,
       receiver: this.receiver,
-      to: this.to,
-      from: this.from,
+      amount: this.amount,
+      parcelTo: this.parcelTo,
+      parcelFrom: this.parcelFrom,
       mobile: this.mobile,
       quantity: this.quantity,
       weight: this.weight,
@@ -52,9 +56,10 @@ export class Parcel extends BaseModel {
       cnNo: this.cnNo,
       cnType: this.cnType,
       dealer: this.dealer,
+      amount: this.amount,
       receiver: this.receiver,
-      to: this.to,
-      from: this.from,
+      parcelTo: this.parcelTo,
+      parcelFrom: this.parcelFrom,
       mobile: this.mobile,
       quantity: this.quantity,
       weight: this.weight,

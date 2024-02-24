@@ -22,9 +22,9 @@
         "LOGOUT_CONFIRM_MESSAGE":"Are you sure log out?"
     },
     "EMPTY_RECORDS":{
-        "TITLE":"No Records Found",
-        "TITLE_SEARCH":"No Records Found with Rer. No. {REG_NO}.",
-        "TITLE_FILTER":"No Records Found with filters applied.",
+        "TITLE":"No Parcels Found",
+        "TITLE_SEARCH":"No Parcels Found.",
+        "TITLE_FILTER":"No Parcels Found with filters applied.",
         "SUBTITLE":"Please try with another keyword/filter"
     },
     "NETWORK":{

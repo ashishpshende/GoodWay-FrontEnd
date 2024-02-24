@@ -23,7 +23,7 @@
     },
     "EMPTY_RECORDS":{
         "TITLE":"कोई रिकॉर्ड नहीं मिला",
-        "TITLE_SEARCH":"आरईआर नंबर के साथ कोई रिकॉर्ड नहीं मिला। {REG_NO}.",
+        "TITLE_SEARCH":"आरईआर नंबर के साथ कोई रिकॉर्ड नहीं मिला।.",
         "TITLE_FILTER":"फिल्टर के साथ कोई रिकॉर्ड नहीं मिला।",
         "SUBTITLE":"कृपया किसी अन्य कीवर्ड/फ़िल्टर के साथ प्रयास करें"
     },
@@ -171,6 +171,7 @@
         "CN_TYPE"  :"CN Type",
         "QUANTITY" : "Quantity",
         "WEIGHT":"Weight",
+        "AMOUNT":"Amount",
         "FROM" : "From",
         "TO" : "To",
         "RECEIVER" : "Receiver",

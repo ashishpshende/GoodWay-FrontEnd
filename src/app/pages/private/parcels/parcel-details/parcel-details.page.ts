@@ -69,7 +69,8 @@ export class ParcelDetailsPage implements OnInit  {
   {
     const navigationExtras: NavigationExtras = {
       queryParams: {
-        ts: new Date().getMilliseconds()
+        ts: new Date().getMilliseconds(),
+        "cnNo":this.selectedParcel.cnNo
       }
     };
     this.router.navigate(["home/qr-code"], navigationExtras);

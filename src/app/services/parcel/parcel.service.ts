@@ -17,6 +17,8 @@ export class ParcelURLs {
   public static READ_PARCEL = environment.apiURL + '/api/parcels/info?id=';
   public static READ_PARCEL_BY_CN = environment.apiURL + '/api/parcels/infoByCnNo?cnNo=';
   public static PARCEL_LIST = environment.apiURL + '/api/parcels/list';
+  public static PARCEL_LIST_BY_SUB_DEALER = environment.apiURL + '/api/parcels/list/bySubDealer?subdealer=';
+
 }
 @Injectable({
   providedIn: 'root'
@@ -35,6 +37,13 @@ export class ParcelService {
 
     list(skip: number = 0, limit: number = 10, success: (any), failure: (any)) {
       this.networkService.get(ParcelURLs.PARCEL_LIST, (response:any) => {
+        success(response);
+      }, () => {
+        failure();
+      });
+    }
+    listBySubDealer(subDealer:string,skip: number = 0, limit: number = 10, success: (any), failure: (any)) {
+      this.networkService.get(ParcelURLs.PARCEL_LIST_BY_SUB_DEALER+subDealer, (response:any) => {
         success(response);
       }, () => {
         failure();

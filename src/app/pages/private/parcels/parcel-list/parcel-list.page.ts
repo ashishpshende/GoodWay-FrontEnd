@@ -12,6 +12,7 @@ import { ParcelService } from "src/app/services/parcel/parcel.service";
   styleUrls: ["./parcel-list.page.scss"],
 })
 export class ParcelListPage implements OnInit {
+  public showEmptyCard:boolean = false;
   public skip: number = 0;
   public limit: number = 10;
   public searchText: string = "";
@@ -32,35 +33,65 @@ export class ParcelListPage implements OnInit {
 
   loadusers() {
     this.loaderService.customLoader("Loading Parcels...", 5000);
+    if(this.loggedInUser.userRole=="SubDealer" && this.loggedInUser.city)
+    {
+      this.parcelService.listBySubDealer(this.loggedInUser.city,
+        this.skip,
+        this.limit,
+        async (results:any) => {
+          if(results.statusCode=="SUCCESS")
+          {
+            this.handleResponse(results);
+          }
+          else
+          {
+            this.showEmptyCard =true;
+            
+          }
+          this.loaderService.dismissLoader();
+        },
+        () => {
+          this.showEmptyCard =true;
 
-    this.parcelService.list(
-      this.skip,
-      this.limit,
-      async (results:any) => {
-        if(results.statusCode=="SUCCESS")
-        {
-          this.handleResponse(results);
+          this.loaderService.dismissLoader();
         }
-        else
-        {
+      );
+    }
+    else
+    {
+      this.parcelService.list(
+        this.skip,
+        this.limit,
+        async (results:any) => {
+          if(results.statusCode=="SUCCESS")
+          {
+            this.handleResponse(results);
+          }
+          else
+          {
+            this.showEmptyCard =true;
+  
+          }
+          this.loaderService.dismissLoader();
+        },
+        () => {
+          this.loaderService.dismissLoader();
+          this.showEmptyCard =true;
 
         }
-        this.loaderService.dismissLoader();
-      },
-      () => {
-        this.loaderService.dismissLoader();
-      }
-    );
+      );
+    }
+   
   }
+  
   handleResponse(response:any) {
     this.parcels = new Array();
     response.data.forEach((element:any) => {
       let parcel = new Parcel(element);
       parcel.icon = "/assets/icon/" + ( element.parcelStatus? element.parcelStatus:"undefined") + ".png";
-     
-
       this.parcels.push(parcel)
     });
+    this.showEmptyCard =this.parcels.length==0;
   }
   handleRefresh(event:any)
   {

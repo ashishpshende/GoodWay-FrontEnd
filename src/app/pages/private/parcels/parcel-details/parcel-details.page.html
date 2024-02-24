@@ -53,8 +53,12 @@
               <ion-col size="6"> {{selectedParcel.quantity}}   </ion-col>
             </ion-row>
             <ion-row>
-              <ion-col size="6">{{'PARCEL.WEIGHT' | translate}} </ion-col>
-              <ion-col size="6"> {{selectedParcel.weight}}   </ion-col>
+              <ion-col size="6">{{'PARCEL.WEIGHT' | translate}}</ion-col>
+              <ion-col size="6"> {{selectedParcel.weight}}   Kg. </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6">{{'PARCEL.AMOUNT' | translate}} </ion-col>
+              <ion-col size="6">Rs. {{selectedParcel.amount}}   </ion-col>
             </ion-row>
           </ion-grid>
         </ion-item>
@@ -74,11 +78,12 @@
           <ion-grid>
             <ion-row>
               <ion-col>{{'PARCEL.FROM' | translate}} </ion-col>
-              <ion-col class="value" size="6"> {{selectedParcel.from}}   </ion-col>
+              <ion-col class="value" size="6"> {{selectedParcel.parcelFrom}}   </ion-col>
             </ion-row>
             <ion-row>
               <ion-col>{{'PARCEL.TO' | translate}} </ion-col>
-              <ion-col class="value" size="6"> {{selectedParcel.to}}   </ion-col>
+              <ion-col class="value" size="6"> {{selectedParcel.parcelTo
+              }}   </ion-col>
             </ion-row>
             <ion-row>
               <ion-col>{{'PARCEL.RECEIVER' | translate}} </ion-col>

@@ -1,5 +1,5 @@
 <ion-content>
-  <div id="printableContent" class="printableContent">
+  <!-- <div id="printableContent" class="printableContent">
     <table style="width: 100%">
       <tr>
         <td>
@@ -122,9 +122,78 @@
         </td>
       </tr>
     </table>
-  </div>
+  </div> -->
+  <ion-card *ngIf="showEmptyCard" style="text-align: center;">
+    <ion-card-header >
+      {{errorDetailsMessage}}
+    </ion-card-header>
+    <ion-card-content >
+        <ion-button id="close" (click)="closeuttonClicked()">
+          <ion-icon slot="start" name="close"></ion-icon>
+          <ion-label> Close</ion-label>
+        </ion-button>     
+    </ion-card-content>
+  </ion-card>
 
-  <ion-card>
+  <ion-card  *ngIf="showDetails">
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <qrcode
+              [qrdata]="selectedParcel.cnNo"
+              [width]="250"
+              [errorCorrectionLevel]="'M'"
+            ></qrcode>
+          </ion-col>
+          <ion-col size="6">
+            <ion-row>
+              <ion-col size="6"> {{'PARCEL.CN_NO' | translate}} </ion-col>
+              <ion-col size="6"> {{selectedParcel.cnNo}} </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6"> {{'PARCEL.CN_TYPE' | translate}} </ion-col>
+              <ion-col size="6"> {{selectedParcel.cnType}} </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6"> {{'PARCEL.RECEIVER' | translate}} </ion-col>
+              <ion-col size="6"> {{selectedParcel.receiver}} </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6"> {{'PARCEL.MOBILE' | translate}} </ion-col>
+              <ion-col size="6"> {{selectedParcel.mobile}} </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6"> {{'PARCEL.TO' | translate}} </ion-col>
+              <ion-col size="6"> {{selectedParcel.parcelTo}} </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6"> {{'PARCEL.QUANTITY' | translate}} </ion-col>
+              <ion-col size="6"> {{selectedParcel.quantity}} </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6"> {{'PARCEL.WEIGHT' | translate}} </ion-col>
+              <ion-col size="6"> {{selectedParcel.weight}} Kg.</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6"> {{'PARCEL.AMOUNT' | translate}} </ion-col>
+              <ion-col size="6">Rs. {{selectedParcel.amount}} </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6"> {{'PARCEL.FROM' | translate}} </ion-col>
+              <ion-col size="6"> {{selectedParcel.parcelFrom}} </ion-col>
+            </ion-row>
+
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="6"> {{'PARCEL.STATUS' | translate}} </ion-col>
+          <ion-col size="6"> {{selectedParcel.parcelStatus}} </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card >
+  <ion-card *ngIf="showDetails">
     <ion-card-content>
       <ion-grid>
         <ion-list>
@@ -134,21 +203,21 @@
           </ion-item>
           <ion-item
             *ngIf="selectedParcel.parcelStatus==='In-Transit'"
-            id="edit"
+            id="markAsDelivered"
             (click)="markAsDelivered()"
           >
             <ion-icon slot="start" name="archive"></ion-icon>
             <ion-label> Mark delivered</ion-label>
           </ion-item>
-          <ion-item id="edit" (click)="viewButtonClicked()">
+          <ion-item id="view" (click)="viewButtonClicked()">
             <ion-icon slot="start" name="eye"></ion-icon>
             <ion-label> View Details</ion-label>
           </ion-item>
-          <ion-item id="edit" (click)="editButtonClicked()">
+          <ion-item  *ngIf="loggedInUser.userRole==='Admin'" id="edit" (click)="editButtonClicked()">
             <ion-icon slot="start" name="create"></ion-icon>
             <ion-label> Update Details</ion-label>
           </ion-item>
-          <ion-item id="edit" (click)="closeuttonClicked()">
+          <ion-item id="close" (click)="closeuttonClicked()">
             <ion-icon slot="start" name="close"></ion-icon>
             <ion-label> Close</ion-label>
           </ion-item>

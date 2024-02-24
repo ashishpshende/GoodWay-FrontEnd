@@ -223,6 +223,7 @@ export class DashboardPage implements OnInit, AfterViewInit {
     else
     {
         this.parcelSelected(this.cnNumber); 
+        this.cnNumber = '';
     }
   }
   public parcelSelected(selectedCN:string)

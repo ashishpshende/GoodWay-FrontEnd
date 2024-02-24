@@ -72,8 +72,8 @@
     <ion-row>
         
     </ion-row>
-    <ion-row>
-      <ion-col  (click)="visualizationTileClicked()">
+    <ion-row >
+      <ion-col *ngIf="(loggedInUser.userRole==='Admin')" (click)="visualizationTileClicked()">
         <ion-card class="menu-tile">
           <ion-card-header>
             <ion-icon
@@ -87,7 +87,7 @@
         </ion-card>
       </ion-col>
       <ion-col
-       
+      *ngIf="(loggedInUser.userRole==='Admin')"
         (click)="settingsTileClicked()"
       >
         <ion-card class="menu-tile">

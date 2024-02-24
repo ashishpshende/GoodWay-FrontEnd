@@ -63,6 +63,13 @@
                 </ion-input>
               </ion-col>
             </ion-row>
+            <ion-row>
+              <ion-col size="6">{{'PARCEL.AMOUNT' | translate}} </ion-col>
+              <ion-col size="6">
+                <ion-input   autocomplete="nope" class="value" [(ngModel)]="parcel.amount" placeholder=" {{'PARCEL.AMOUNT' | translate}}">
+                </ion-input>
+              </ion-col>
+            </ion-row>
           </ion-grid>
         </ion-item>
       </ion-list>
@@ -82,15 +89,27 @@
             <ion-row>
               <ion-col>{{'PARCEL.FROM' | translate}} </ion-col>
               <ion-col class="value" size="6">
-                <ion-input   autocomplete="nope" [(ngModel)]="parcel.from" placeholder=" {{'PARCEL.FROM' | translate}}">
+                <ion-input   autocomplete="nope" [(ngModel)]="parcel.parcelFrom" placeholder=" {{'PARCEL.FROM' | translate}}">
                 </ion-input>
               </ion-col>
             </ion-row>
             <ion-row>
               <ion-col>{{'PARCEL.TO' | translate}} </ion-col>
               <ion-col class="value" size="6">
-                <ion-input   autocomplete="nope" [(ngModel)]="parcel.to" placeholder=" {{'PARCEL.TO' | translate}}">
-                </ion-input>
+                <!-- <ion-input     autocomplete="nope" [(ngModel)]="parcel.to" placeholder=" {{'PARCEL.TO' | translate}}">
+                </ion-input> -->
+                <ion-item>
+                  <ion-select aria-label="fruit"  [(ngModel)]="parcel.parcelTo">
+                    <ion-select-option value="Arni">Arni</ion-select-option>
+                    <ion-select-option value="Digras">Digras</ion-select-option>
+                    <ion-select-option value="Umarkhed">Umarkhed</ion-select-option>
+                    <ion-select-option value="Wani">Wani</ion-select-option>
+                    <ion-select-option value="Maregaon">Maregaon</ion-select-option>
+                    <ion-select-option value="Darvha">Darvha</ion-select-option>
+                    <ion-select-option value="Bori Arab">Bori Arab</ion-select-option>
+                    <ion-select-option value="Pandharkawada">Pandharkawada</ion-select-option>
+                  </ion-select>
+                </ion-item>
               </ion-col>
             </ion-row>
             <ion-row>

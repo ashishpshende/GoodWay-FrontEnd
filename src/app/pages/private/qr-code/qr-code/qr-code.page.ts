@@ -18,7 +18,9 @@ import { LocalStorageService } from 'src/app/services/localStorage/local-storage
 export class QrCodePage implements OnInit {
   @ViewChild('printableContent', { static: false })
   printableContent: ElementRef<any>;
-
+  public showDetails:boolean = false;
+  public errorDetailsMessage:string = "";
+  public showEmptyCard:boolean =false;
   public selectedParcel: Parcel;
   public loggedInUser: User;
   public showPrint: boolean = false;
@@ -193,7 +195,7 @@ export class QrCodePage implements OnInit {
         {{'PARCEL.FROM'}}:
       </td>
       <td class="parcel-attribute-value">
-        {{selectedParcel.from}}
+        {{selectedParcel.parcelFrom}}
       </td>
     </tr>
   </table>
@@ -254,9 +256,9 @@ export class QrCodePage implements OnInit {
     text = text.replace('{{selectedParcel.cnType}}',this.selectedParcel.cnType);
     text = text.replace('{{selectedParcel.receiver}}',this.selectedParcel.receiver);
     text = text.replace('{{selectedParcel.mobile}}',this.selectedParcel.mobile??"");
-    text = text.replace('{{selectedParcel.to}}',this.selectedParcel.to??"");
+    text = text.replace('{{selectedParcel.parcelTo}}',this.selectedParcel.parcelTo??"");
     text = text.replace('{{selectedParcel.quantity}}',this.selectedParcel.quantity);
-    text = text.replace('{{selectedParcel.from}}',this.selectedParcel.from);
+    text = text.replace('{{selectedParcel.parcelFrom}}',this.selectedParcel.parcelFrom);
     text = text.replace('{{selectedParcel.parcelStatus}}',this.selectedParcel.parcelStatus);
 
 
@@ -300,7 +302,7 @@ export class QrCodePage implements OnInit {
         ts: new Date().getMilliseconds(),
       },
     };
-    this.router.navigate(['home/parcel-list'], navigationExtras);
+    this.router.navigate(['home'], navigationExtras);
   }
   getParceDetails(cnNo: string) {
     this.loaderService.customLoader('Loading Details...', 5000);
@@ -309,12 +311,27 @@ export class QrCodePage implements OnInit {
       async (results: any) => {
         this.loaderService.dismissLoader();
         if (results.statusCode == 'SUCCESS') {
-          this.selectedParcel = results.data;
-          this.parcelService.selectedParcel = results.data;
+          if(this.selectedParcel.parcelTo === this.loggedInUser.city)
+          {
+            this.selectedParcel = results.data;
+            this.parcelService.selectedParcel = results.data;
+            this.showDetails = true;
+            this.showEmptyCard = false;
+          }
+          else
+          {
+            this.showDetails = false;
+            this.showEmptyCard = true;
+            this.errorDetailsMessage = 'The Parcel you trying get is not assigned to you.';
+          }
         } else {
         }
       },
-      () => {}
+      () => {
+        this.errorDetailsMessage = this.languageService.translate('EMPTY_RECORDS.TITLE');
+        this.showDetails = false;
+        this.showEmptyCard = true;
+      }
     );
   }
   //Alerts

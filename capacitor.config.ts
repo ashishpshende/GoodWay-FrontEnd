@@ -4,7 +4,7 @@ const config: CapacitorConfig = {
   appId: 'com.googway.app',
   appName: 'Goodway',
   webDir: 'www',
-  bundledWebRuntime: false,
+  bundledWebRuntime: true,
   server: {
     androidScheme: 'http',
     cleartext: true,
