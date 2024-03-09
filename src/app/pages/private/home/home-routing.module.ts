@@ -108,6 +108,50 @@ const routes: Routes = [
       {
         path: 'scan-qr-code',
         loadChildren: () => import('../qr-code/scan-qr-code/scan-qr-code.module').then( m => m.ScanQrCodePageModule)
+      },
+      {
+        path: 'create-dealer',
+        loadChildren: () => import('../dealers/create-dealer/create-dealer.module').then( m => m.CreateDealerPageModule)
+      },
+      {
+        path: 'update-dealer',
+        loadChildren: () => import('../dealers/update-dealer/update-dealer.module').then( m => m.UpdateDealerPageModule)
+      },
+      {
+        path: 'view-dealer',
+        loadChildren: () => import('../dealers/view-dealer/view-dealer.module').then( m => m.ViewDealerPageModule)
+      },      
+      {
+        path: 'view-unloader-list',
+        loadChildren: () => import('../unloading/view-unloader-list/view-unloader-list.module').then( m => m.ViewUnloaderListPageModule)
+      },
+      {
+        path: 'create-unloader',
+        loadChildren: () => import('../unloading/create-unloader/create-unloader.module').then( m => m.CreateUnloaderPageModule)
+      },
+      {
+        path: 'update-unloader',
+        loadChildren: () => import('../unloading/update-unloader/update-unloader.module').then( m => m.UpdateUnloaderPageModule)
+      },
+      {
+        path: 'view-unloader',
+        loadChildren: () => import('../unloading/view-unloader/view-unloader.module').then( m => m.ViewUnloaderPageModule)
+      },
+      {
+        path: 'view-loader-list',
+        loadChildren: () => import('../loading/view-loader-list/view-loader-list.module').then( m => m.ViewLoaderListPageModule)
+      },
+      {
+        path: 'update-loader',
+        loadChildren: () => import('../loading/update-loader/update-loader.module').then( m => m.UpdateLoaderPageModule)
+      },
+      {
+        path: 'view-loader',
+        loadChildren: () => import('../loading/view-loader/view-loader.module').then( m => m.ViewLoaderPageModule)
+      },
+      {
+        path: 'create-loader',
+        loadChildren: () => import('../loading/create-loader/create-loader.module').then( m => m.CreateLoaderPageModule)
       }
     
       ]

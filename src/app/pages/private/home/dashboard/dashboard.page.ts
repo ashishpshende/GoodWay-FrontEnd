@@ -131,7 +131,7 @@ export class DashboardPage implements OnInit, AfterViewInit {
   //Click Events
   searchTileClicked() {
     this.showSearchBox = !this.showSearchBox;
-    this.router.navigate(['/home/search-parcel']);
+   // this.router.navigate(['/home/search-parcel']);
   }
   scanQRCodeTileClicked()
   {

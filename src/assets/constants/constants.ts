@@ -17,6 +17,9 @@ export class KeywordConstants {
   public static ROLE_ADMIN = 'Admin';
   public static ROLE_SUB_DEALDER = 'SubDealer';
   public static ROLE_DEALER = 'Dealer';
+  public static ROLE_LOADER = 'Loader';
+  public static ROLE_UNLOADER = 'UnLoader';
+
 
 
   public static PARCEL_STATUS_NEW = 'New';

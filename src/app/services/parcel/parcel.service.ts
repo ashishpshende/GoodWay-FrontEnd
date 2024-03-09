@@ -26,7 +26,7 @@ export class ParcelURLs {
 export class ParcelService {
 
   public selectedParcel:Parcel;
-  
+  public cnTypes = ['TBB', 'Standard', 'Fragile'];
   constructor( private eventBus: NgEventBus,
     private securityService: SecurityService,
     private authenticationService: AuthenticationService,
@@ -64,8 +64,6 @@ export class ParcelService {
       });
     }
   save(parcel: Parcel, success: (any), failure: (any)) {
-    parcel.createdOn = formatDate(new Date(), 'dd-MM-yyyy hh:mm:ss', 'en-US', '+0530');
-    parcel.updatedOn = formatDate(new Date(), 'dd-MM-yyyy hh:mm:ss', 'en-US', '+0530');
     this.networkService.post(ParcelURLs.SAVE_PARCEL, parcel.toCreationJSON(), (response:any) => {   
       success();
     }, () => {
@@ -73,8 +71,6 @@ export class ParcelService {
     });
   }
   update(parcel: Parcel, success: (any), failure: (any)) {
-    parcel.createdOn = formatDate(new Date(), 'dd-MM-yyyy hh:mm:ss', 'en-US', '+0530');
-    parcel.updatedOn = formatDate(new Date(), 'dd-MM-yyyy hh:mm:ss', 'en-US', '+0530');
     this.networkService.post(ParcelURLs.UPDATE_PARCEL, parcel.toUpdationJSON(), (response:any) => {   
       success();
     }, () => {
@@ -82,7 +78,6 @@ export class ParcelService {
     });
   }
   updateStatus(parcel: Parcel, success: (any), failure: (any)) {
-    parcel.updatedOn = formatDate(new Date(), 'dd-MM-yyyy hh:mm:ss', 'en-US', '+0530');
     var param = {
       "parcelStatus": parcel.parcelStatus,
       "id": parcel.id

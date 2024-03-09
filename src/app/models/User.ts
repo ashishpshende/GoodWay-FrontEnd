@@ -2,7 +2,7 @@
 import { BaseModel } from './BaseModel';
 import { formatDate } from '@angular/common';
 export class User  extends BaseModel {
-
+    public prefix: string;
     public icon: string;
     public statusIcon: string;
     public userStatus: string;
@@ -17,6 +17,7 @@ export class User  extends BaseModel {
     public resetRequired: boolean ;
     constructor(requestJSON: any)  {
         super(requestJSON);
+        this.prefix = requestJSON.prefix;
         this.userName =  requestJSON.userName;
         this.email =   requestJSON.email;
         this.city =   requestJSON.city;
@@ -63,8 +64,8 @@ export class User  extends BaseModel {
           name: this.name,
           userName: this.userName,
           city: this.city,
+          prefix: this.prefix,
           userRole: this.userRole,
-          password: this.password,
           email: this.email,
           phoneNumber: this.phoneNumber,
           userStatus: this.userStatus

@@ -7,12 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { UpdateParcelPageRoutingModule } from './update-parcel-routing.module';
 
 import { UpdateParcelPage } from './update-parcel.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    TranslateModule,
     UpdateParcelPageRoutingModule
   ],
   declarations: [UpdateParcelPage]

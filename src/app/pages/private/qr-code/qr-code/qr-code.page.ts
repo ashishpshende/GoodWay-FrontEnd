@@ -311,9 +311,10 @@ export class QrCodePage implements OnInit {
       async (results: any) => {
         this.loaderService.dismissLoader();
         if (results.statusCode == 'SUCCESS') {
-          if(this.selectedParcel.parcelTo === this.loggedInUser.city)
+          this.selectedParcel = results.data;
+
+          if(this.selectedParcel.parcelTo === this.loggedInUser.city || this.loggedInUser.userRole ==='Admin')
           {
-            this.selectedParcel = results.data;
             this.parcelService.selectedParcel = results.data;
             this.showDetails = true;
             this.showEmptyCard = false;

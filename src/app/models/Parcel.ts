@@ -48,6 +48,8 @@ export class Parcel extends BaseModel {
       remarks: this.remarks,
       parcelStatus: 'New',
       createdBy: this.createdBy ? this.createdBy.id : '',
+      createdOn:this.createdOn,
+      updatedOn:this.updatedOn
     };
   }
   public toUpdationJSON() {

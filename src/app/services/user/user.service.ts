@@ -63,35 +63,7 @@ export class UserService {
 
   isSessionValid(success: (any), failure: (any)) {
     if (this.localStorageService.StoredPreference.LoggedInStatus) {
-      this.loggedInUser = this.localStorageService.StoredPreference.LoggedInUser;
-
-      // this.readById(this.loggedInUser.id,
-      //   (serverUser:any) => {
-
-      //     switch (serverUser.userStatus) {
-      //       case 'Active':
-      //         this.loggedInUser = serverUser;
-      //         if (this.loggedInUser.email === serverUser.email)
-      //           {success(this.loggedInUser);}
-      //         else
-      //           {this.logout(() => { failure('EMAIL_UPDATED'); });}
-      //         break;
-      //       case 'Inactive':
-      //       case 'InActive':
-      //         this.logout(() => { failure('INACTIVE_USER'); });
-      //         break;
-      //       case 'Suspended':
-      //         this.logout(() => { failure('SUSPENDED_USER'); });
-      //         break;
-      //       case 'ResetRequired':
-      //         this.logout(() => { failure('RESET_REQUIRED'); });
-      //         break;
-      //     }
-      //   },
-      //   () => {
-      //     failure('USER_NOT_FOUND');
-      //   }
-      // );
+      this.loggedInUser = this.localStorageService.StoredPreference.LoggedInUser;      
     }
     else {
       failure('SOMETHING_WENT_WRONG');
@@ -99,8 +71,7 @@ export class UserService {
   }
   getUseDetails(success: (any), failure: (any)) {
     if (this.localStorageService.StoredPreference.LoggedInStatus === true) {
-      this.loggedInUser = this.localStorageService.StoredPreference.LoggedInUser;
-     
+      this.loggedInUser = this.localStorageService.StoredPreference.LoggedInUser;     
     }
     else {
       failure('SOMETHING_WENT_WRONG');

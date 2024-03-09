@@ -19,18 +19,6 @@
     </ion-card-content>
   </ion-card>
   <ion-list *ngIf="parcels.length!==0" class="user-results">
-    <!-- <ion-item>
-      <ion-thumbnail slot="start" (click)="addParcelButtonClicked()">
-        <img alt="Add User" src="/assets/icon/add_user_icon.png" />
-      </ion-thumbnail>     
-    </ion-item>
-    <ion-item *ngIf="searchToggle">
-      <ion-input slot="start" type="search" class="search-text-field"  [(ngModel)]="searchText" autocomplete="nope" placeholder=" {{'USERS_PAGE.SEARCH_BY_NAME' | translate}}"></ion-input>
-      <img slot="end" *ngIf="searchText.length!==0" class="search-icon" src="/assets/icon/ClearIcon.png" (click)="clearTextButtonClicked()">
-      <img slot="end" class="search-icon" src="/assets/icon/SearchAction.png" (click)="searchTextButtonClicked()">
-    </ion-item>
-    <ion-list-header class="user-results-list-header"> Showing Results skipping {{skip}} records </ion-list-header> -->
-
     <ion-item class="user-result-cell" *ngFor="let parcel of parcels">
       <ion-avatar slot="start" (click)="parcelSelected(parcel)">
         <img alt="User" [src]="parcel.icon" />
@@ -41,7 +29,6 @@
         <p>{{parcel.receiver}} - {{parcel.mobile}}</p>
       </ion-label>
       <ion-icon name="qr-code-sharp" slot="end" (click)="qrButtonClicked(parcel)"></ion-icon>
-
       <ion-icon name="create-sharp" slot="end" (click)="editButtonClicked(parcel)"></ion-icon>
     </ion-item>
   </ion-list>

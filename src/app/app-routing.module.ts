@@ -64,6 +64,9 @@ const routes: Routes = [
     path: 'update-lookup',
     loadChildren: () => import('./pages/private/lookup/update-lookup/update-lookup.module').then( m => m.UpdateLookupPageModule)
   }
+
+
+
 ];
 
 @NgModule({

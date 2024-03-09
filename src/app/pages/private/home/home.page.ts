@@ -139,13 +139,25 @@ export class HomePage implements AfterViewInit {
         identifier: 'dealer',
         title: this.translateService.instant('DEALERS_PAGE.PAGE_TITLE'),
         url: '/home/dealer-list',
-        icon: 'people-sharp',
+        icon: 'id-card-sharp',
       });
       this.appPages.push({
         identifier: 'subdealer',
         title: this.translateService.instant('SUB_DEALERS_PAGE.PAGE_TITLE'),
         url: '/home/sub-dealer-list',
         icon: 'people-sharp',
+      });
+      this.appPages.push({
+        identifier: 'loader-list',
+        title: this.translateService.instant('LOADER_PAGE.PAGE_TITLE'),
+        url: '/home/view-loader-list',
+        icon: 'briefcase-sharp',
+      });
+      this.appPages.push({
+        identifier: 'unloader-list',
+        title: this.translateService.instant('UNLOADER_PAGE.PAGE_TITLE'),
+        url: '/home/view-unloader-list',
+        icon: 'briefcase-sharp',
       });
     }
 

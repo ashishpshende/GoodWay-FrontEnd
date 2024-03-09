@@ -10,13 +10,12 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NgEventBus } from 'ng-event-bus';
 import { Storage  } from '@ionic/storage';
 // import { QRCodeModule } from 'angularx-qrcode';
-
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule,HttpClientModule, IonicModule.forRoot(), AppRoutingModule, TranslateModule.forRoot({
+  imports: [BrowserModule,HttpClientModule, IonicModule.forRoot(),  AppRoutingModule, TranslateModule.forRoot({
     loader: {
       provide: TranslateLoader,
       useFactory: (createTranslateLoader),
