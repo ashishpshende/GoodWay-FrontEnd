@@ -130,7 +130,8 @@ export class ParcelListPage implements OnInit {
     this.parcelService.selectedParcel = selectedParcel;
     const navigationExtras: NavigationExtras = {
       queryParams: {
-        ts: new Date().getMilliseconds()
+        ts: new Date().getMilliseconds(),
+        "cnNo":selectedParcel.cnNo
       }
     };
     this.router.navigate(["home/update-parcel"], navigationExtras);

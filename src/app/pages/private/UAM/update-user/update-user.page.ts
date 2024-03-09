@@ -7,6 +7,7 @@ import { User } from '../../../../models/User';
 import { LanguageService } from 'src/app/services/language/language.service';
 import { LoaderService } from 'src/app/services/loader/loader.service';
 import { UserService } from 'src/app/services/user/user.service';
+import { KeywordConstants } from 'src/assets/constants/constants';
 
 @Component({
   selector: 'app-update-user',
@@ -169,7 +170,10 @@ export class UpdateUserPage implements AfterViewInit {
   }
   updateUser(_succes: (any), _failure: (any)) {
     this.loaderService.customLoader("Saving User...", 10000);
-    this.user.updatedOn = formatDate(new Date(), 'dd-MM-yyyy hh:mm:ss', 'en-US', '+0530');
+    this.user.updatedOn = formatDate(new Date(),
+    KeywordConstants.DATE_FORMAT_STRING,
+    KeywordConstants.DATE_FORMAT_LANGUAGE,
+    KeywordConstants.DATE_FORMAT_TIMES_ZONE_OFFSET,);
     this.userService.UpdateUser(this.user, (results:any) => {
       this.loaderService.dismissLoader();
       this.goToUserList();

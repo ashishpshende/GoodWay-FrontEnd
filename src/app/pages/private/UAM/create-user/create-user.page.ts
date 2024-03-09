@@ -7,6 +7,7 @@ import { LanguageService } from 'src/app/services/language/language.service';
 import { LoaderService } from 'src/app/services/loader/loader.service';
 import { UserService } from 'src/app/services/user/user.service';
 import { HelperService } from 'src/app/services/helpers/helper-service';
+import { KeywordConstants } from 'src/assets/constants/constants';
 
 @Component({
   selector: 'app-create-user',
@@ -89,8 +90,14 @@ export class CreateUserPage implements OnInit {
   SaveUser(succes: (any), failure: (any)) {
     this.loaderService.customLoader("Saving User...", 10000);
     this.user.password = "password";
-    this.user.createdOn = formatDate(new Date(), 'dd-MM-yyyy hh:mm:ss', 'en-US', '+0530');
-    this.user.updatedOn = formatDate(new Date(), 'dd-MM-yyyy hh:mm:ss', 'en-US', '+0530');
+    this.user.createdOn = formatDate(new Date(),  
+    KeywordConstants.DATE_FORMAT_STRING,
+    KeywordConstants.DATE_FORMAT_LANGUAGE,
+    KeywordConstants.DATE_FORMAT_TIMES_ZONE_OFFSET,);
+    this.user.updatedOn = formatDate(new Date(), 
+    KeywordConstants.DATE_FORMAT_STRING,
+    KeywordConstants.DATE_FORMAT_LANGUAGE,
+    KeywordConstants.DATE_FORMAT_TIMES_ZONE_OFFSET,);
     this.user.resetRequired = true;
     this.userService.SaveUser(this.user, () => {
 

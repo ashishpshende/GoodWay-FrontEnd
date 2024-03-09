@@ -10,6 +10,7 @@ import { SecurityService } from '../security/security.service';
 import { SharedService } from '../shared-service/shared.service';
 import { environment } from 'src/environments/environment';
 import { BaseModel } from 'src/app/models/BaseModel';
+import { KeywordConstants } from 'src/assets/constants/constants';
 export class TransactionURLs {
   public static SAVE_TRANSACTION = environment.apiURL + '/api/transactions/save';
   public static TRANSACTION_LIST_BY_PARCELID = environment.apiURL + '/api/transactions/listByParcelNo?cnNo=';
@@ -69,8 +70,14 @@ export class TransactionService {
     }
    
   save(transaction: Transaction, success: (any), failure: (any)) {
-    transaction.createdOn = formatDate(new Date(), 'dd-MM-yyyy hh:mm:ss', 'en-US', '+0530');
-    transaction.updatedOn = formatDate(new Date(), 'dd-MM-yyyy hh:mm:ss', 'en-US', '+0530');
+    transaction.createdOn = formatDate(new Date(), 
+    KeywordConstants.DATE_FORMAT_STRING,
+    KeywordConstants.DATE_FORMAT_LANGUAGE,
+    KeywordConstants.DATE_FORMAT_TIMES_ZONE_OFFSET,);
+    transaction.updatedOn = formatDate(new Date(),
+    KeywordConstants.DATE_FORMAT_STRING,
+    KeywordConstants.DATE_FORMAT_LANGUAGE,
+    KeywordConstants.DATE_FORMAT_TIMES_ZONE_OFFSET,);
     this.networkService.post(TransactionURLs.SAVE_TRANSACTION, transaction.ToJSON(), (response:any) => {   
       success();
     }, () => {

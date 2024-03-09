@@ -237,8 +237,14 @@ export class UserService {
     });
   }
   SaveUser(user: User, success: (any), failure: (any)) {
-    user.createdOn = formatDate(new Date(), 'dd-MM-yyyy hh:mm:ss', 'en-US', '+0530');
-    user.updatedOn = formatDate(new Date(), 'dd-MM-yyyy hh:mm:ss', 'en-US', '+0530');
+    user.createdOn = formatDate(new Date(),  
+    KeywordConstants.DATE_FORMAT_STRING,
+    KeywordConstants.DATE_FORMAT_LANGUAGE,
+    KeywordConstants.DATE_FORMAT_TIMES_ZONE_OFFSET,);
+    user.updatedOn = formatDate(new Date(),  
+    KeywordConstants.DATE_FORMAT_STRING,
+    KeywordConstants.DATE_FORMAT_LANGUAGE,
+    KeywordConstants.DATE_FORMAT_TIMES_ZONE_OFFSET,);
     this.networkService.post(UserURLs.SAVE, this.ToJSON(user), (response:any) => {
       user.id = response.id;
       success(user);
@@ -247,7 +253,10 @@ export class UserService {
     });
   }
   UpdateUser(user: User, success: (any), failure: (any)) {
-    user.createdOn = formatDate(new Date(), 'dd-MM-yyyy hh:mm:ss', 'en-US', '+0530');
+    user.createdOn = formatDate(new Date(),  
+    KeywordConstants.DATE_FORMAT_STRING,
+    KeywordConstants.DATE_FORMAT_LANGUAGE,
+    KeywordConstants.DATE_FORMAT_TIMES_ZONE_OFFSET,);
     this.networkService.put(UserURLs.UPDATE.replace('{ROW_INDEX}', user.id.toString()), this.ToUpdateJSON(user), (response:any) => {
       success(response);
     }, () => {
@@ -255,7 +264,10 @@ export class UserService {
     });
   }
   UpdateUserCredentials(user: User, success: (any), failure: (any)) {
-    user.createdOn = formatDate(new Date(), 'dd-MM-yyyy hh:mm:ss', 'en-US', '+0530');
+    user.createdOn = formatDate(new Date(), 
+    KeywordConstants.DATE_FORMAT_STRING,
+    KeywordConstants.DATE_FORMAT_LANGUAGE,
+    KeywordConstants.DATE_FORMAT_TIMES_ZONE_OFFSET,);
     this.networkService.put(UserURLs.UPDATE.replace('{ROW_INDEX}', user.id.toString()), this.ToCredentialsJSON(user), (response:any) => {
       success(response);
     }, () => {
@@ -264,7 +276,10 @@ export class UserService {
   }
   ResetPassword(Id: number, newPassword: string, success: (any), failure: (any)) {
     var requestParams = {
-      UpdatedOn: formatDate(new Date(), 'dd-MM-yyyy hh:mm:ss', 'en-US', '+0530'),
+      UpdatedOn: formatDate(new Date(), 
+      KeywordConstants.DATE_FORMAT_STRING,
+      KeywordConstants.DATE_FORMAT_LANGUAGE,
+      KeywordConstants.DATE_FORMAT_TIMES_ZONE_OFFSET,),
       Password: this.securityService.hash(newPassword),
       ResetRequired: 0
     };
@@ -284,7 +299,10 @@ export class UserService {
 
   //Profile
   UpdateUserProfile(user: User, success: (any), failure: (any)) {
-    user.createdOn = formatDate(new Date(), 'dd-MM-yyyy hh:mm:ss', 'en-US', '+0530');
+    user.createdOn = formatDate(new Date(),
+    KeywordConstants.DATE_FORMAT_STRING,
+    KeywordConstants.DATE_FORMAT_LANGUAGE,
+    KeywordConstants.DATE_FORMAT_TIMES_ZONE_OFFSET,);
     //user.Password = this.securityService.hash(user.Password);
     this.networkService.put(UserURLs.UPDATE.replace('{ROW_INDEX}', user.id.toString()), this.ToUpdateJSON(user), (response:any) => {
       console.log('UpdateUserProfile',response);
@@ -395,7 +413,10 @@ export class UserService {
   }
       public ToCredentialsJSON(user: User)
     {
-      user.updatedOn = formatDate(new Date(), 'dd-MM-yyyy hh:mm:ss', 'en-US', '+0530');
+      user.updatedOn = formatDate(new Date(), 
+      KeywordConstants.DATE_FORMAT_STRING,
+      KeywordConstants.DATE_FORMAT_LANGUAGE,
+      KeywordConstants.DATE_FORMAT_TIMES_ZONE_OFFSET,);
         return {
             UserName: user.userName,
             Email: user.email,

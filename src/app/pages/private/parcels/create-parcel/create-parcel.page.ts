@@ -7,6 +7,7 @@ import { LanguageService } from 'src/app/services/language/language.service';
 import { LoaderService } from 'src/app/services/loader/loader.service';
 import { ParcelService } from 'src/app/services/parcel/parcel.service';
 import { UserService } from 'src/app/services/user/user.service';
+import { KeywordConstants } from 'src/assets/constants/constants';
 
 @Component({
   selector: 'app-create-parcel',
@@ -167,15 +168,15 @@ export class CreateParcelPage {
       this.parcel.updatedBy = this.userService.loggedInUser;
       this.parcel.createdOn = formatDate(
         new Date(),
-        'dd-MM-yyyy hh:mm:ss',
-        'en-US',
-        '+0530'
+        KeywordConstants.DATE_FORMAT_STRING,
+        KeywordConstants.DATE_FORMAT_LANGUAGE,
+        KeywordConstants.DATE_FORMAT_TIMES_ZONE_OFFSET,
       );
       this.parcel.updatedOn = formatDate(
         new Date(),
-        'dd-MM-yyyy hh:mm:ss',
-        'en-US',
-        '+0530'
+        KeywordConstants.DATE_FORMAT_STRING,
+        KeywordConstants.DATE_FORMAT_LANGUAGE,
+        KeywordConstants.DATE_FORMAT_TIMES_ZONE_OFFSET,
       );
       this.parcelService.save(
         this.parcel,

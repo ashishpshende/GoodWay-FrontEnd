@@ -2,7 +2,7 @@
   <ion-card>
     <ion-card-header class="text-center">
       <ion-item>
-        <ion-icon name='list-outline' slot="start"></ion-icon>
+        <ion-icon name="list-outline" slot="start"></ion-icon>
         {{'PARCEL_CREATE.BASIC_DETAILS' | translate}}
       </ion-item>
     </ion-card-header>
@@ -13,11 +13,16 @@
             <ion-row>
               <ion-col size="6">{{'PARCEL.CN_NO' | translate}} </ion-col>
               <ion-col size="6">
-                <ion-input  autocomplete="nope"
-                 class="value" [(ngModel)]="parcel.cnNo" placeholder=" {{'PARCEL.CN_NO' | translate}}">
-                </ion-input>
-              </ion-col>        
-            </ion-row>           
+                <!-- <ion-input
+                  autocomplete="nope"
+                  class="value"
+                  [(ngModel)]="parcel.cnNo"
+                  placeholder=" {{'PARCEL.CN_NO' | translate}}"
+                >
+                </ion-input> -->
+                {{parcel.cnNo}}
+              </ion-col>
+            </ion-row>
           </ion-grid>
         </ion-item>
         <ion-item>
@@ -25,9 +30,17 @@
             <ion-row>
               <ion-col size="6">{{'PARCEL.CN_TYPE' | translate}} </ion-col>
               <ion-col size="6" class="value">
-                <ion-select multiple="false" cancelText="Cancel" okText="Select" [(ngModel)]="parcel.cnType"
-                  placeholder=" {{'PARCEL.CN_TYPE' | translate}}">
-                  <ion-select-option *ngFor="let type of cnTypes" value="{{ type }}">
+                <ion-select
+                  multiple="false"
+                  cancelText="Cancel"
+                  okText="Select"
+                  [(ngModel)]="parcel.cnType"
+                  placeholder=" {{'PARCEL.CN_TYPE' | translate}}"
+                >
+                  <ion-select-option
+                    *ngFor="let type of cnTypes"
+                    value="{{ type }}"
+                  >
                     {{ type }}
                   </ion-select-option>
                 </ion-select>
@@ -41,7 +54,7 @@
   <ion-card>
     <ion-card-header>
       <ion-item>
-        <ion-icon name='list-outline' slot="start"></ion-icon>
+        <ion-icon name="list-outline" slot="start"></ion-icon>
         {{'PARCEL_CREATE.PACKAGE_DETAILS' | translate}}
       </ion-item>
     </ion-card-header>
@@ -52,21 +65,36 @@
             <ion-row>
               <ion-col size="6">{{'PARCEL.QUANTITY' | translate}} </ion-col>
               <ion-col size="6">
-                <ion-input   autocomplete="nope" class="value" [(ngModel)]="parcel.quantity" placeholder=" {{'PARCEL.QUANTITY' | translate}}">
+                <ion-input
+                  autocomplete="nope"
+                  class="value"
+                  [(ngModel)]="parcel.quantity"
+                  placeholder=" {{'PARCEL.QUANTITY' | translate}}"
+                >
                 </ion-input>
               </ion-col>
             </ion-row>
             <ion-row>
               <ion-col size="6">{{'PARCEL.WEIGHT' | translate}} </ion-col>
               <ion-col size="6">
-                <ion-input   autocomplete="nope" class="value" [(ngModel)]="parcel.weight" placeholder=" {{'PARCEL.WEIGHT' | translate}}">
+                <ion-input
+                  autocomplete="nope"
+                  class="value"
+                  [(ngModel)]="parcel.weight"
+                  placeholder=" {{'PARCEL.WEIGHT' | translate}}"
+                >
                 </ion-input>
               </ion-col>
             </ion-row>
             <ion-row>
               <ion-col size="6">{{'PARCEL.AMOUNT' | translate}} </ion-col>
               <ion-col size="6">
-                <ion-input   autocomplete="nope" class="value" [(ngModel)]="parcel.amount" placeholder=" {{'PARCEL.AMOUNT' | translate}}">
+                <ion-input
+                  autocomplete="nope"
+                  class="value"
+                  [(ngModel)]="parcel.amount"
+                  placeholder=" {{'PARCEL.AMOUNT' | translate}}"
+                >
                 </ion-input>
               </ion-col>
             </ion-row>
@@ -78,7 +106,7 @@
   <ion-card>
     <ion-card-header class="text-center">
       <ion-item>
-        <ion-icon name='list-outline' slot="start"></ion-icon>
+        <ion-icon name="list-outline" slot="start"></ion-icon>
         {{'PARCEL_CREATE.ADDRESS_DETAILS' | translate}}
       </ion-item>
     </ion-card-header>
@@ -89,7 +117,11 @@
             <ion-row>
               <ion-col>{{'PARCEL.FROM' | translate}} </ion-col>
               <ion-col class="value" size="6">
-                <ion-input   autocomplete="nope" [(ngModel)]="parcel.parcelFrom" placeholder=" {{'PARCEL.FROM' | translate}}">
+                <ion-input
+                  autocomplete="nope"
+                  [(ngModel)]="parcel.parcelFrom"
+                  placeholder=" {{'PARCEL.FROM' | translate}}"
+                >
                 </ion-input>
               </ion-col>
             </ion-row>
@@ -99,15 +131,23 @@
                 <!-- <ion-input     autocomplete="nope" [(ngModel)]="parcel.to" placeholder=" {{'PARCEL.TO' | translate}}">
                 </ion-input> -->
                 <ion-item>
-                  <ion-select aria-label="fruit"  [(ngModel)]="parcel.parcelTo">
+                  <ion-select aria-label="fruit" [(ngModel)]="parcel.parcelTo">
                     <ion-select-option value="Arni">Arni</ion-select-option>
                     <ion-select-option value="Digras">Digras</ion-select-option>
-                    <ion-select-option value="Umarkhed">Umarkhed</ion-select-option>
+                    <ion-select-option value="Umarkhed"
+                      >Umarkhed</ion-select-option
+                    >
                     <ion-select-option value="Wani">Wani</ion-select-option>
-                    <ion-select-option value="Maregaon">Maregaon</ion-select-option>
+                    <ion-select-option value="Maregaon"
+                      >Maregaon</ion-select-option
+                    >
                     <ion-select-option value="Darvha">Darvha</ion-select-option>
-                    <ion-select-option value="Bori Arab">Bori Arab</ion-select-option>
-                    <ion-select-option value="Pandharkawada">Pandharkawada</ion-select-option>
+                    <ion-select-option value="Bori Arab"
+                      >Bori Arab</ion-select-option
+                    >
+                    <ion-select-option value="Pandharkawada"
+                      >Pandharkawada</ion-select-option
+                    >
                   </ion-select>
                 </ion-item>
               </ion-col>
@@ -115,30 +155,46 @@
             <ion-row>
               <ion-col>{{'PARCEL.RECEIVER' | translate}} </ion-col>
               <ion-col class="value" size="6">
-                <ion-input   autocomplete="nope" [(ngModel)]="parcel.receiver" placeholder=" {{'PARCEL.RECEIVER' | translate}}">
+                <ion-input
+                  autocomplete="nope"
+                  [(ngModel)]="parcel.receiver"
+                  placeholder=" {{'PARCEL.RECEIVER' | translate}}"
+                >
                 </ion-input>
               </ion-col>
             </ion-row>
             <ion-row>
               <ion-col>{{'PARCEL.MOBILE' | translate}} </ion-col>
               <ion-col class="value" size="6">
-                <ion-input   autocomplete="nope" [(ngModel)]="parcel.mobile" placeholder=" {{'PARCEL.MOBILE' | translate}}">
+                <ion-input
+                  autocomplete="nope"
+                  [(ngModel)]="parcel.mobile"
+                  placeholder=" {{'PARCEL.MOBILE' | translate}}"
+                >
                 </ion-input>
               </ion-col>
             </ion-row>
           </ion-grid>
-        </ion-item>       
+        </ion-item>
       </ion-list>
     </ion-card-content>
   </ion-card>
-
 </ion-content>
 <ion-footer>
-  <ion-button expand="block" (click)="goToParcelList()" >
-    <ion-icon slot="start" name="close"></ion-icon>
-    {{'BUTTONS.CANCEL' | translate}}
-  </ion-button>
-  <ion-button expand="block" (click)="saveButtonClicked()" >
-    <ion-icon slot="start" name="save"></ion-icon>
-    {{'BUTTONS.SAVE' | translate}}
-</ion-button>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" (click)="goToParcelList()">
+          <ion-icon slot="start" name="close"></ion-icon>
+          {{'BUTTONS.CANCEL' | translate}}
+        </ion-button></ion-col
+      >
+      <ion-col>
+        <ion-button expand="block" (click)="updateButtonClicked()">
+          <ion-icon slot="start" name="save"></ion-icon>
+          {{'BUTTONS.UPDATE' | translate}}
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

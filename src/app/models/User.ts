@@ -1,4 +1,5 @@
 
+import { KeywordConstants } from 'src/assets/constants/constants';
 import { BaseModel } from './BaseModel';
 import { formatDate } from '@angular/common';
 export class User  extends BaseModel {
@@ -40,7 +41,9 @@ export class User  extends BaseModel {
     }
     public ToCredentialsJSON()
     {
-        this.updatedOn = formatDate(new Date(), 'dd-MM-yyyy hh:mm:ss', 'en-US', '+0530');
+        this.updatedOn = formatDate(new Date(),     KeywordConstants.DATE_FORMAT_STRING,
+        KeywordConstants.DATE_FORMAT_LANGUAGE,
+        KeywordConstants.DATE_FORMAT_TIMES_ZONE_OFFSET,);
         return {
             userName: this.userName,
             email: this.email,

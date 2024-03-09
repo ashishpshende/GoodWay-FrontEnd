@@ -1,3 +1,4 @@
+import { KeywordConstants } from 'src/assets/constants/constants';
 import { HelperService } from '../services/helpers/helper-service';
 import { BaseModel } from './BaseModel';
 import { formatDate } from '@angular/common';
@@ -48,6 +49,7 @@ export class Parcel extends BaseModel {
       remarks: this.remarks,
       parcelStatus: 'New',
       createdBy: this.createdBy ? this.createdBy.id : '',
+      updatedBy: this.updatedBy ? this.updatedBy.id : '',
       createdOn:this.createdOn,
       updatedOn:this.updatedOn
     };
@@ -68,6 +70,7 @@ export class Parcel extends BaseModel {
       remarks: this.remarks,
       parcelStatus: this.parcelStatus,
       updatedBy: this.updatedBy ? this.updatedBy.id : '',
+      updatedOn: this.updatedOn
     };
   }
   public toUpdateStatusJSON() {
@@ -78,9 +81,9 @@ export class Parcel extends BaseModel {
       updatedBy: this.updatedBy ? this.updatedBy.id : '',
       updatedOn: formatDate(
         new Date(),
-        'dd-MM-yyyy hh:mm:ss',
-        'en-US',
-        '+0530'
+        KeywordConstants.DATE_FORMAT_STRING,
+        KeywordConstants.DATE_FORMAT_LANGUAGE,
+        KeywordConstants.DATE_FORMAT_TIMES_ZONE_OFFSET,
       ),
     };
   }

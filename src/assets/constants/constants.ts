@@ -5,6 +5,11 @@ export class KeywordConstants {
   public static AUTH_TOKEN_KEY = 'Authorization';
   public static SPREADSHEET_ID_KEY ="X-Spreadsheet-Id";
 
+  public static DATE_FORMAT_STRING ='dd-MM-yyyy hh:mm:ss a';
+  public static DATE_FORMAT_LANGUAGE = 'en-US';
+  public static DATE_FORMAT_TIMES_ZONE_OFFSET ='+0530';
+
+
 
   public static LOGGED_IN_STATUS = 'SIGN_IN_STATUS';
   public static USER_NAME = 'USER_NAME';
