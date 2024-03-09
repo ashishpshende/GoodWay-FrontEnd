@@ -71,7 +71,7 @@ export class ParcelService {
     });
   }
   update(parcel: Parcel, success: (any), failure: (any)) {
-    this.networkService.post(ParcelURLs.UPDATE_PARCEL, parcel.toUpdationJSON(), (response:any) => {   
+    this.networkService.put(ParcelURLs.UPDATE_PARCEL, parcel, (response:any) => {   
       success();
     }, () => {
       failure();

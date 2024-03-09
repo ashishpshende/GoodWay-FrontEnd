@@ -48,10 +48,11 @@ export class CreateParcelPage {
     // Implement any additional validation logic as needed
     const phoneRegex = /^\d{10}$/; // Example: 10 digits only
 
-    if (phoneRegex.test(this.parcel.mobile)) {
+    if (phoneRegex.test(this.parcel.mobile) && this.parcel.mobile.length===10) {
       console.log('Valid phone number:', this.parcel.mobile);
       // Add further logic if the phone number is valid
-    } else {
+    }
+    else {
       this.presentAlert(
         this.languageService.translate(
           'PARCEL_CREATE.INVALID_MOBILE_NUMBER_TITLE'
@@ -157,7 +158,17 @@ export class CreateParcelPage {
       );
       return false;
     } 
-
+    if (this.parcel.mobile.length<10) {
+      this.presentAlert(
+        this.languageService.translate(
+          'PARCEL_CREATE.INVALID_MOBILE_NUMBER_TITLE'
+        ),
+        this.languageService.translate(
+          'PARCEL_CREATE.INVALID_MOBILE_NUMBER_MESSAGE'
+        )
+      );
+      return false;
+    }
     return true;
   }
   saveButtonClicked() {

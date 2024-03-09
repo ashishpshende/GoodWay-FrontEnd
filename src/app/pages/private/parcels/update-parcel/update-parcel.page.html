@@ -66,8 +66,10 @@
               <ion-col size="6">{{'PARCEL.QUANTITY' | translate}} </ion-col>
               <ion-col size="6">
                 <ion-input
+                  inputmode="numeric"
                   autocomplete="nope"
                   class="value"
+                  (ionChange)="validateQuantity()"
                   [(ngModel)]="parcel.quantity"
                   placeholder=" {{'PARCEL.QUANTITY' | translate}}"
                 >
@@ -78,10 +80,12 @@
               <ion-col size="6">{{'PARCEL.WEIGHT' | translate}} </ion-col>
               <ion-col size="6">
                 <ion-input
-                  autocomplete="nope"
-                  class="value"
-                  [(ngModel)]="parcel.weight"
-                  placeholder=" {{'PARCEL.WEIGHT' | translate}}"
+                inputmode="numeric"
+                (ionChange)="validateWeight()"
+                autocomplete="nope"
+                class="value"
+                [(ngModel)]="parcel.weight"
+                placeholder=" {{'PARCEL.WEIGHT' | translate}}"
                 >
                 </ion-input>
               </ion-col>
@@ -90,10 +94,12 @@
               <ion-col size="6">{{'PARCEL.AMOUNT' | translate}} </ion-col>
               <ion-col size="6">
                 <ion-input
-                  autocomplete="nope"
-                  class="value"
-                  [(ngModel)]="parcel.amount"
-                  placeholder=" {{'PARCEL.AMOUNT' | translate}}"
+                inputmode="numeric"
+                (ionChange)="validateAmount()"
+                autocomplete="nope"
+                class="value"
+                [(ngModel)]="parcel.amount"
+                placeholder=" {{'PARCEL.AMOUNT' | translate}}"
                 >
                 </ion-input>
               </ion-col>
@@ -118,9 +124,9 @@
               <ion-col>{{'PARCEL.FROM' | translate}} </ion-col>
               <ion-col class="value" size="6">
                 <ion-input
-                  autocomplete="nope"
-                  [(ngModel)]="parcel.parcelFrom"
-                  placeholder=" {{'PARCEL.FROM' | translate}}"
+                autocomplete="nope"
+                [(ngModel)]="parcel.parcelFrom"
+                placeholder=" {{'PARCEL.FROM' | translate}}"
                 >
                 </ion-input>
               </ion-col>
@@ -167,9 +173,13 @@
               <ion-col>{{'PARCEL.MOBILE' | translate}} </ion-col>
               <ion-col class="value" size="6">
                 <ion-input
-                  autocomplete="nope"
-                  [(ngModel)]="parcel.mobile"
-                  placeholder=" {{'PARCEL.MOBILE' | translate}}"
+                inputmode="tel"
+                placeholder="(123) 456-7890"
+                (ionChange)="validateMobileNumber()"
+                autocomplete="nope"
+                maxlength="10"
+                [(ngModel)]="parcel.mobile"
+                placeholder=" {{'PARCEL.MOBILE' | translate}}"
                 >
                 </ion-input>
               </ion-col>
