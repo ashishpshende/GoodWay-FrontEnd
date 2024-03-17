@@ -46,7 +46,7 @@
       <ion-list>
         <ion-item>
           <ion-checkbox slot="start" [(ngModel)]="selectAll" (ionChange)="selectAllParcels()"> Select All</ion-checkbox>
-          <ion-button slot="end" expand="block" (click)="printSelectedParcels()">
+          <ion-button *ngIf="showPrint" slot="end" expand="block" (click)="printSelectedParcels()">
             <ion-icon slot="start" name="print-sharp"></ion-icon>
             {{'BUTTONS.PRINT' | translate}}
           </ion-button>

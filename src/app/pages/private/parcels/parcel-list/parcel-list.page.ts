@@ -7,6 +7,7 @@ import { LocalStorageService } from "src/app/services/localStorage/local-storage
 import { ParcelService } from "src/app/services/parcel/parcel.service";
 import { PrintService } from "src/app/services/print.service";
 import { KeywordConstants } from "src/assets/constants/constants";
+import { Platform } from "@ionic/angular";
 
 @Component({
   selector: "app-parcel-list",
@@ -19,6 +20,7 @@ export class ParcelListPage implements OnInit {
   public limit: number = 10;
   public searchText: string = "";
   public loggedInUser: User ;
+  public showPrint:boolean=false;
   public selectedParcels: Parcel[] = new Array();
   public parcels: Parcel[] = new Array();
   public searchToggle:boolean = true;
@@ -38,10 +40,11 @@ export class ParcelListPage implements OnInit {
     public parcelService: ParcelService,
     public loaderService: LoaderService,
     public printService:PrintService,
+    private platform: Platform,
     private router: Router,
     private localStorageService: LocalStorageService
   ) {
-
+    this.showPrint = (!this.platform.is('android') && !this.platform.is('ios'));
   }
 
   ngOnInit() {

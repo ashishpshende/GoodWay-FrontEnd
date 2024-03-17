@@ -6,7 +6,7 @@ import { AuthorizationService } from 'src/app/services/authorization/authorizati
 import { ParcelService } from 'src/app/services/parcel/parcel.service';
 import { LoaderService } from 'src/app/services/loader/loader.service';
 import { KeywordConstants } from 'src/assets/constants/constants';
-import { LoadingController, AlertController } from '@ionic/angular';
+import { LoadingController, AlertController, Platform } from '@ionic/angular';
 import { LanguageService } from 'src/app/services/language/language.service';
 import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
 import { PrintService } from 'src/app/services/print.service';
@@ -25,13 +25,14 @@ export class QrCodePage implements OnInit {
   public showEmptyCard: boolean = false;
   public selectedParcel: Parcel;
   public loggedInUser: User;
-  public showPrint: boolean = true;
+  public showPrint: boolean = false;
 
   public showMarkAsLoaded: boolean = false;
   public showMarkAsUnLoaded: boolean = false;
   public showMarkAsDeliverd: boolean = false;
 
   constructor(
+    private platform: Platform,
     private parcelService: ParcelService,
     private router: Router,
     private loaderService: LoaderService,
@@ -126,13 +127,33 @@ export class QrCodePage implements OnInit {
 
           switch (this.loggedInUser.userRole) {
             case KeywordConstants.ROLE_ADMIN:
-              this.showPrint = true;
+              this.showPrint = (!this.platform.is('android') && !this.platform.is('ios'));
               this.showDetails = true;
               this.showEmptyCard = false;
+              if (
+                this.selectedParcel.parcelStatus ===
+                KeywordConstants.PARCEL_STATUS_NEW
+              ) {
+                this.showMarkAsLoaded =true;
+              }
+              else
+              if (
+                this.selectedParcel.parcelStatus ===
+                KeywordConstants.PARCEL_STATUS_IN_TRANSIT
+              ) {
+                this.showMarkAsUnLoaded =true;
+              }
+              else
+              if (
+                this.selectedParcel.parcelStatus ===
+                KeywordConstants.PARCEL_STATUS_UNLOADED
+              ) {
+                this.showMarkAsDeliverd =true;
+              }
               break;
             case KeywordConstants.ROLE_DEALER:
               if (this.selectedParcel.createdBy.id === this.loggedInUser.id) {
-                this.showPrint = true;
+                this.showPrint = (!this.platform.is('android') && !this.platform.is('ios'));;
                 this.showDetails = true;
                 this.showEmptyCard = false;
               } else {
@@ -149,7 +170,6 @@ export class QrCodePage implements OnInit {
               ) {
               
                 this.showDetails = true;
-                this.showPrint = true;
                 this.showMarkAsLoaded = true;
                 this.showEmptyCard = false;
               } else {
@@ -165,7 +185,6 @@ export class QrCodePage implements OnInit {
                 KeywordConstants.PARCEL_STATUS_IN_TRANSIT
               ) {
                 this.showMarkAsUnLoaded = true;
-                this.showPrint = true;
                 this.showDetails = true;
               } else {
                 this.showDetails = false;
@@ -180,7 +199,6 @@ export class QrCodePage implements OnInit {
                 KeywordConstants.PARCEL_STATUS_UNLOADED && this.selectedParcel.parcelTo === this.loggedInUser.city
               ) {
                 this.showMarkAsDeliverd = true;
-                this.showPrint = true;
                 this.showDetails = true;
               } else {
                 this.showDetails = false;
