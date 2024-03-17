@@ -79,6 +79,9 @@ export class QrCodePage implements OnInit {
       async (results: any) => {
         this.loaderService.dismissLoader();
         if (results.statusCode == 'SUCCESS') {
+          this.showMarkAsDeliverd = false;
+          this.showMarkAsLoaded = false;
+          this.showMarkAsUnLoaded = false;
         } else {
         }
       },
