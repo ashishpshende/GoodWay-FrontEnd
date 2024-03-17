@@ -1,128 +1,4 @@
 <ion-content>
-  <!-- <div id="printableContent" class="printableContent">
-    <table style="width: 100%">
-      <tr>
-        <td>
-          <div class="qr-area">
-            <div class="qr-div">
-              <qrcode
-                [qrdata]="selectedParcel.cnNo"
-                [width]="150"
-                [errorCorrectionLevel]="'M'"
-              ></qrcode>             
-            </div>
-            <div class="parcel-number-area">
-              <div class="bold-parcel-number">{{selectedParcel.cnNo}}</div>
-            </div>
-          </div>
-        </td>
-        <td>
-          <div class="parcel-attribute-area">
-            <div class="parcel-attribute-row">
-              <table style="width: 100%">
-                <tr>
-                  <td class="parcel-attribute-label">
-                    {{'PARCEL.CN_NO' | translate}}:
-                  </td>
-                  <td class="parcel-attribute-value">
-                    {{selectedParcel.cnNo}}
-                  </td>
-                </tr>
-              </table>
-            </div>
-            <div class="parcel-attribute-row">
-              <table style="width: 100%">
-                <tr>
-                  <td class="parcel-attribute-label">
-                    {{'PARCEL.CN_TYPE' | translate}}:
-                  </td>
-                  <td class="parcel-attribute-value">
-                    {{selectedParcel.cnType}}
-                  </td>
-                </tr>
-              </table>
-            </div>
-            <div class="parcel-attribute-row">
-              <table style="width: 100%">
-                <tr>
-                  <td class="parcel-attribute-label">
-                    {{'PARCEL.RECEIVER' | translate}}:
-                  </td>
-                  <td class="parcel-attribute-value">
-                    {{selectedParcel.receiver}}
-                  </td>
-                </tr>
-              </table>
-            </div>
-            <div class="parcel-attribute-row">
-              <table style="width: 100%">
-                <tr>
-                  <td class="parcel-attribute-label">
-                    {{'PARCEL.MOBILE' | translate}}:
-                  </td>
-                  <td class="parcel-attribute-value">
-                    {{selectedParcel.mobile}}
-                  </td>
-                </tr>
-              </table>
-            </div>
-            <div class="parcel-attribute-row">
-              <table style="width: 100%">
-                <tr>
-                  <td  class="parcel-attribute-label">
-                    {{'PARCEL.TO' | translate}}:
-                  </td>
-                  <td class="parcel-attribute-value">
-                    {{selectedParcel.to}}
-                  </td>
-                </tr>
-              </table>
-            </div>
-            <div class="parcel-attribute-row">
-              <table style="width: 100%">
-                <tr>
-                  <td class="parcel-attribute-label">
-                    {{'PARCEL.QUANTITY' | translate}}:
-                  </td>
-                  <td class="parcel-attribute-value">
-                    {{selectedParcel.quantity}}
-                  </td>
-                </tr>
-              </table>
-            </div>
-            <div class="parcel-attribute-row">
-              <table style="width: 100%">
-                <tr>
-                  <td class="parcel-attribute-label">
-                    {{'PARCEL.FROM' | translate}}:
-                  </td>
-                  <td class="parcel-attribute-value">
-                    {{selectedParcel.from}}
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div class="status-area">
-            <table style="width: 100%">
-              <tr>
-                <td class="parcel-attribute-label">
-                  {{'PARCEL.STATUS' | translate}}
-                </td>
-                <td class="parcel-attribute-value">
-                  {{selectedParcel.parcelStatus}}
-                </td>
-              </tr>
-            </table>
-          </div>
-        </td>
-      </tr>
-    </table>
-  </div> -->
   <ion-card *ngIf="showEmptyCard" style="text-align: center;">
     <ion-card-header >
       {{errorDetailsMessage}}
@@ -134,19 +10,20 @@
         </ion-button>     
     </ion-card-content>
   </ion-card>
-
   <ion-card  *ngIf="showDetails">
     <ion-card-content>
       <ion-grid>
         <ion-row>
-          <ion-col size="6">
-            <qrcode
-              [qrdata]="selectedParcel.cnNo"
-              [width]="150"
-              [errorCorrectionLevel]="'M'"
-            ></qrcode>
+          <ion-col size="12" size-sm="8" size-md="6" size-lg="4" size-xl="3">
+            <ion-item class="text-center">
+              <qrcode
+                [qrdata]="selectedParcel.cnNo"
+                [width]="150"
+                [errorCorrectionLevel]="'M'"
+              ></qrcode>
+            </ion-item>
           </ion-col>
-          <ion-col size="6">
+          <ion-col size="12" size-sm="8" size-md="6" size-lg="4" size-xl="3">
             <ion-row>
               <ion-col size="6"> {{'PARCEL.CN_NO' | translate}} </ion-col>
               <ion-col size="6"> {{selectedParcel.cnNo}} </ion-col>
@@ -183,7 +60,6 @@
               <ion-col size="6"> {{'PARCEL.FROM' | translate}} </ion-col>
               <ion-col size="6"> {{selectedParcel.parcelFrom}} </ion-col>
             </ion-row>
-
           </ion-col>
         </ion-row>
         <ion-row>
@@ -192,7 +68,7 @@
         </ion-row>
       </ion-grid>
     </ion-card-content>
-  </ion-card >
+  </ion-card>
   <ion-card *ngIf="showDetails">
     <ion-card-content>
       <ion-grid>
@@ -202,18 +78,38 @@
             <ion-label> Print</ion-label>
           </ion-item>
           <ion-item
-            *ngIf="selectedParcel.parcelStatus==='In-Transit'"
+            *ngIf="showMarkAsLoaded"
+            id="markAsDelivered"
+            (click)="markAsLoaded()"
+          >
+            <ion-icon slot="start" name="archive"></ion-icon>
+            <ion-label>Mark as Picked-Up</ion-label>
+          </ion-item>
+          <ion-item
+            *ngIf="showMarkAsUnLoaded"
+            id="markAsDelivered"
+            (click)="markAsUnloaded()"
+          >
+            <ion-icon slot="start" name="archive"></ion-icon>
+            <ion-label>Mark as Unloaded</ion-label>
+          </ion-item>
+          <ion-item
+            *ngIf="showMarkAsDeliverd"
             id="markAsDelivered"
             (click)="markAsDelivered()"
           >
             <ion-icon slot="start" name="archive"></ion-icon>
-            <ion-label> Mark delivered</ion-label>
+            <ion-label>Mark as Delivered</ion-label>
           </ion-item>
           <ion-item id="view" (click)="viewButtonClicked()">
             <ion-icon slot="start" name="eye"></ion-icon>
             <ion-label> View Details</ion-label>
           </ion-item>
-          <ion-item  *ngIf="loggedInUser.userRole==='Admin'" id="edit" (click)="editButtonClicked()">
+          <ion-item
+            *ngIf="loggedInUser.userRole==='Admin' || loggedInUser.userRole==='Dealer'"
+            id="edit"
+            (click)="editButtonClicked()"
+          >
             <ion-icon slot="start" name="create"></ion-icon>
             <ion-label> Update Details</ion-label>
           </ion-item>

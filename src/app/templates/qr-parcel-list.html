@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <style>
+      .printableContent {
+        margin: 10px;
+        border-color: black;
+        border-style: groove;
+        border-width: 1px;
+        padding: 30px;
+        font-family: sans-serif;
+      }
+
+      .qr-area {
+        text-align: center;
+        padding: 10px;
+      }
+      .qr-div {
+        margin-bottom: 20px;
+      }
+      .parcel-number-area {
+        margin-top: 10px;
+        font-size: medium;
+      }
+      .bold-parcel-number {
+        font-size: large;
+        text-align: center;
+        margin-top: -30px;
+        color: black;
+      }
+      .parcel-attribute-area {
+        font-size: medium;
+        padding-left: 80px;
+      }
+      .parcel-attribute-row {
+        font-size: medium;
+        width: 100%;
+      }
+      .parcel-attribute-label {
+        font-weight: 100;
+        width: 50%;
+      }
+      .parcel-attribute-value {
+        width: 50%;
+        font-weight: 800;
+      }
+      .status-area {
+        font-size: medium;
+      }
+    </style>
+  </head>
+  <body>
+    {{PARCEL_HTML}}
+  </body>
+</html>

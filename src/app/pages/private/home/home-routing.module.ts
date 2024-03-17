@@ -68,6 +68,10 @@ const routes: Routes = [
       {
         path: 'parcel-list',
         loadChildren: () => import('../parcels/parcel-list/parcel-list.module').then( m => m.ParcelListPageModule)
+      },      
+      {
+        path: 'printble-parcel-list',
+        loadChildren: () => import('../parcels/printble-parcel-list/printble-parcel-list.module').then( m => m.PrintbleParcelListPageModule)
       },
       {
         path: 'view-parcel',

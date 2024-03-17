@@ -17,9 +17,11 @@ export class Parcel extends BaseModel {
   public parcelStatus: string;
   public icon: string;
   public qrIcon: string;
+  public picked:boolean;
   
   constructor(requestJSON: any) {
     super(requestJSON);
+    this.picked = false;
     this.qrIcon = '/assets/icon/qr-code.png';
     this.cnNo = requestJSON.cnNo;
     this.cnType = requestJSON.cnType;

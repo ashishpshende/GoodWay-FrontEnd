@@ -14,9 +14,8 @@ import { OverlayEventDetail } from '@ionic/core/components';
   styleUrls: ['./dealer-list.page.scss'],
 })
 export class DealerListPage implements OnInit {
-
   public loggedInUser: User;
-  public users: User[];
+  public dealers: User[];
   public skip: number = 0;
   public totalRecords: number = -1;
   public totalPages: number = -1;
@@ -27,18 +26,15 @@ export class DealerListPage implements OnInit {
   public showPagination: boolean = false;
   public editUserIcon = '';
   public searchToggle: boolean = false;
-  public searchText: string = "";
+  public searchText: string = '';
 
-  public allowNext: boolean = false;
-  public allowPrev: boolean = false;
-  public allowFirst: boolean = false;
-  public allowLast: boolean = false;
-
-  constructor(private userService: UserService,
+  constructor(
+    private userService: UserService,
     public loaderService: LoaderService,
     private router: Router,
-    private localStorageService: LocalStorageService) {
-    this.users = new Array<User>();
+    private localStorageService: LocalStorageService
+  ) {
+    this.dealers = new Array<User>();
     this.router.events.forEach((event) => {
       if (event instanceof NavigationEnd) {
       }
@@ -46,111 +42,121 @@ export class DealerListPage implements OnInit {
   }
   ngOnInit() {
     this.loggedInUser = this.localStorageService.StoredPreference.LoggedInUser;
-    this.loadusers();
+    this.fetchLoaders();
   }
-
 
   //Data loaders
-  loadusers() {
-
-    this.loaderService.customLoader("Loading Users...", 5000);
-
-    if (this.searchText !== "") {
-      this.userService.listBykeyword(this.searchText, this.skip, this.limit, async (results:any) => {
-        this.handleResponse(results);
-        this.loaderService.dismissLoader();
-      }, () => {
-
-        this.loaderService.dismissLoader();
-      });
+  fetchLoaders() {
+    this.loaderService.customLoader('Loading Dealers...', 5000);
+    if (this.searchText !== '') {
+      this.userService.listBykeyword(
+        this.searchText,
+        this.skip,
+        this.limit,
+        async (results: any) => {
+          this.handleResponse(results);
+          this.loaderService.dismissLoader();
+        },
+        () => {
+          this.loaderService.dismissLoader();
+        }
+      );
+    } else {
+      this.userService.listbyRole(
+        KeywordConstants.ROLE_DEALER,
+        true,
+        this.skip,
+        this.limit,
+        async (results: any) => {
+          this.handleResponse(results);
+          this.loaderService.dismissLoader();
+        },
+        () => {
+          this.loaderService.dismissLoader();
+        }
+      );
     }
-    else {
-      this.userService.listbyRole(KeywordConstants.ROLE_DEALER,true,this.skip, this.limit, async (results:any) => {
-        this.handleResponse(results);
-        this.loaderService.dismissLoader();
-      }, () => {
-
-        this.loaderService.dismissLoader();
-      });
-    }
-
   }
 
-  handleResponse(response:any) {
-    this.users = new Array();
-    if (response.data.Items.length > 0)
-    {
-      response.data.Items.forEach((element:any) => {
+  handleResponse(response: any) {
+    this.dealers = new Array();
+    if (response.data.Items.length > 0) {
+      response.data.Items.forEach((element: any) => {
         let user = new User(element);
-        if (user.userName !== this.loggedInUser.userName || user.email !== this.loggedInUser.email) {
-          user.icon = "/assets/icon/" + element.userRole+ ".png";
-          this.users.push(user);
+        if (
+          user.userName !== this.loggedInUser.userName ||
+          user.email !== this.loggedInUser.email
+        ) {
+          user.icon = '/assets/icon/' + element.userRole + '.png';
+          this.dealers.push(user);
         }
       });
     }
-   
   }
 
-  handleRefresh(ev:any){
-
+  handleRefresh(ev: any) {
     if (this.searchText !== '') {
-      this.userService.listBykeyword(this.searchText, this.skip, this.limit, async (results:any) => {
-        this.handleResponse(results);
-        ev.target.complete();
-      }, () => {
-        ev.target.complete();
-      });
-    }
-    else {
-      this.userService.list(this.skip, this.limit, async (results:any) => {
-        this.handleResponse(results);
-        ev.target.complete();
-      }, () => {
-        ev.target.complete();
-      });
+      this.userService.listBykeyword(
+        this.searchText,
+        this.skip,
+        this.limit,
+        async (results: any) => {
+          this.handleResponse(results);
+          ev.target.complete();
+        },
+        () => {
+          ev.target.complete();
+        }
+      );
+    } else {
+      this.userService.list(
+        this.skip,
+        this.limit,
+        async (results: any) => {
+          this.handleResponse(results);
+          ev.target.complete();
+        },
+        () => {
+          ev.target.complete();
+        }
+      );
     }
   }
   //Search
   ClearTextButtonClicked() {
-    this.searchText = "";
-    this.skip=0;
+    this.searchText = '';
+    this.skip = 0;
     this.currentPage = 1;
-    this.loadusers();
+    this.fetchLoaders();
   }
   SearchToggleButtonClicked() {
     this.searchToggle = !this.searchToggle;
   }
-  FilterButtonClicked() {
 
-  }
   SearchTextButtonClicked() {
     this.skip = 0;
     this.currentPage = 1;
-    if (this.searchText != "")
-      this.loadusers();
+    if (this.searchText != '') this.fetchLoaders();
   }
 
-
-
-
   //Event Handlers
-  userSelected(selectedUser:User) {
+  userSelected(selectedUser: User) {
     this.userService.selectedUser = selectedUser;
     let navigationExtras: NavigationExtras = {
       queryParams: {
-        Id: selectedUser.id,
-        ts: new Date().getMilliseconds()
-      }
+        userId: selectedUser.id,
+        ts: new Date().getMilliseconds(),
+      },
     };
-    this.router.navigate(["home/view-dealer"], navigationExtras);
+    this.router.navigate(['home/view-dealer'], navigationExtras);
   }
 
-  EditButtonClicked(selectedUser:User) {
+  EditButtonClicked(selectedUser: User) {
     const navigationExtras: NavigationExtras = {
       queryParams: {
-        Id: selectedUser.id,
-        ts: new Date().getMilliseconds()
-      }
+        userId: selectedUser.id,
+        ts: new Date().getMilliseconds(),
+      },
     };
     this.router.navigate(['home/update-dealer'], navigationExtras);
   }
@@ -158,65 +164,10 @@ export class DealerListPage implements OnInit {
   AddUserButtonClicked() {
     const navigationExtras: NavigationExtras = {
       queryParams: {
-        ts: new Date().getMilliseconds()
-      }
+        ts: new Date().getMilliseconds(),
+      },
     };
-    this.router.navigate(["home/create-dealer"], navigationExtras);
-  }
-
-
-  //modal
-  @ViewChild(IonModal) modal: IonModal ;
-
-  message = 'This modal example uses triggers to automatically open a modal when the button is clicked.';
-  name: string ;
-
-  cancel() {
-    this.modal.dismiss(null, 'cancel');
-  }
-
-  confirm() {
-    this.modal.dismiss(this.name, 'confirm');
-  }
-
-  onWillDismiss(event: Event) {
-    const ev = event as CustomEvent<OverlayEventDetail<string>>;
-    if (ev.detail.role === 'confirm') {
-      this.message = `Hello, ${ev.detail.data}!`;
-    }
-  }
-
-  //Pagination
-  FirstClicked() {
-    this.currentPage = 1;
-    this.limit = this.countPerPage;
-    this.skip = this.countPerPage * (this.currentPage-1);
-    this.loadusers();
-
-  }
-  PrevClicked() {
-    this.currentPage--;
-    this.limit = this.countPerPage;
-    this.skip = this.countPerPage * (this.currentPage-1);
-    this.loadusers();
-  }
-  NextClicked() {
-    this.currentPage++;
-    this.limit = this.countPerPage;
-    this.skip = this.countPerPage * (this.currentPage-1);
-    this.loadusers();
-  }
-  LastClicked() {
-    this.currentPage = this.totalPages;
-    this.limit = this.countPerPage;
-    this.skip = this.countPerPage * (this.currentPage - 1);
-    this.loadusers();
-  }
-  PageClicked(page:any) {
-    this.currentPage = page;
-    this.limit = this.countPerPage;
-    this.skip = this.countPerPage * (this.currentPage - 1);
-    this.loadusers();
+    this.router.navigate(['home/create-dealer'], navigationExtras);
   }
 
 }

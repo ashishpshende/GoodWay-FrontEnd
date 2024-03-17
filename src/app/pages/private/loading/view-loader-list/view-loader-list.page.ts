@@ -139,7 +139,7 @@ export class ViewLoaderListPage  implements OnInit {
     this.userService.selectedUser = selectedUser;
     let navigationExtras: NavigationExtras = {
       queryParams: {
-        Id: selectedUser.id,
+        userId: selectedUser.id,
         ts: new Date().getMilliseconds()
       }
     };

@@ -1,3 +1,5 @@
+import { User } from "src/app/models/User";
+
 // import * as moment from "moment-timezone";
 export class HelperService {
 
@@ -109,7 +111,7 @@ export class HelperService {
     return strength;
 
   }
-  static validateEmail(email: string) {
+  static validateEmail(email: string):boolean {
     if(email==null || email =="")
       return false;
       var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
@@ -119,7 +121,7 @@ export class HelperService {
       }
     return true;
   }
-  static validateMobileNumber(mobileNumber: string) {
+  static validateMobileNumber(mobileNumber: string):boolean {
     if(mobileNumber==null || mobileNumber =="")
       return false;
       var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
@@ -131,6 +133,9 @@ export class HelperService {
         return false;
       }
     return true;
+  }
+  static validateUser(user: User) {
+    return this.validateMobileNumber(user.phoneNumber) &&  this.validateEmail(user.email);
   }
   static generateTempPassowrd() {
     var result = "password";

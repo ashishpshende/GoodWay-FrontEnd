@@ -160,24 +160,10 @@ export class UserService {
     });
   }
   Validate(user: User): boolean {
-    if (user.name) {
+    if (!user.name || !user.email || !user.phoneNumber || !user.userName){
       return false;
     }
-    if (user.email == null || user.email === undefined || user.email === '') {
-      return false;
-    }
-
-    if (user.phoneNumber == null || user.phoneNumber === undefined || user.phoneNumber === '') {
-      return false;
-    }
-
-    if (user.userName == null || user.userName === undefined || user.userName === '') {
-      return false;
-    }
-
-
     return true;
-
   }
   list(skip: number = 0, limit: number = 10, success: (any), failure: (any)) {
     this.networkService.get(UserURLs.LIST, (response:any) => {
@@ -216,8 +202,8 @@ export class UserService {
     });
   }
   readById(id: number, success: (any), failure: (any)) {
-    this.networkService.get(UserURLs.READ, (response:any) => {
-      success(response.data);
+    this.networkService.get(UserURLs.READ+id, (response:any) => {
+      success(response.data[0]);
     }, () => {
       failure();
     });
@@ -257,7 +243,7 @@ export class UserService {
     KeywordConstants.DATE_FORMAT_STRING,
     KeywordConstants.DATE_FORMAT_LANGUAGE,
     KeywordConstants.DATE_FORMAT_TIMES_ZONE_OFFSET,);
-    this.networkService.put(UserURLs.UPDATE.replace('{ROW_INDEX}', user.id.toString()), this.ToUpdateJSON(user), (response:any) => {
+    this.networkService.put(UserURLs.UPDATE, this.ToUpdateJSON(user), (response:any) => {
       success(response);
     }, () => {
       failure();
@@ -391,13 +377,16 @@ export class UserService {
   ToUpdateJSON(user: User) {
 
     return {
+      id: user.id,
+      city:user.city,
+      name:user.name,
       userName: user.userName,
       email: user.email,
       phoneNumber: user.phoneNumber,
-      navigator: user.name,
-      userRole: user.userRole,
       userStatus: user.userStatus,
-      updatedOn: user.updatedOn
+      userRole: user.userRole,
+      updatedOn: user.updatedOn,
+      updatedBy:user.updatedBy.id
     };
   }
 

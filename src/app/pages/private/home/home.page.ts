@@ -22,6 +22,8 @@ export class HomePage implements AfterViewInit {
   public routes = new Routes();
   public userFullName: string;
   public userName: string;
+  public userRole: string;
+
   public userEmail: string;
 
   public avatarIcon = '/assets/img/user/default-male.png';
@@ -50,6 +52,7 @@ export class HomePage implements AfterViewInit {
     this.userFullName = '';
     this.userName = '';
     this.userEmail = '';
+    this.userRole = '';
 
     this.router.events.subscribe((state: any) => {
       if (state['url'] != null && state['url'] != undefined) {
@@ -78,6 +81,7 @@ export class HomePage implements AfterViewInit {
     this.userFullName = this.loggedInUser.name;
     this.userName = this.loggedInUser.userName;
     this.userEmail = this.loggedInUser.email;
+    this.userRole = this.loggedInUser.userRole;
     this.avatarIcon = '/assets/img/user/default-male.png';
   }
 
@@ -129,12 +133,12 @@ export class HomePage implements AfterViewInit {
         url: '/home/parcel-list',
         icon: 'cube-sharp',
       });
-      // this.appPages.push({
-      //   identifier: 'createparcel',
-      //   title: this.translateService.instant('DASHBOARD.ADD_PARCEL'),
-      //   url: '/home/create-parcel',
-      //   icon: 'add-sharp',
-      // });
+      this.appPages.push({
+        identifier: 'createparcel',
+        title: this.translateService.instant('DASHBOARD.ADD_PARCEL'),
+        url: '/home/create-parcel',
+        icon: 'add-sharp',
+      });
       this.appPages.push({
         identifier: 'dealer',
         title: this.translateService.instant('DEALERS_PAGE.PAGE_TITLE'),
@@ -161,13 +165,50 @@ export class HomePage implements AfterViewInit {
       });
     }
 
-    if (this.loggedInUser.userRole=== 'Dealer') {
-      this.appPages.push({ identifier: 'parcel', title: this.translateService.instant('PARCELS_PAGE.PAGE_TITLE'), url: '/home/parcel-list', icon: 'cube-sharp' });
-      this.appPages.push({ identifier: 'subdealer', title: this.translateService.instant('SUB_DEALERS_PAGE.PAGE_TITLE'), url: '/home/sub-dealer-list', icon: 'person-sharp' });
-
+    if (this.loggedInUser.userRole === 'Dealer') {
+      this.appPages.push({
+        identifier: 'parcel',
+        title: this.translateService.instant('PARCELS_PAGE.PAGE_TITLE'),
+        url: '/home/parcel-list',
+        icon: 'cube-sharp',
+      });
+      this.appPages.push({
+        identifier: 'subdealer',
+        title: this.translateService.instant('SUB_DEALERS_PAGE.PAGE_TITLE'),
+        url: '/home/sub-dealer-list',
+        icon: 'person-sharp',
+      });
+      this.appPages.push({
+        identifier: 'createparcel',
+        title: this.translateService.instant('DASHBOARD.ADD_PARCEL'),
+        url: '/home/create-parcel',
+        icon: 'add-sharp',
+      });
     }
-    if (this.loggedInUser.userRole=== 'SubDealer') {
-      this.appPages.push({ identifier: 'parcel', title: this.translateService.instant('PARCELS_PAGE.PAGE_TITLE'), url: '/home/parcel-list', icon: 'cube-sharp' });
+    if (this.loggedInUser.userRole === 'SubDealer') {
+      this.appPages.push({
+        identifier: 'parcel',
+        title: this.translateService.instant('PARCELS_PAGE.PAGE_TITLE'),
+        url: '/home/parcel-list',
+        icon: 'cube-sharp',
+      });
+    }
+
+    if (this.loggedInUser.userRole === 'Loader') {
+      this.appPages.push({
+        identifier: 'parcel',
+        title: this.translateService.instant('PARCELS_PAGE.PAGE_TITLE'),
+        url: '/home/parcel-list',
+        icon: 'cube-sharp',
+      });
+    }
+    if (this.loggedInUser.userRole === 'UnLoader') {
+      this.appPages.push({
+        identifier: 'parcel',
+        title: this.translateService.instant('PARCELS_PAGE.PAGE_TITLE'),
+        url: '/home/parcel-list',
+        icon: 'cube-sharp',
+      });
     }
   }
 

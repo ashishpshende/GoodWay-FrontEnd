@@ -12,7 +12,9 @@
         "LOGOUT_CONFIRM":"आपण निश्चितपणे लॉगआउट करत आहात?",
         "LOGOUT_CANCEL":"रद्द करा",
         "YES":"होय",
-        "NO":"नाही"
+        "NO":"नाही",
+        "PRINT":"Print",
+        "SCAN":"Scan"
     },
     "MESSAGES":{
         "UNDER_CONSTRUCTION_TITLE":"काम चालू आहे",

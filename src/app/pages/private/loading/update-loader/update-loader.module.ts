@@ -7,12 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { UpdateLoaderPageRoutingModule } from './update-loader-routing.module';
 
 import { UpdateLoaderPage } from './update-loader.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    TranslateModule,
     UpdateLoaderPageRoutingModule
   ],
   declarations: [UpdateLoaderPage]

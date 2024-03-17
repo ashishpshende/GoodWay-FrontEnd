@@ -9,6 +9,7 @@ import { KeywordConstants } from 'src/assets/constants/constants';
 import { LoadingController, AlertController } from '@ionic/angular';
 import { LanguageService } from 'src/app/services/language/language.service';
 import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
+import { PrintService } from 'src/app/services/print.service';
 
 @Component({
   selector: 'app-qr-code',
@@ -18,17 +19,24 @@ import { LocalStorageService } from 'src/app/services/localStorage/local-storage
 export class QrCodePage implements OnInit {
   @ViewChild('printableContent', { static: false })
   printableContent: ElementRef<any>;
-  public showDetails:boolean = false;
-  public errorDetailsMessage:string = "";
-  public showEmptyCard:boolean =false;
+  public showDetails: boolean = false;
+  public actionLabel: string = 'Mark as';
+  public errorDetailsMessage: string = '';
+  public showEmptyCard: boolean = false;
   public selectedParcel: Parcel;
   public loggedInUser: User;
-  public showPrint: boolean = false;
+  public showPrint: boolean = true;
+
+  public showMarkAsLoaded: boolean = false;
+  public showMarkAsUnLoaded: boolean = false;
+  public showMarkAsDeliverd: boolean = false;
+
   constructor(
     private parcelService: ParcelService,
     private router: Router,
     private loaderService: LoaderService,
     private languageService: LanguageService,
+    private printService: PrintService,
     private localStorageService: LocalStorageService,
     public loadingController: LoadingController,
     public alertController: AlertController,
@@ -48,225 +56,24 @@ export class QrCodePage implements OnInit {
         }
       }
     });
-    if (this.authorizationService.loggedInUser.userRole != 'SubDealer') {
-      this.showPrint = true;
-    }
   }
 
   print() {
-    const printWindow = window.open('', '_blank', 'width=600,height=600');
-    printWindow?.document.open();
-    var starthtmlTags = `<html>
-    <head>
-      <title>CN NO: {{selectedParcel.cnNo}}</title>
-      <style>
-        .printableContent {
-          margin: 10px;
-          border-color: black;
-          border-style: groove;
-          border-width: 1px;
-          padding: 30px;
-          font-family: sans-serif;
-        }
-  
-        .qr-area {
-          text-align: center;
-          padding: 10px;
-        }
-        .qr-div {
-          margin-bottom: 20px;
-        }
-        .parcel-number-area {
-          margin-top: 10px;
-          font-size: medium;
-        }
-        .bold-parcel-number {
-          font-size: large;
-          text-align: center;
-          margin-top: -30px;
-          color: black;
-        }
-        .parcel-attribute-area {
-          font-size: medium;
-          padding-left: 80px;
-        }
-        .parcel-attribute-row {
-          font-size: medium;
-          width: 100%;
-        }
-        .parcel-attribute-label {
-          font-weight: 100;
-          width: 50%;
-        }
-        .parcel-attribute-value {
-          width: 50%;
-          font-weight: 800;
-        }
-        .status-area {
-          font-size: medium;
-        }
-      </style>
-    </head>
-    <body>`;   
-    var firstPart = `<div id="printableContent" class="printableContent">  <table style="width: 100%">    <tr>      <td>        <div class="qr-area">`;
-    var lastPart = `<div class="parcel-number-area">
-  <div class="bold-parcel-number">{{selectedParcel.cnNo}}</div>
-</div>
-</div>
-</td>
-<td>
-<div class="parcel-attribute-area">
-<div class="parcel-attribute-row">
-  <table style="width: 100%">
-    <tr>
-      <td class="parcel-attribute-label">
-        {{'PARCEL.CN_NO'}}:
-      </td>
-      <td class="parcel-attribute-value">
-        {{selectedParcel.cnNo}}
-      </td>
-    </tr>
-  </table>
-</div>
-<div class="parcel-attribute-row">
-  <table style="width: 100%">
-    <tr>
-      <td class="parcel-attribute-label">
-        {{'PARCEL.CN_TYPE'}}:
-      </td>
-      <td class="parcel-attribute-value">
-        {{selectedParcel.cnType}}
-      </td>
-    </tr>
-  </table>
-</div>
-<div class="parcel-attribute-row">
-  <table style="width: 100%">
-    <tr>
-      <td class="parcel-attribute-label">
-        {{'PARCEL.RECEIVER'}}:
-      </td>
-      <td class="parcel-attribute-value">
-        {{selectedParcel.receiver}}
-      </td>
-    </tr>
-  </table>
-</div>
-<div class="parcel-attribute-row">
-  <table style="width: 100%">
-    <tr>
-      <td class="parcel-attribute-label">
-        {{'PARCEL.MOBILE'}}:
-      </td>
-      <td class="parcel-attribute-value">
-        {{selectedParcel.mobile}}
-      </td>
-    </tr>
-  </table>
-</div>
-<div class="parcel-attribute-row">
-  <table style="width: 100%">
-    <tr>
-      <td  class="parcel-attribute-label">
-        {{'PARCEL.TO'}}:
-      </td>
-      <td class="parcel-attribute-value">
-        {{selectedParcel.to}}
-      </td>
-    </tr>
-  </table>
-</div>
-<div class="parcel-attribute-row">
-  <table style="width: 100%">
-    <tr>
-      <td class="parcel-attribute-label">
-        {{'PARCEL.QUANTITY'}}:
-      </td>
-      <td class="parcel-attribute-value">
-        {{selectedParcel.quantity}}
-      </td>
-    </tr>
-  </table>
-</div>
-<div class="parcel-attribute-row">
-  <table style="width: 100%">
-    <tr>
-      <td class="parcel-attribute-label">
-        {{'PARCEL.FROM'}}:
-      </td>
-      <td class="parcel-attribute-value">
-        {{selectedParcel.parcelFrom}}
-      </td>
-    </tr>
-  </table>
-</div>
-</div>
-</td>
-</tr>
-
-</table>
-</div>
-</td>
-</tr>
-</table>
-    </div>`;
-    var endhtmlTags = `</body>
-    </html>`;
-    printWindow?.document.write(this.replaceLabelAndValues(starthtmlTags));
-    printWindow?.document.write(this.replaceLabelAndValues(firstPart));
-    const canvasElements = document.getElementsByTagName('canvas');
-
-    for (let i = 0; i < canvasElements.length; i++) {
-      const canvas = canvasElements[i];
-      const img = new Image();
-
-      // Convert canvas content to data URL
-      img.src = canvas.toDataURL('image/png');
-
-      // Replace canvas with img in the print window
-      printWindow?.document.write('<div class="qr-div">');
-      printWindow?.document.write(
-        '<img src="' + img.src + '" style="width:80%;">'
-      );
-      printWindow?.document.write('</div>');
-    }
-    printWindow?.document.write(this.replaceLabelAndValues(lastPart));
-    printWindow?.document.write(this.replaceLabelAndValues(endhtmlTags));
-    printWindow?.document.close();
-    printWindow?.print();
+    this.printService.print([this.selectedParcel]);
   }
-  replaceLabelAndValues(text:string)
-  {
-    //Labels
-    text = text.replace("{{'PARCEL.CN_NO'}}", this.languageService.translate('PARCEL.CN_NO'));
-    text = text.replace("{{'PARCEL.CN_TYPE'}}", this.languageService.translate('PARCEL.CN_TYPE'));
-    text = text.replace("{{'PARCEL.RECEIVER'}}", this.languageService.translate('PARCEL.RECEIVER'));
-    text = text.replace("{{'PARCEL.MOBILE'}}", this.languageService.translate('PARCEL.MOBILE'));
-    text = text.replace("{{'PARCEL.TO'}}", this.languageService.translate('PARCEL.TO'));
-    text = text.replace("{{'PARCEL.QUANTITY'}}", this.languageService.translate('PARCEL.QUANTITY'));
-    text = text.replace("{{'PARCEL.FROM'}}", this.languageService.translate('PARCEL.FROM'));
-    text = text.replace("{{'PARCEL.STATUS'}}", this.languageService.translate('PARCEL.STATUS'));
 
-
-  
-    //values
-    text = text.replace('{{selectedParcel.cnNo}}',this.selectedParcel.cnNo);
-    text = text.replace('{{selectedParcel.cnNo}}',this.selectedParcel.cnNo);
-    text = text.replace('{{selectedParcel.cnNo}}',this.selectedParcel.cnNo);
-    text = text.replace('{{selectedParcel.cnType}}',this.selectedParcel.cnType);
-    text = text.replace('{{selectedParcel.receiver}}',this.selectedParcel.receiver);
-    text = text.replace('{{selectedParcel.mobile}}',this.selectedParcel.mobile??"");
-    text = text.replace('{{selectedParcel.parcelTo}}',this.selectedParcel.parcelTo??"");
-    text = text.replace('{{selectedParcel.quantity}}',this.selectedParcel.quantity);
-    text = text.replace('{{selectedParcel.parcelFrom}}',this.selectedParcel.parcelFrom);
-    text = text.replace('{{selectedParcel.parcelStatus}}',this.selectedParcel.parcelStatus);
-
-
-    return text;
-  }
   markAsDelivered() {
+    this.markParcelAs(KeywordConstants.PARCEL_STATUS_DELIVERED);
+  }
+  markAsLoaded() {
+    this.markParcelAs(KeywordConstants.PARCEL_STATUS_IN_TRANSIT);
+  }
+  markAsUnloaded() {
+    this.markParcelAs(KeywordConstants.PARCEL_STATUS_UNLOADED);
+  }
+  markParcelAs(status: string) {
     this.loaderService.customLoader('Updating Details...', 5000);
-    this.selectedParcel.parcelStatus = KeywordConstants.PARCEL_STATUS_DELIVERED;
+    this.selectedParcel.parcelStatus = status;
     this.parcelService.updateStatus(
       this.selectedParcel,
       async (results: any) => {
@@ -311,27 +118,87 @@ export class QrCodePage implements OnInit {
       async (results: any) => {
         this.loaderService.dismissLoader();
         if (results.statusCode == 'SUCCESS') {
+          this.parcelService.selectedParcel = results.data;
           this.selectedParcel = results.data;
 
-          if(this.selectedParcel.parcelTo === this.loggedInUser.city || this.loggedInUser.userRole ==='Admin')
-          {
-            this.parcelService.selectedParcel = results.data;
-            this.showDetails = true;
-            this.showEmptyCard = false;
-          }
-          else
-          {
-            this.showDetails = false;
-            this.showEmptyCard = true;
-            this.errorDetailsMessage = 'The Parcel you trying get is not assigned to you.';
+          switch (this.loggedInUser.userRole) {
+            case KeywordConstants.ROLE_ADMIN:
+              this.showPrint = true;
+              this.showDetails = true;
+              this.showEmptyCard = false;
+              break;
+            case KeywordConstants.ROLE_DEALER:
+              if (this.selectedParcel.createdBy.id === this.loggedInUser.id) {
+                this.showPrint = true;
+                this.showDetails = true;
+                this.showEmptyCard = false;
+              } else {
+                this.showDetails = false;
+                this.showEmptyCard = true;
+                this.errorDetailsMessage =
+                  'The Parcel you trying get is not belongs to you.';
+              }
+              break;
+            case KeywordConstants.ROLE_LOADER:
+              if (
+                this.selectedParcel.parcelStatus ===
+                KeywordConstants.PARCEL_STATUS_NEW
+              ) {
+              
+                this.showDetails = true;
+                this.showPrint = true;
+                this.showMarkAsLoaded = true;
+                this.showEmptyCard = false;
+              } else {
+                this.showDetails = false;
+                this.showEmptyCard = true;
+                this.errorDetailsMessage =
+                  'The Parcel you trying get is not ready to pickup.';
+              }
+              break;
+            case KeywordConstants.ROLE_UNLOADER:
+              if (
+                this.selectedParcel.parcelStatus ===
+                KeywordConstants.PARCEL_STATUS_IN_TRANSIT
+              ) {
+                this.showMarkAsUnLoaded = true;
+                this.showPrint = true;
+                this.showDetails = true;
+              } else {
+                this.showDetails = false;
+                this.showEmptyCard = true;
+                this.errorDetailsMessage =
+                  'The Parcel you trying get is not ready to unload.';
+              }
+              break;
+            case KeywordConstants.ROLE_SUB_DEALDER:
+              if (
+                this.selectedParcel.parcelStatus ===
+                KeywordConstants.PARCEL_STATUS_UNLOADED && this.selectedParcel.parcelTo === this.loggedInUser.city
+              ) {
+                this.showMarkAsDeliverd = true;
+                this.showPrint = true;
+                this.showDetails = true;
+              } else {
+                this.showDetails = false;
+                this.showEmptyCard = true;
+                this.errorDetailsMessage =
+                  'The Parcel you trying get is not ready to deliver.';
+              }
+              break;
+            default: {
+              this.showDetails = false;
+              this.showEmptyCard = true;
+              this.errorDetailsMessage =
+                'The Parcel you trying get is not assigned to you.';
+            }
           }
         } else {
+          this.showFailureMessage();
         }
       },
       () => {
-        this.errorDetailsMessage = this.languageService.translate('EMPTY_RECORDS.TITLE');
-        this.showDetails = false;
-        this.showEmptyCard = true;
+        this.showFailureMessage();
       }
     );
   }
@@ -361,5 +228,12 @@ export class QrCodePage implements OnInit {
     await alert.present();
 
     const { role } = await alert.onDidDismiss();
+  }
+  public showFailureMessage() {
+    this.errorDetailsMessage = this.languageService.translate(
+      'EMPTY_RECORDS.TITLE'
+    );
+    this.showDetails = false;
+    this.showEmptyCard = true;
   }
 }

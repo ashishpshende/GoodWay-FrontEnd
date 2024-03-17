@@ -13,7 +13,9 @@
         "LOGOUT_CONFIRM":"अभी के लिए अलविदा",
         "LOGOUT_CANCEL":"आगे बढते हैं",
         "YES":"हां",
-        "NO":"नहीं"
+        "NO":"नहीं",
+        "PRINT":"Print",
+        "SCAN":"Scan"
     },
     "MESSAGES":{
         "UNDER_CONSTRUCTION_TITLE":"विकास जारी है",

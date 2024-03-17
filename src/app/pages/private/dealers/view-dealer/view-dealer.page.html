@@ -1,21 +1,109 @@
-<!-- under-development.page.html -->
-
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Under Development</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content class="ion-padding">
+<ion-content>
   <ion-card>
-    <ion-card-header>
-      <ion-card-title>We're sorry!</ion-card-title>
+    <ion-card-header class="text-center">
+      <ion-item>
+        <ion-icon name="people-circle-outline" slot="start"></ion-icon>
+        {{'USER.BASIC_DETAILS' | translate}}
+      </ion-item>
     </ion-card-header>
-
     <ion-card-content>
-      <p>This page is currently under development.</p>
+      <ion-list>
+        <ion-item>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="12">{{'BASE_MODEL.NAME' | translate}} </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6">
+               {{loader.name}}
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-list>
     </ion-card-content>
   </ion-card>
+  <ion-card>
+    <ion-card-header class="text-center">
+      <ion-item>
+        <ion-icon name="settings-outline" slot="start"></ion-icon>
+        {{'USER.CONTACT_DETAILS' | translate}}
+      </ion-item>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-grid>
+            <ion-row>
+              <ion-col>{{'USER.EMAIL' | translate}} </ion-col>
+              <ion-col class="value" size="6">
+                {{loader.email}}
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
 
-  <ion-img src="assets/under-construction.png" alt="Under Construction Image"></ion-img>
+        <ion-item>
+          <ion-grid>
+            <ion-row>
+              <ion-col>{{'USER.PHONE_NUMBER' | translate}} </ion-col>
+              <ion-col class="value" size="6">
+                {{loader.phoneNumber}}
+              </ion-col>
+            </ion-row>
+            <!-- <ion-row>
+              <ion-col size="6"></ion-col>
+  
+            </ion-row> -->
+          </ion-grid>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-item>
+        <ion-icon name="options-outline" slot="start"></ion-icon>
+        {{'USER.ACCOUNT_DETAILS' | translate}}
+      </ion-item>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-grid>
+            <ion-row>
+              <ion-col>{{'USER.USER_NAME' | translate}} </ion-col>
+              <ion-col size="6">
+                {{loader.userName}}
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>{{'BASE_MODEL.STATUS' | translate}} </ion-col>
+              <ion-col size="6">
+                {{loader.userStatus}}
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" (click)="goToDealerList()">
+          <ion-icon slot="start" name="close"></ion-icon>
+          {{'BUTTONS.CANCEL' | translate}}
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="block" (click)="UpdateButtonClicked()">
+          <ion-icon slot="start" name="pencil"></ion-icon>
+          {{'BUTTONS.EDIT' | translate}}
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

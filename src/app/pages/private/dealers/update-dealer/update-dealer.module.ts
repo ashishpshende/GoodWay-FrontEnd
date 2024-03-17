@@ -7,11 +7,13 @@ import { IonicModule } from '@ionic/angular';
 import { UpdateDealerPageRoutingModule } from './update-dealer-routing.module';
 
 import { UpdateDealerPage } from './update-dealer.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    TranslateModule,
     IonicModule,
     UpdateDealerPageRoutingModule
   ],

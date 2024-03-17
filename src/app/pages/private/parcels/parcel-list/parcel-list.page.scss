@@ -6,7 +6,14 @@
       background-size: cover;
     }
   }
-  
+  .filterLabel
+  {
+    margin-left: 5px;
+  }
+  .filterCheckBox
+  {
+    text-align: left;
+  }
   .toolbar-backgorund {
     //--background: linear-gradient(180deg, var(--ion-color-dark), var(--ion-color-dark));
     color: black;
@@ -29,10 +36,7 @@
   
   ion-card {
     color: rgb(44, 29, 29);
-    background-color: aquamarine;
-    padding: 0px;
-    margin: 0px;
-    border-radius: 10px;
+
   }
   
   ion-card-content {

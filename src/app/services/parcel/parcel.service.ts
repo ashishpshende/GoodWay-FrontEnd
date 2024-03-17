@@ -17,6 +17,7 @@ export class ParcelURLs {
   public static READ_PARCEL = environment.apiURL + '/api/parcels/info?id=';
   public static READ_PARCEL_BY_CN = environment.apiURL + '/api/parcels/infoByCnNo?cnNo=';
   public static PARCEL_LIST = environment.apiURL + '/api/parcels/list';
+  public static PARCEL_LIST_BY_STATUS = environment.apiURL + '/api/parcels/list/byStatuses?statuses=';
   public static PARCEL_LIST_BY_SUB_DEALER = environment.apiURL + '/api/parcels/list/bySubDealer?subdealer=';
 
 }
@@ -24,7 +25,7 @@ export class ParcelURLs {
   providedIn: 'root'
 })
 export class ParcelService {
-
+  public selectedParcels:Parcel[];
   public selectedParcel:Parcel;
   public cnTypes = ['TBB', 'Standard', 'Fragile'];
   constructor( private eventBus: NgEventBus,
@@ -37,6 +38,13 @@ export class ParcelService {
 
     list(skip: number = 0, limit: number = 10, success: (any), failure: (any)) {
       this.networkService.get(ParcelURLs.PARCEL_LIST, (response:any) => {
+        success(response);
+      }, () => {
+        failure();
+      });
+    }
+    listByStatus(status:string,skip: number = 0, limit: number = 10, success: (any), failure: (any)) {
+      this.networkService.get(ParcelURLs.PARCEL_LIST_BY_STATUS+status, (response:any) => {
         success(response);
       }, () => {
         failure();

@@ -26,18 +26,13 @@ export class KeywordConstants {
   public static ROLE_UNLOADER = 'UnLoader';
 
 
-
-  public static PARCEL_STATUS_NEW = 'New';
-  public static PARCEL_STATUS_IN_TRANSIT = 'In-Transit';
-  public static PARCEL_STATUS_SHIPPED = 'Shipped';
-  public static PARCEL_STATUS_DISPATCH = 'Dispatched';
-  public static PARCEL_STATUS_READY_TO_LOAD = 'Read-To-Transit';
+  //==Dealer will Create Parcel, so Ststu will be New
+  public static PARCEL_STATUS_NEW = 'New';   //Ready to Load ==> Loader
+  public static PARCEL_STATUS_IN_TRANSIT = 'In-Transit';  // Ready to Unload ==> Unloader
+  public static PARCEL_STATUS_UNLOADED = 'Unloaded'; // Ready to Deliver ==> SubDealer
   public static PARCEL_STATUS_DELIVERED = 'Delivered';
 
-
-
   //APP Language
-
   public static LOCALIZATION_ENABLED = "LOCALIZATION_ENABLED";
   public static SELECTED_APP_LANGUAGE =  "SELECTED_APP_LANGUAGE";
   public static DEFAULT_APP_LANGUAGE =  "DEFAULT_APP_LANGUAGE";

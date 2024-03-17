@@ -27,10 +27,7 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col
-        *ngIf="(loggedInUser.userRole==='Admin'  || loggedInUser.userRole==='Dealer' || loggedInUser.userRole==='SubDealer')"
-        (click)="scanQRCodeTileClicked()"
-      >
+      <ion-col (click)="scanQRCodeTileClicked()">
         <ion-card class="menu-tile">
           <ion-card-header>
             <ion-icon class="menu-tile-image" name="qr-code-sharp"></ion-icon>

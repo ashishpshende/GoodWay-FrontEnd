@@ -1,0 +1,64 @@
+.printableContent {
+    margin: 10px;
+    border-color: black;
+    border-style: groove;
+    border-width: 1px;
+    padding: 30px;
+  }
+  .print-card{    
+    width: 100%;
+    border-color: black;
+    border-style: groove;
+    border-width: 1px;
+    border-radius: 0px;
+    padding: 0px;
+}
+.print-card-qr-area{    
+    text-align: center;
+    padding: 0px;
+    margin: auto;
+}
+  .qr-area {
+    text-align: center;
+    padding: 0px;
+    padding: 10px;
+  }
+  .parcel-number-area {
+    margin-top: 10px;
+    font-size: medium;
+    padding: 0px;
+  }
+  .bold-parcel-number {
+    font-size: large;
+    text-align: center;
+    margin-top: -30px;
+    color: black;
+  }
+  .parcel-attribute-area {
+    font-size: medium;
+    padding-left: 80px;
+    padding: 0px;
+
+  }
+  .parcel-attribute-row {
+    font-size: medium;
+    width: 100%;
+    padding: 0px;
+  }
+  .parcel-attribute-label {
+    font-weight: 100;
+    width: 50%;
+    padding: 0px;
+
+  }
+  .parcel-attribute-value {
+    width: 50%;
+    font-weight: 800;
+    padding: 0px;
+
+  }
+  .status-area {
+    font-size: medium;
+    padding: 0px;
+
+  }

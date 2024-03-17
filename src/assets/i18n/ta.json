@@ -13,7 +13,9 @@
         "LOGOUT_CONFIRM":"Are you sure to Logout?",
         "LOGOUT_CANCEL":"Canceling Logout",
         "YES":"Yes",
-        "NO":"No"
+        "NO":"No",
+        "PRINT":"Print",
+        "SCAN":"Scan"
     },
     "MESSAGES":{
         "UNDER_CONSTRUCTION_TITLE":"Under Construction",
