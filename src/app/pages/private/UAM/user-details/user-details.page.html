@@ -1,6 +1,4 @@
 <ion-content>
-
-
   <ion-card>
     <ion-card-header class="text-center">
       <ion-icon class="user-icon" [name]="user.icon"></ion-icon>
@@ -9,7 +7,7 @@
   <ion-card>
     <ion-card-header class="text-center">
       <ion-item>
-        <ion-icon name='people-circle-outline' slot="start"></ion-icon>
+        <ion-icon name="people-circle-outline" slot="start"></ion-icon>
 
         {{'USER.BASIC_DETAILS' | translate}}
       </ion-item>
@@ -19,20 +17,18 @@
         <ion-item>
           <ion-grid>
             <ion-row>
-              <ion-col size="6">{{'BASE_MODEL.name' | translate}} </ion-col>
-              <ion-col class="value" size="6"> {{user.name}}</ion-col>
+              <ion-col size="6">{{'BASE_MODEL.NAME' | translate}} </ion-col>
+              <ion-col class="value" size="6"> {{user.userRole}}</ion-col>
             </ion-row>
           </ion-grid>
         </ion-item>
-
-
       </ion-list>
     </ion-card-content>
   </ion-card>
   <ion-card>
     <ion-card-header class="text-center">
       <ion-item>
-        <ion-icon name='settings-outline' slot="start"></ion-icon>
+        <ion-icon name="settings-outline" slot="start"></ion-icon>
 
         {{'USER.CONTACT_DETAILS' | translate}}
       </ion-item>
@@ -47,7 +43,6 @@
             </ion-row>
           </ion-grid>
         </ion-item>
-
         <ion-item>
           <ion-grid>
             <ion-row>
@@ -62,7 +57,7 @@
   <ion-card>
     <ion-card-header>
       <ion-item>
-        <ion-icon name='options-outline' slot="start"></ion-icon>
+        <ion-icon name="options-outline" slot="start"></ion-icon>
         {{'USER.ACCOUNT_DETAILS' | translate}}
       </ion-item>
     </ion-card-header>
@@ -98,7 +93,7 @@
   <ion-card>
     <ion-card-header>
       <ion-item>
-        <ion-icon name='calendar-outline' slot="start"></ion-icon>
+        <ion-icon name="calendar-outline" slot="start"></ion-icon>
         {{'BASE_MODEL.AUDIT_DETAILS' | translate}}
       </ion-item>
     </ion-card-header>
@@ -107,7 +102,9 @@
         <ion-item>
           <ion-grid>
             <ion-row>
-              <ion-col size="6">{{'BASE_MODEL.CREATED_ON' | translate}} </ion-col>
+              <ion-col size="6"
+                >{{'BASE_MODEL.CREATED_ON' | translate}}
+              </ion-col>
               <ion-col class="value" size="6"> {{user.createdOn}} </ion-col>
             </ion-row>
           </ion-grid>
@@ -115,7 +112,9 @@
         <ion-item>
           <ion-grid>
             <ion-row>
-              <ion-col size="6">{{'BASE_MODEL.UPDATED_ON' | translate}} </ion-col>
+              <ion-col size="6"
+                >{{'BASE_MODEL.UPDATED_ON' | translate}}
+              </ion-col>
               <ion-col class="value" size="6"> {{user.updatedOn}} </ion-col>
             </ion-row>
           </ion-grid>
@@ -123,17 +122,13 @@
       </ion-list>
     </ion-card-content>
   </ion-card>
-
-
 </ion-content>
 <ion-footer>
-
-
-  <ion-button expand="block" (click)="goToUserList()" >
+  <ion-button expand="block" (click)="goToUserList()">
     <ion-icon slot="start" name="close"></ion-icon>
     {{'BUTTONS.CANCEL' | translate}}
   </ion-button>
-  <ion-button expand="block" (click)="editButtonClicked()" >
+  <ion-button expand="block" (click)="editButtonClicked()">
     <ion-icon slot="start" name="create"></ion-icon>
     {{'BUTTONS.EDIT' | translate}}
   </ion-button>

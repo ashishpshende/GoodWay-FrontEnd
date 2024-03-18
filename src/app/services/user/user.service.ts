@@ -260,16 +260,15 @@ export class UserService {
       failure();
     });
   }
-  ResetPassword(Id: number, newPassword: string, success: (any), failure: (any)) {
+  ResetPassword(Id: number, name: string, oldPassword: string, newPassword: string, success: (any), failure: (any)) {
     var requestParams = {
-      UpdatedOn: formatDate(new Date(), 
-      KeywordConstants.DATE_FORMAT_STRING,
-      KeywordConstants.DATE_FORMAT_LANGUAGE,
-      KeywordConstants.DATE_FORMAT_TIMES_ZONE_OFFSET,),
-      Password: this.securityService.hash(newPassword),
-      ResetRequired: 0
+      updatedOn: formatDate(new Date(), KeywordConstants.DATE_FORMAT_STRING, KeywordConstants.DATE_FORMAT_LANGUAGE, KeywordConstants.DATE_FORMAT_TIMES_ZONE_OFFSET,),
+      newPassword: this.securityService.hash(newPassword),
+      oldPassword:  this.securityService.hash(oldPassword),
+      name:name,
+      userId: Id,
     };
-    this.networkService.put(UserURLs.RESET_PASSWORD.replace('{ROW_INDEX}', Id.toString()), requestParams, (response:any) => {
+    this.networkService.put(UserURLs.RESET_PASSWORD, requestParams, (response:any) => {
       success(response);
     }, () => {
       failure();

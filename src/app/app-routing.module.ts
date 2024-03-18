@@ -50,7 +50,7 @@ const routes: Routes = [
   },
   {
     path: 'reset-password',
-    loadChildren: () => import('./pages/public/reset-password/reset-password.module').then( m => m.ResetPasswordPageModule)
+    loadChildren: () => import('./pages/private/UAM/reset-password/reset-password.module').then( m => m.ResetPasswordPageModule)
   },
   {
     path: 'lookup-list',
