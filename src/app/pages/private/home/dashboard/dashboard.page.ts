@@ -51,12 +51,21 @@ export class DashboardPage implements OnInit, AfterViewInit {
       this.showScanner = true;
     }
     this.showSearchBox = false;
-  
+    this.router.events.forEach((event) => {
+      if (event instanceof NavigationEnd) {
+        this.serveBasedOnUserRole();
+      }
+    });
   }
-  
+  serveBasedOnUserRole() {
+    //Role wise changes
+  this.loggedInUser = this.localStorageService.StoredPreference.LoggedInUser;
+
+  }
   //Page Life Cycle
   ngAfterViewInit(): void {
     this.initializeLoader();
+    this.serveBasedOnUserRole();
     this.loggedInUser = this.localStorageService.StoredPreference.LoggedInUser;
     this.userService.isSessionValid(
       (results: any) => {

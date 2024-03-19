@@ -62,7 +62,7 @@ export class UserDetailsPage implements AfterViewInit {
 
     const navigationExtras: NavigationExtras = {
       queryParams: {
-        id: this.userService.selectedUser.id,
+        userId: this.userService.selectedUser.id,
         ts: new Date().getMilliseconds()
       }
     };

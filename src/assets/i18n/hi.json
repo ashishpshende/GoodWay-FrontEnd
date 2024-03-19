@@ -163,6 +163,8 @@
         "GENDER":"लिंग",
         "EMAIL":"ईमेल",
         "ROLE":"भूमिका",
+        "PREFIX":"Prefix",
+        "CITY":"City",
         "USER_NAME":"उपयोगकर्ता नाम",
         "BASIC_DETAILS":"मूल विवरण",
         "CONTACT_DETAILS":"सम्पर्क विवरण",

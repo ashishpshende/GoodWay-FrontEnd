@@ -16,9 +16,11 @@ export class User  extends BaseModel {
     public password: string ;
     public confirmPassword: string ;
     public resetRequired: boolean ;
+    public oldName: string ;
     constructor(requestJSON: any)  {
         super(requestJSON);
         this.name = requestJSON.name;
+        this.oldName = requestJSON.name;
         this.password = requestJSON.password;
         this.prefix = requestJSON.prefix;
         this.userName =  requestJSON.userName;

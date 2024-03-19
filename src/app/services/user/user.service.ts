@@ -23,8 +23,8 @@ export class UserURLs {
   public static UPDATE = environment.apiURL + '/api/users/update';
   public static SAVE = environment.apiURL + '/api/users/save';
   public static DELETE = environment.apiURL + '/api/users/delete';
-  public static READ_BY_USER_NAME = environment.apiURL + '/api/users/readByEmail';
-  public static READ_BY_EMAIL = environment.apiURL + '/api/users/readByEmail';
+  public static READ_BY_USER_NAME = environment.apiURL + '/api/users/byUserName?userName=';
+  public static READ_BY_EMAIL = environment.apiURL + '/api/users/byEmail?email=';
   public static RESET_PASSWORD = environment.apiURL + '/api/users/reset';
 }
 @Injectable({
@@ -135,7 +135,7 @@ export class UserService {
 
   checkUser(email: string, password: string, success: (any), failure: (any)) {
     this.loggedInUser = new User(JSON.parse('{}'));
-    this.networkService.get(UserURLs.READ_BY_USER_NAME.replace('EMAIL', email).replace('PASSWORD', this.securityService.hash(password)), (response:any) => {
+    this.networkService.get(UserURLs.READ_BY_EMAIL+email, (response:any) => {
 
       if (response.results.length !== 0) {
         var user = response.results[0];
@@ -209,15 +209,15 @@ export class UserService {
     });
   }
   readByEmail(email: string, success: (any), failure: (any)) {
-    this.networkService.get(UserURLs.READ.replace('EMAIL', email), (response:any) => {
+    this.networkService.get(UserURLs.READ_BY_EMAIL+email, (response:any) => {
       success(response.result);
     }, () => {
       failure();
     });
   }
   readByUserName(userName: string, success: (any), failure: (any)) {
-    this.networkService.get(UserURLs.READ_BY_USER_NAME.replace('USER_NAME', userName), (response:any) => {
-      success(response.result);
+    this.networkService.get(UserURLs.READ_BY_USER_NAME+userName, (response:any) => {
+      success(response);
     }, () => {
       failure();
     });
@@ -282,14 +282,14 @@ export class UserService {
     });
   }
 
+  
   //Profile
   UpdateUserProfile(user: User, success: (any), failure: (any)) {
     user.createdOn = formatDate(new Date(),
     KeywordConstants.DATE_FORMAT_STRING,
     KeywordConstants.DATE_FORMAT_LANGUAGE,
     KeywordConstants.DATE_FORMAT_TIMES_ZONE_OFFSET,);
-    //user.Password = this.securityService.hash(user.Password);
-    this.networkService.put(UserURLs.UPDATE.replace('{ROW_INDEX}', user.id.toString()), this.ToUpdateJSON(user), (response:any) => {
+    this.networkService.put(UserURLs.UPDATE, this.ToUpdateJSON(user), (response:any) => {
       console.log('UpdateUserProfile',response);
       this.setLocalUser(response);
       success(response);
@@ -379,6 +379,7 @@ export class UserService {
       id: user.id,
       city:user.city,
       name:user.name,
+      oldName:user.oldName,
       userName: user.userName,
       email: user.email,
       phoneNumber: user.phoneNumber,

@@ -159,6 +159,8 @@
         "GENDER":"Gender",
         "EMAIL":"Email",
         "ROLE":"Role",
+        "PREFIX":"Prefix",
+        "CITY":"City",
         "USER_NAME":"User Name",
         "BASIC_DETAILS":"Basic Details",
         "CONTACT_DETAILS":"Contact Details",
